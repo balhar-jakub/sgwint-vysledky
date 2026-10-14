@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LLM sampionáty SG Gwintu</title>
+<style>
+:root { --bg:#141416; --panel:#1d1e21; --panel2:#242529; --line:#3a3b40;
+  --text:#e8e6e0; --muted:#9a978f; --accent:#d4a253; --gold:#e2b93b;
+  --good:#7ec16f; --bad:#d47f7f; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text);
+  font:16px/1.55 Georgia,'Times New Roman',serif; }
+.mono { font-family:'SFMono-Regular',Consolas,Menlo,monospace; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.wrap { max-width:1100px; margin:0 auto; padding:0 20px 80px; }
+header.site { border-bottom:1px solid var(--line); background:#101012; position:sticky; top:0; z-index:50; }
+header.site .inner { max-width:1100px; margin:0 auto; padding:12px 20px;
+  display:flex; gap:24px; align-items:baseline; flex-wrap:wrap; }
+.logo { font-size:1.25rem; font-weight:bold; letter-spacing:.5px; }
+.logo a { color:var(--text); }
+nav.main { display:flex; gap:18px; flex-wrap:wrap; font-family:Verdana,sans-serif; font-size:.82rem; }
+nav.main a { color:var(--muted); }
+nav.main a:hover, nav.main a.on { color:var(--accent); text-decoration:none; }
+h1 { font-size:1.7rem; margin:1.4em 0 .5em; }
+h2 { font-size:1.35rem; margin:1.7em 0 .5em; color:var(--accent); }
+h3 { font-size:1.05rem; margin:1.4em 0 .4em; }
+p,li { max-width:78ch; }
+.meta { color:var(--muted); font-size:.85rem; font-family:Verdana,sans-serif; }
+.panel { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px 20px; margin:16px 0; }
+table { border-collapse:collapse; width:100%; margin:12px 0; font-size:.95rem; }
+th { text-align:left; font-family:Verdana,sans-serif; font-size:.72rem; text-transform:uppercase;
+  letter-spacing:.06em; color:var(--muted); padding:8px 10px; border-bottom:1px solid var(--line); }
+td { padding:8px 10px; border-bottom:1px solid #2a2b30; vertical-align:top; }
+tr:hover td { background:#222327; }
+.num { text-align:right; font-variant-numeric:tabular-nums; }
+td.wr { text-align:right; font-variant-numeric:tabular-nums; }
+.wr-good { color:var(--good); } .wr-bad { color:var(--bad); }
+.badge { display:inline-block; font-family:Verdana,sans-serif; font-size:.68rem; padding:1px 8px;
+  border-radius:999px; border:1px solid var(--line); background:var(--panel2); color:var(--muted);
+  vertical-align:middle; white-space:nowrap; }
+.badge.gold { color:var(--gold); border-color:#665a26; background:#241f10; }
+.badge.spec { color:#9fc4e8; border-color:#33506b; background:#101c26; }
+.badge.champ { color:#ffe08a; border-color:#9a7c2c; background:#33290d; }
+.fac-chip { display:inline-block; font-family:Verdana,sans-serif; font-size:.72rem; padding:2px 10px;
+  border-radius:999px; color:#fff; letter-spacing:.03em; vertical-align:middle; }
+.cards-list { display:flex; flex-wrap:wrap; gap:6px; }
+.card-pill { display:inline-block; background:var(--panel2); border:1px solid var(--line);
+  border-radius:6px; padding:3px 9px; font-size:.85rem; margin:2px 0; white-space:nowrap; }
+.card-pill.gold { border-color:#665a26; background:#231e0e; }
+.card-pill.spec { border-color:#33506b; background:#0f1a24; }
+.card-pill .pw { color:var(--accent); font-family:Verdana,sans-serif; font-size:.72rem; margin-left:5px; }
+.card-pill .n { color:var(--muted); font-family:Verdana,sans-serif; font-size:.78rem; margin-left:4px; }
+.winner-row td { background:#26210f; } .winner-row:hover td { background:#2c2612; }
+.rankcell { font-family:Verdana,sans-serif; color:var(--muted); text-align:right; width:2.5em; }
+.rank-1 { color:var(--gold); font-weight:bold; }
+.grid-facs { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:16px; margin:18px 0; }
+.fac-card { background:var(--panel); border:1px solid var(--line); border-radius:10px;
+  padding:16px 18px; position:relative; overflow:hidden; }
+.fac-card h3 { margin:0 0 4px; font-size:1.05rem; }
+.fac-card .sub { color:var(--muted); font-size:.8rem; font-family:Verdana,sans-serif; margin-bottom:8px; }
+.top-strip { position:absolute; top:0; left:0; right:0; height:3px; }
+.qs { margin:12px 0 4px; }
+.qs input { width:100%; max-width:430px; padding:8px 12px; border-radius:8px; border:1px solid var(--line);
+  background:#101012; color:var(--text); font-size:.95rem; }
+.qs input:focus { outline:1px solid var(--accent); }
+.no-hits { color:var(--muted); font-style:italic; padding:8px 0; }
+.mtx td, .mtx th { text-align:right; font-family:Verdana,sans-serif; font-size:.78rem; padding:5px 6px; }
+.mtx th:first-child, .mtx td:first-child { text-align:left; font-family:Georgia,serif; font-size:.85rem; }
+.mtx .self { background:#101012; }
+footer.site { border-top:1px solid var(--line); margin-top:60px; padding:22px 20px 40px;
+  color:var(--muted); font-size:.8rem; font-family:Verdana,sans-serif; }
+footer.site .inner { max-width:1100px; margin:0 auto; }
+@media (max-width:720px){ table{font-size:.85rem;} th,td{padding:6px 6px;} .wrap{padding:0 12px 60px;} }
+</style>
+</head>
+<body>
+<header class="site"><div class="inner">
+<div class="logo"><a href="index.html">⚔ SG&#8202;Gwint — LLM sampionáty</a></div>
+<nav class="main"><a href="index.html" class="on">Sampionáty</a><a href="balicky.html">Balíčky</a><a href="o-projektu.html">O projektu</a></nav>
+</div></header>
+<div class="wrap">
+
+<h1>LLM sampionáty SG Gwintu</h1>
+<p>Výsledky série turnajů, ve kterých proti sobě hrají LLM agenti balíčky karetní hry
+SG Gwint v2.2 — každý balíček proti každému, strany střídány, rozhodčí engine jako jediný
+zdroj pravdy o pravidlech. Turnaj je mirror: oba hráči hrají tutéž frakci, liší se balíčky.</p>
+<p class="meta">Aktualizováno: 14. 10. 2026 · viz <a href="o-projektu.html">metodika a modely</a></p>
+<h2>Šampioni frakcí</h2>
+<div class="grid-facs"><div class="fac-card">
+<div class="top-strip" style="background:#b8342f"></div>
+<h3><span class="fac-chip" style="background:#b8342f">Skellige</span> &nbsp;R5-empiricka <span class="badge champ">šampion</span></h3>
+<div class="sub">WR 0,708 · 51/72 výher · CI [0.59–0.80]</div>
+<div class="cards-list"><span class="card-pill gold">Geralt z Rivie<span class="pw">11</span></span><span class="card-pill ">Olaf<span class="pw">11</span></span><span class="card-pill gold">Svalblod<span class="pw">11</span></span><span class="card-pill gold">Triss Ranuncul<span class="pw">8</span></span><span class="card-pill ">Svalblodův kněz<span class="pw">6</span></span><span class="card-pill ">Vildkaarl<span class="pw">6</span></span><span class="card-pill gold">Avallac’h<span class="pw">5</span></span><span class="card-pill ">Donar<span class="pw">5</span></span><span class="card-pill ">Lytta Neyd<span class="pw">5</span></span><span class="card-pill ">Zoltan Chivay<span class="pw">5</span></span><span class="card-pill ">Šermíř klanu an Craite 1<span class="pw">5</span><span class="n">×2</span></span><span class="card-pill ">Olgierd von Everec<span class="pw">4</span></span><span class="card-pill ">Regis<span class="pw">4</span></span><span class="card-pill ">Myšilov<span class="pw">3</span></span><span class="card-pill ">Marigold<span class="pw">2</span></span><span class="card-pill ">Štítonoška klanu Dr. 1<span class="pw">2</span></span><span class="card-pill ">Štítonoška klanu Dr. 2<span class="pw">2</span></span><span class="card-pill ">Štítonoška klanu Dr. 3<span class="pw">2</span></span><span class="card-pill ">Bylinkářka klanu Heymaey<span class="pw">1</span></span><span class="card-pill gold">Cerys an Craite<span class="pw">1</span></span><span class="card-pill ">Freyina uctívačka<span class="pw">1</span></span><span class="card-pill ">Gaunter O’Dimm<span class="pw">1</span></span><span class="card-pill ">Kambi<span class="pw">0</span></span><span class="card-pill ">Kráva<span class="pw">0</span></span><span class="card-pill spec">Mahakamský ležák 1<span class="n">×3</span></span><span class="card-pill spec">Rozbřesk 1<span class="n">×2</span></span><span class="card-pill spec">Rozbřesk 2</span><span class="card-pill spec">Sežehnutí 1<span class="n">×3</span></span></div>
+<div class="sub" style="margin-top:10px"><a href="index.html#fac-SO">žebříček &amp; vzájemné zápasy →</a></div>
+</div><div class="fac-card">
+<div class="top-strip" style="background:#c89b3c"></div>
+<h3><span class="fac-chip" style="background:#c89b3c">Severní království</span> &nbsp;A-max-síla <span class="badge champ">šampion</span></h3>
+<div class="sub">WR 0,700 · 28/40 výher · CI [0.55–0.82]</div>
+<div class="cards-list"><span class="card-pill gold">Geralt z Rivie<span class="pw">11</span></span><span class="card-pill ">Princezna Adda<span class="pw">11</span></span><span class="card-pill gold">Triss Ranuncul<span class="pw">8</span></span><span class="card-pill ">Kaedwenský zmrtvýchvstalý<span class="pw">7</span></span><span class="card-pill ">Trebuchet 1<span class="pw">7</span><span class="n">×2</span></span><span class="card-pill gold">Vernon Roche<span class="pw">7</span></span><span class="card-pill ">Ves<span class="pw">7</span></span><span class="card-pill gold">Cirilla Fiona Elen Riannon<span class="pw">6</span></span><span class="card-pill ">Foltestova pýcha 1<span class="pw">6</span><span class="n">×2</span></span><span class="card-pill ">Princ Stennis<span class="pw">6</span></span><span class="card-pill gold">Avallac’h<span class="pw">5</span></span><span class="card-pill ">Phillipa Eilhart<span class="pw">5</span></span><span class="card-pill ">Talar<span class="pw">5</span></span><span class="card-pill ">Temerský bubeník<span class="pw">5</span></span><span class="card-pill ">Zoltan Chivay<span class="pw">5</span></span><span class="card-pill ">Dethmold<span class="pw">4</span></span><span class="card-pill ">Keira Metz<span class="pw">4</span><span class="n">×3</span></span><span class="card-pill ">Komando Mod. pruhů 1<span class="pw">4</span><span class="n">×3</span></span><span class="card-pill ">Obléhací věž<span class="pw">4</span></span><span class="card-pill ">Redanská kavalerie 1<span class="pw">4</span><span class="n">×2</span></span><span class="card-pill ">Sheala de Tancarville<span class="pw">4</span></span><span class="card-pill ">Sigismund Dijkstra<span class="pw">4</span></span><span class="card-pill spec">Mahakamský ležák 1<span class="n">×3</span></span><span class="card-pill spec">Rytířství 1<span class="n">×2</span></span></div>
+<div class="sub" style="margin-top:10px"><a href="index.html#fac-SK">žebříček &amp; vzájemné zápasy →</a></div>
+</div><div class="fac-card">
+<div class="top-strip" style="background:#3f6296"></div>
+<h3><span class="fac-chip" style="background:#3f6296">Nilfgaard</span> &nbsp;N1-pouto <span class="badge champ">šampion</span></h3>
+<div class="sub">WR 0,625 · 40/64 výher · CI [0.50–0.73]</div>
+<div class="cards-list"><span class="card-pill gold">Geralt z Rivie<span class="pw">11</span></span><span class="card-pill gold">Ramon Tyrconnel<span class="pw">11</span></span><span class="card-pill ">Statná Helga<span class="pw">9</span></span><span class="card-pill gold">Triss Ranuncul<span class="pw">8</span></span><span class="card-pill ">Cahir M. D. aep C.<span class="pw">7</span></span><span class="card-pill ">Prohnilá Mangonela<span class="pw">7</span></span><span class="card-pill ">Stefan Skellen<span class="pw">7</span></span><span class="card-pill ">Vreemde<span class="pw">7</span></span><span class="card-pill ">Zerrikánský škorpion<span class="pw">7</span></span><span class="card-pill gold">Cirilla Fiona Elen Riannon<span class="pw">6</span></span><span class="card-pill ">Cynthia<span class="pw">6</span></span><span class="card-pill ">Shilard Fitz-Oesterlen<span class="pw">6</span></span><span class="card-pill gold">Avallac’h<span class="pw">5</span></span><span class="card-pill ">Hnilomet<span class="pw">5</span></span><span class="card-pill ">Lučištník Černé pěchoty 1<span class="pw">5</span><span class="n">×2</span></span><span class="card-pill ">Menno Coehoorn<span class="pw">5</span></span><span class="card-pill ">Rainfarn z Attre<span class="pw">5</span></span><span class="card-pill ">Vanhemar<span class="pw">5</span></span><span class="card-pill ">Xarthisius<span class="pw">5</span></span><span class="card-pill ">Zoltan Chivay<span class="pw">5</span></span><span class="card-pill ">Želva Ard Feainn 1<span class="pw">5</span><span class="n">×2</span></span><span class="card-pill ">Brigáda Nazair 1<span class="pw">4</span><span class="n">×3</span></span><span class="card-pill ">Jízdní brigáda Nauzicaa 1<span class="pw">4</span><span class="n">×3</span></span><span class="card-pill ">Olgierd von Everec<span class="pw">4</span></span><span class="card-pill ">Otrokář<span class="pw">4</span></span><span class="card-pill spec">Mahakamský ležák 1<span class="n">×2</span></span><span class="card-pill spec">Štiplavý mráz 1</span></div>
+<div class="sub" style="margin-top:10px"><a href="index.html#fac-NG">žebříček &amp; vzájemné zápasy →</a></div>
+</div><div class="fac-card">
+<div class="top-strip" style="background:#4e7a3f"></div>
+<h3><span class="fac-chip" style="background:#4e7a3f">Scoia'tael</span> &nbsp;T4-Dol-Blathanna <span class="badge champ">šampion</span></h3>
+<div class="sub">WR 0,614 · 54/88 výher · CI [0.51–0.71]</div>
+<div class="cards-list"><span class="card-pill gold">Geralt z Rivie<span class="pw">11</span></span><span class="card-pill gold">Saesenthessis<span class="pw">11</span></span><span class="card-pill ">Sheldon Skaggs<span class="pw">9</span></span><span class="card-pill gold">Isengrim Faoiltiarna<span class="pw">6</span></span><span class="card-pill ">Jednotky Dol Blathanna 1<span class="pw">6</span><span class="n">×3</span></span><span class="card-pill gold">Yarpen Zigrin<span class="pw">6</span></span><span class="card-pill ">Barclay Els<span class="pw">5</span></span><span class="card-pill ">Ciaran aep Easnillien<span class="pw">5</span></span><span class="card-pill ">Dennis Cranmer<span class="pw">5</span></span><span class="card-pill ">Ida Emean aep Sivney<span class="pw">5</span></span><span class="card-pill ">Milva<span class="pw">5</span></span><span class="card-pill ">Yaevinn<span class="pw">5</span></span><span class="card-pill ">Zoltan Chivay<span class="pw">5</span></span><span class="card-pill ">Mahakamský oddíl 1<span class="pw">4</span><span class="n">×5</span></span><span class="card-pill ">Nemilosrdné dryády 1<span class="pw">4</span><span class="n">×3</span></span><span class="card-pill ">Olgierd von Everec<span class="pw">4</span></span><span class="card-pill ">Paulie Dahlberg<span class="pw">4</span></span><span class="card-pill ">Regis<span class="pw">4</span></span><span class="card-pill ">Toruviel<span class="pw">4</span></span><span class="card-pill ">Vriheddská brigáda 1<span class="pw">4</span><span class="n">×2</span></span><span class="card-pill gold">Iorweth<span class="pw">3</span></span><span class="card-pill ">Aelirenn<span class="pw">1</span></span><span class="card-pill ">Čarodějka z Dol Blathanna<span class="pw">1</span></span><span class="card-pill spec">Mahakamský ležák 1<span class="n">×2</span></span></div>
+<div class="sub" style="margin-top:10px"><a href="index.html#fac-ST">žebříček &amp; vzájemné zápasy →</a></div>
+</div></div>
+<h2>Žebříčky a vzájemné zápasy</h2>
+
+<h2 id="fac-SO"><span class="fac-chip" style="background:#b8342f">Skellige</span></h2>
+<p class="meta">LLM championship, SO, velitel Bran an Tuirseach, games=4 per pár · 10 balíčků · 90 párů,
+celkem 0 partií (0 fallback tahů) · model: deepseek-v4.1-flash (opencode-go) ·
+velitel: <strong>Velitel – Bran an Tuirseach</strong></p>
+<table>
+<thead><tr><th>#</th><th>Balíček</th><th class="num">V/G</th><th class="num">WR</th>
+<th class="num">CI&#8202;95&#8202;%</th><th class="num">fb/err</th></tr></thead>
+<tbody><tr class="winner-row">
+<td class="rankcell rank-1">1</td>
+<td><a href="balicek-3efb5ac2.html">R5-empiricka</a> <span class="badge champ">šampion</span></td>
+<td class="num">51/72</td>
+<td class="wr wr-good">0,708</td>
+<td class="num">0.59–0.80</td>
+<td class="num">0/0</td>
+</tr><tr class="">
+<td class="rankcell">2</td>
+<td><a href="balicek-4faefe31.html">S3-výměna</a></td>
+<td class="num">47/72</td>
+<td class="wr wr-good">0,653</td>
+<td class="num">0.54–0.75</td>
+<td class="num">0/0</td>
+</tr><tr class="">
+<td class="rankcell">3</td>
+<td><a href="balicek-bb8923c8.html">R1-graf-sila</a></td>
+<td class="num">39/72</td>
+<td class="wr ">0,542</td>
+<td class="num">0.43–0.65</td>
+<td class="num">0/0</td>
+</tr><tr class="">
+<td class="rankcell">4</td>
+<td><a href="balicek-8fcbc47d.html">S2-povzbuzení</a></td>
+<td class="num">39/72</td>
+<td class="wr ">0,542</td>
+<td class="num">0.43–0.65</td>
+<td class="num">0/0</td>
+</tr><tr class="">
+<td class="rankcell">5</td>
+<td><a href="balicek-a959f713.html">S1-proměna</a></td>
+<td class="num">35/72</td>
+<td class="wr ">0,486</td>
+<td class="num">0.37–0.60</td>
+<td class="num">0/0</td>
+</tr><tr class="">
+<td class="rankcell">6</td>
+<td><a href="balicek-86fd0e28.html">R4-synergie</a></td>
+<td class="num">33/72</td>
+<td class="wr ">0,458</td>
+<td class="num">0.35–0.57</td>
+<td class="num">0/0</td>
+</tr><tr class="">
+<td class="rankcell">7</td>
+<td><a href="balicek-641bb3bb.html">S4-An-Craite-pouto</a></td>
+<td class="num">33/72</td>
+<td class="wr ">0,458</td>
+<td class="num">0.35–0.57</td>
+<td class="num">0/0</td>
+</tr><tr class="">
+<td class="rankcell">8</td>
+<td><a href="balicek-ea9df848.html">B-štíty</a></td>
+<td class="num">30/72</td>
+<td class="wr wr-bad">0,417</td>
+<td class="num">0.31–0.53</td>
+<td class="num">0/0</td>
+</tr><tr class="">
+<td class="rankcell">9</td>
+<td><a href="balicek-d6f39384.html">A-max-síla</a></td>
+<td class="num">28/72</td>
+<td class="wr wr-bad">0,389</td>
+<td class="num">0.28–0.50</td>
+<td class="num">0/0</td>
+</tr><tr class="">
+<td class="rankcell">10</td>
+<td><a href="balicek-ec391538.html">S-specialky</a></td>
+<td class="num">22/72</td>
+<td class="wr wr-bad">0,306</td>
+<td class="num">0.21–0.42</td>
+<td class="num">0/0</td>
+</tr></tbody>
+</table>
+
+
+<h2 id="fac-SK"><span class="fac-chip" style="background:#c89b3c">Severní království</span></h2>
+<p class="meta">LLM championship, SK, velitel Kral Demawend, games=4 per par (mistral-medium-latest) · 6 balíčků · 30 párů,
+celkem 60 partií (5 fallback tahů) · model: mistral-medium-latest ·
+velitel: <strong>Velitel – Král Demawend</strong></p>
+<table>
+<thead><tr><th>#</th><th>Balíček</th><th class="num">V/G</th><th class="num">WR</th>
+<th class="num">CI&#8202;95&#8202;%</th><th class="num">fb/err</th></tr></thead>
+<tbody><tr class="winner-row">
+<td class="rankcell rank-1">1</td>
+<td><a href="balicek-d6f39384.html">A-max-síla</a> <span class="badge champ">šampion</span></td>
+<td class="num">28/40</td>
+<td class="wr wr-good">0,700</td>
+<td class="num">0.55–0.82</td>
+<td class="num">2/2</td>
+</tr><tr class="">
+<td class="rankcell">2</td>
+<td><a href="balicek-ea9df848.html">B-štíty</a></td>
+<td class="num">23/40</td>
+<td class="wr wr-good">0,575</td>
+<td class="num">0.42–0.71</td>
+<td class="num">1/3</td>
+</tr><tr class="">
+<td class="rankcell">3</td>
+<td><a href="balicek-913a1f92.html">D-nástup</a></td>
+<td class="num">20/40</td>
+<td class="wr ">0,500</td>
+<td class="num">0.35–0.65</td>
+<td class="num">0/0</td>
+</tr><tr class="">
+<td class="rankcell">4</td>
+<td><a href="balicek-ec391538.html">S-specialky</a></td>
+<td class="num">19/40</td>
+<td class="wr ">0,475</td>
+<td class="num">0.33–0.62</td>
+<td class="num">0/1</td>
+</tr><tr class="">
+<td class="rankcell">5</td>
+<td><a href="balicek-86fd0e28.html">R4-synergie</a></td>
+<td class="num">15/40</td>
+<td class="wr wr-bad">0,375</td>
+<td class="num">0.24–0.53</td>
+<td class="num">1/3</td>
+</tr><tr class="">
+<td class="rankcell">6</td>
+<td><a href="balicek-3efb5ac2.html">R5-empiricka</a></td>
+<td class="num">15/40</td>
+<td class="wr wr-bad">0,375</td>
+<td class="num">0.24–0.53</td>
+<td class="num">1/2</td>
+</tr></tbody>
+</table>
+<div class="panel" style="overflow-x:auto">
+<table class="mtx">
+<thead><tr><th></th><th>A-max-síla</th><th>B-štíty</th><th>D-nástup</th><th>S-specialky</th><th>R4-synergie</th><th>R5-empiricka</th></tr></thead>
+<tbody><tr><td>A-max-síla</td><td class="self"></td><td class="wr-good" title="A-max-síla × B-štíty">3/4</td><td class="wr-good" title="A-max-síla × D-nástup">3/4</td><td class="wr-good" title="A-max-síla × S-specialky">3/4</td><td class="wr-good" title="A-max-síla × R4-synergie">4/4</td><td class="" title="A-max-síla × R5-empiricka">2/4</td></tr><tr><td>B-štíty</td><td class="wr-bad" title="B-štíty × A-max-síla">1/4</td><td class="self"></td><td class="" title="B-štíty × D-nástup">2/4</td><td class="wr-good" title="B-štíty × S-specialky">3/4</td><td class="wr-good" title="B-štíty × R4-synergie">3/4</td><td class="wr-good" title="B-štíty × R5-empiricka">3/4</td></tr><tr><td>D-nástup</td><td class="wr-bad" title="D-nástup × A-max-síla">0/4</td><td class="wr-good" title="D-nástup × B-štíty">3/4</td><td class="self"></td><td class="" title="D-nástup × S-specialky">2/4</td><td class="wr-good" title="D-nástup × R4-synergie">4/4</td><td class="wr-bad" title="D-nástup × R5-empiricka">1/4</td></tr><tr><td>S-specialky</td><td class="wr-good" title="S-specialky × A-max-síla">3/4</td><td class="" title="S-specialky × B-štíty">2/4</td><td class="" title="S-specialky × D-nástup">2/4</td><td class="self"></td><td class="wr-good" title="S-specialky × R4-synergie">3/4</td><td class="wr-bad" title="S-specialky × R5-empiricka">1/4</td></tr><tr><td>R4-synergie</td><td class="wr-good" title="R4-synergie × A-max-síla">3/4</td><td class="wr-bad" title="R4-synergie × B-štíty">1/4</td><td class="wr-bad" title="R4-synergie × D-nástup">1/4</td><td class="" title="R4-synergie × S-specialky">2/4</td><td class="self"></td><td class="wr-good" title="R4-synergie × R5-empiricka">3/4</td></tr><tr><td>R5-empiricka</td><td class="wr-bad" title="R5-empiricka × A-max-síla">0/4</td><td class="wr-bad" title="R5-empiricka × B-štíty">0/4</td><td class="" title="R5-empiricka × D-nástup">2/4</td><td class="" title="R5-empiricka × S-specialky">2/4</td><td class="wr-bad" title="R5-empiricka × R4-synergie">1/4</td><td class="self"></td></tr></tbody>
+</table>
+</div>
+<p class="meta">Řádek = balíček, sloupec = soupeř; buňka = výher/všech partií balíčku v řádku proti soupeři ve sloupci.
+„·“ znamená, že pár se ještě nehrál.</p>
+
+<h2 id="fac-NG"><span class="fac-chip" style="background:#3f6296">Nilfgaard</span></h2>
+<p class="meta">LLM championship, NG, games=4 per par (mistral-medium-latest) · 9 balíčků · 72 párů,
+celkem 144 partií (0 fallback tahů) · model: mistral-medium-latest ·
+velitel: <strong>Velitel – Emhyr var Emreis</strong></p>
+<table>
+<thead><tr><th>#</th><th>Balíček</th><th class="num">V/G</th><th class="num">WR</th>
+<th class="num">CI&#8202;95&#8202;%</th><th class="num">fb/err</th></tr></thead>
+<tbody><tr class="winner-row">
+<td class="rankcell rank-1">1</td>
+<td><a href="balicek-34cab566.html">N1-pouto</a> <span class="badge champ">šampion</span></td>
+<td class="num">40/64</td>
+<td class="wr wr-good">0,625</td>
+<td class="num">0.50–0.73</td>
+<td class="num">0/6</td>
+</tr><tr class="">
+<td class="rankcell">2</td>
+<td><a href="balicek-8ac8f369.html">N2-špeh-léčitel</a></td>
+<td class="num">37/64</td>
+<td class="wr wr-good">0,578</td>
+<td class="num">0.46–0.69</td>
+<td class="num">0/3</td>
+</tr><tr class="">
+<td class="rankcell">3</td>
+<td><a href="balicek-3f3f3365.html">N4-štíty-gold</a></td>
+<td class="num">35/64</td>
+<td class="wr ">0,547</td>
+<td class="num">0.43–0.66</td>
+<td class="num">0/3</td>
+</tr><tr class="">
+<td class="rankcell">4</td>
+<td><a href="balicek-a40d6aba.html">N3-manipulace</a></td>
+<td class="num">33/64</td>
+<td class="wr ">0,516</td>
+<td class="num">0.40–0.63</td>
+<td class="num">0/6</td>
+</tr><tr class="">
+<td class="rankcell">5</td>
+<td><a href="balicek-d6f39384.html">A-max-síla</a></td>
+<td class="num">29/64</td>
+<td class="wr ">0,453</td>
+<td class="num">0.34–0.57</td>
+<td class="num">0/5</td>
+</tr><tr class="">
+<td class="rankcell">6</td>
+<td><a href="balicek-ea9df848.html">B-štíty</a></td>
+<td class="num">29/64</td>
+<td class="wr ">0,453</td>
+<td class="num">0.34–0.57</td>
+<td class="num">0/3</td>
+</tr><tr class="">
+<td class="rankcell">7</td>
+<td><a href="balicek-3efb5ac2.html">R5-empiricka</a></td>
+<td class="num">28/64</td>
+<td class="wr wr-bad">0,438</td>
+<td class="num">0.32–0.56</td>
+<td class="num">0/8</td>
+</tr><tr class="">
+<td class="rankcell">8</td>
+<td><a href="balicek-ec391538.html">S-specialky</a></td>
+<td class="num">28/64</td>
+<td class="wr wr-bad">0,438</td>
+<td class="num">0.32–0.56</td>
+<td class="num">0/5</td>
+</tr><tr class="">
+<td class="rankcell">9</td>
+<td><a href="balicek-86fd0e28.html">R4-synergie</a></td>
+<td class="num">25/64</td>
+<td class="wr wr-bad">0,391</td>
+<td class="num">0.28–0.51</td>
+<td class="num">0/3</td>
+</tr></tbody>
+</table>
+<div class="panel" style="overflow-x:auto">
+<table class="mtx">
+<thead><tr><th></th><th>N1-pouto</th><th>N2-špeh-léčitel</th><th>N4-štíty-gold</th><th>N3-manipulace</th><th>A-max-síla</th><th>B-štíty</th><th>R5-empiricka</th><th>S-specialky</th><th>R4-synergie</th></tr></thead>
+<tbody><tr><td>N1-pouto</td><td class="self"></td><td class="wr-bad" title="N1-pouto × N2-špeh-léčitel">0/4</td><td class="wr-good" title="N1-pouto × N4-štíty-gold">3/4</td><td class="wr-good" title="N1-pouto × N3-manipulace">3/4</td><td class="" title="N1-pouto × A-max-síla">2/4</td><td class="wr-good" title="N1-pouto × B-štíty">3/4</td><td class="wr-good" title="N1-pouto × R5-empiricka">3/4</td><td class="wr-good" title="N1-pouto × S-specialky">3/4</td><td class="wr-good" title="N1-pouto × R4-synergie">4/4</td></tr><tr><td>N2-špeh-léčitel</td><td class="" title="N2-špeh-léčitel × N1-pouto">2/4</td><td class="self"></td><td class="wr-bad" title="N2-špeh-léčitel × N4-štíty-gold">1/4</td><td class="" title="N2-špeh-léčitel × N3-manipulace">2/4</td><td class="wr-good" title="N2-špeh-léčitel × A-max-síla">3/4</td><td class="" title="N2-špeh-léčitel × B-štíty">2/4</td><td class="wr-good" title="N2-špeh-léčitel × R5-empiricka">3/4</td><td class="wr-good" title="N2-špeh-léčitel × S-specialky">3/4</td><td class="" title="N2-špeh-léčitel × R4-synergie">2/4</td></tr><tr><td>N4-štíty-gold</td><td class="" title="N4-štíty-gold × N1-pouto">2/4</td><td class="" title="N4-štíty-gold × N2-špeh-léčitel">2/4</td><td class="self"></td><td class="" title="N4-štíty-gold × N3-manipulace">2/4</td><td class="" title="N4-štíty-gold × A-max-síla">2/4</td><td class="" title="N4-štíty-gold × B-štíty">2/4</td><td class="wr-good" title="N4-štíty-gold × R5-empiricka">3/4</td><td class="wr-good" title="N4-štíty-gold × S-specialky">3/4</td><td class="" title="N4-štíty-gold × R4-synergie">2/4</td></tr><tr><td>N3-manipulace</td><td class="" title="N3-manipulace × N1-pouto">2/4</td><td class="" title="N3-manipulace × N2-špeh-léčitel">2/4</td><td class="wr-good" title="N3-manipulace × N4-štíty-gold">3/4</td><td class="self"></td><td class="" title="N3-manipulace × A-max-síla">2/4</td><td class="" title="N3-manipulace × B-štíty">2/4</td><td class="wr-good" title="N3-manipulace × R5-empiricka">3/4</td><td class="wr-bad" title="N3-manipulace × S-specialky">1/4</td><td class="wr-good" title="N3-manipulace × R4-synergie">3/4</td></tr><tr><td>A-max-síla</td><td class="wr-good" title="A-max-síla × N1-pouto">3/4</td><td class="wr-bad" title="A-max-síla × N2-špeh-léčitel">1/4</td><td class="wr-bad" title="A-max-síla × N4-štíty-gold">1/4</td><td class="wr-bad" title="A-max-síla × N3-manipulace">1/4</td><td class="self"></td><td class="wr-good" title="A-max-síla × B-štíty">3/4</td><td class="" title="A-max-síla × R5-empiricka">2/4</td><td class="wr-good" title="A-max-síla × S-specialky">3/4</td><td class="wr-bad" title="A-max-síla × R4-synergie">0/4</td></tr><tr><td>B-štíty</td><td class="wr-bad" title="B-štíty × N1-pouto">1/4</td><td class="" title="B-štíty × N2-špeh-léčitel">2/4</td><td class="wr-bad" title="B-štíty × N4-štíty-gold">0/4</td><td class="wr-bad" title="B-štíty × N3-manipulace">1/4</td><td class="" title="B-štíty × A-max-síla">2/4</td><td class="self"></td><td class="" title="B-štíty × R5-empiricka">2/4</td><td class="wr-good" title="B-štíty × S-specialky">3/4</td><td class="wr-good" title="B-štíty × R4-synergie">4/4</td></tr><tr><td>R5-empiricka</td><td class="wr-bad" title="R5-empiricka × N1-pouto">1/4</td><td class="" title="R5-empiricka × N2-špeh-léčitel">2/4</td><td class="wr-good" title="R5-empiricka × N4-štíty-gold">3/4</td><td class="wr-bad" title="R5-empiricka × N3-manipulace">1/4</td><td class="wr-bad" title="R5-empiricka × A-max-síla">1/4</td><td class="wr-good" title="R5-empiricka × B-štíty">3/4</td><td class="self"></td><td class="wr-bad" title="R5-empiricka × S-specialky">1/4</td><td class="" title="R5-empiricka × R4-synergie">2/4</td></tr><tr><td>S-specialky</td><td class="wr-bad" title="S-specialky × N1-pouto">1/4</td><td class="wr-bad" title="S-specialky × N2-špeh-léčitel">1/4</td><td class="" title="S-specialky × N4-štíty-gold">2/4</td><td class="wr-good" title="S-specialky × N3-manipulace">3/4</td><td class="" title="S-specialky × A-max-síla">2/4</td><td class="" title="S-specialky × B-štíty">2/4</td><td class="wr-bad" title="S-specialky × R5-empiricka">1/4</td><td class="self"></td><td class="" title="S-specialky × R4-synergie">2/4</td></tr><tr><td>R4-synergie</td><td class="wr-bad" title="R4-synergie × N1-pouto">1/4</td><td class="wr-bad" title="R4-synergie × N2-špeh-léčitel">1/4</td><td class="" title="R4-synergie × N4-štíty-gold">2/4</td><td class="wr-good" title="R4-synergie × N3-manipulace">3/4</td><td class="" title="R4-synergie × A-max-síla">2/4</td><td class="wr-bad" title="R4-synergie × B-štíty">1/4</td><td class="wr-bad" title="R4-synergie × R5-empiricka">1/4</td><td class="wr-bad" title="R4-synergie × S-specialky">1/4</td><td class="self"></td></tr></tbody>
+</table>
+</div>
+<p class="meta">Řádek = balíček, sloupec = soupeř; buňka = výher/všech partií balíčku v řádku proti soupeři ve sloupci.
+„·“ znamená, že pár se ještě nehrál.</p>
+
+<h2 id="fac-ST"><span class="fac-chip" style="background:#4e7a3f">Scoia'tael</span></h2>
+<p class="meta">LLM championship, ST, games=4 per par (mistral-medium-latest) · 12 balíčků · 132 párů,
+celkem 264 partií (36 fallback tahů) · model: deepseek-v4.1-flash, poslední shardy ministral-8b-latest ·
+velitel: <strong>Velitel – Brouver Hoog</strong></p>
+<table>
+<thead><tr><th>#</th><th>Balíček</th><th class="num">V/G</th><th class="num">WR</th>
+<th class="num">CI&#8202;95&#8202;%</th><th class="num">fb/err</th></tr></thead>
+<tbody><tr class="winner-row">
+<td class="rankcell rank-1">1</td>
+<td><a href="balicek-f5020451.html">T4-Dol-Blathanna</a> <span class="badge champ">šampion</span></td>
+<td class="num">54/88</td>
+<td class="wr wr-good">0,614</td>
+<td class="num">0.51–0.71</td>
+<td class="num">2/2</td>
+</tr><tr class="">
+<td class="rankcell">2</td>
+<td><a href="balicek-913a1f92.html">D-nástup</a></td>
+<td class="num">51/88</td>
+<td class="wr wr-good">0,580</td>
+<td class="num">0.47–0.68</td>
+<td class="num">7/7</td>
+</tr><tr class="">
+<td class="rankcell">3</td>
+<td><a href="balicek-49ed0b27.html">T1-přesuny</a></td>
+<td class="num">50/88</td>
+<td class="wr wr-good">0,568</td>
+<td class="num">0.46–0.67</td>
+<td class="num">1/1</td>
+</tr><tr class="">
+<td class="rankcell">4</td>
+<td><a href="balicek-7604579f.html">T3-nástup</a></td>
+<td class="num">50/88</td>
+<td class="wr wr-good">0,568</td>
+<td class="num">0.46–0.67</td>
+<td class="num">1/1</td>
+</tr><tr class="">
+<td class="rankcell">5</td>
+<td><a href="balicek-208de6f4.html">T2-houževnatost</a></td>
+<td class="num">49/88</td>
+<td class="wr wr-good">0,557</td>
+<td class="num">0.45–0.66</td>
+<td class="num">1/1</td>
+</tr><tr class="">
+<td class="rankcell">6</td>
+<td><a href="balicek-d6f39384.html">A-max-síla</a></td>
+<td class="num">47/88</td>
+<td class="wr ">0,534</td>
+<td class="num">0.43–0.64</td>
+<td class="num">3/3</td>
+</tr><tr class="">
+<td class="rankcell">7</td>
+<td><a href="balicek-ea9df848.html">B-štíty</a></td>
+<td class="num">44/88</td>
+<td class="wr ">0,500</td>
+<td class="num">0.40–0.60</td>
+<td class="num">9/10</td>
+</tr><tr class="">
+<td class="rankcell">8</td>
+<td><a href="balicek-f4acb7ad.html">R2-graf-tempo</a></td>
+<td class="num">42/88</td>
+<td class="wr ">0,477</td>
+<td class="num">0.38–0.58</td>
+<td class="num">1/1</td>
+</tr><tr class="">
+<td class="rankcell">9</td>
+<td><a href="balicek-ec391538.html">S-specialky</a></td>
+<td class="num">37/88</td>
+<td class="wr wr-bad">0,420</td>
+<td class="num">0.32–0.53</td>
+<td class="num">7/7</td>
+</tr><tr class="">
+<td class="rankcell">10</td>
+<td><a href="balicek-bb8923c8.html">R1-graf-sila</a></td>
+<td class="num">36/88</td>
+<td class="wr wr-bad">0,409</td>
+<td class="num">0.31–0.51</td>
+<td class="num">1/2</td>
+</tr><tr class="">
+<td class="rankcell">11</td>
+<td><a href="balicek-3efb5ac2.html">R5-empiricka</a></td>
+<td class="num">34/88</td>
+<td class="wr wr-bad">0,386</td>
+<td class="num">0.29–0.49</td>
+<td class="num">2/2</td>
+</tr><tr class="">
+<td class="rankcell">12</td>
+<td><a href="balicek-86fd0e28.html">R4-synergie</a></td>
+<td class="num">31/88</td>
+<td class="wr wr-bad">0,352</td>
+<td class="num">0.26–0.46</td>
+<td class="num">1/1</td>
+</tr></tbody>
+</table>
+<div class="panel" style="overflow-x:auto">
+<table class="mtx">
+<thead><tr><th></th><th>T4-Dol-Blathanna</th><th>D-nástup</th><th>T1-přesuny</th><th>T3-nástup</th><th>T2-houževnatost</th><th>A-max-síla</th><th>B-štíty</th><th>R2-graf-tempo</th><th>S-specialky</th><th>R1-graf-sila</th><th>R5-empiricka</th><th>R4-synergie</th></tr></thead>
+<tbody><tr><td>T4-Dol-Blathanna</td><td class="self"></td><td class="wr-good" title="T4-Dol-Blathanna × D-nástup">4/4</td><td class="" title="T4-Dol-Blathanna × T1-přesuny">2/4</td><td class="" title="T4-Dol-Blathanna × T3-nástup">2/4</td><td class="" title="T4-Dol-Blathanna × T2-houževnatost">2/4</td><td class="wr-good" title="T4-Dol-Blathanna × A-max-síla">3/4</td><td class="wr-bad" title="T4-Dol-Blathanna × B-štíty">1/4</td><td class="wr-bad" title="T4-Dol-Blathanna × R2-graf-tempo">0/4</td><td class="wr-good" title="T4-Dol-Blathanna × S-specialky">4/4</td><td class="wr-bad" title="T4-Dol-Blathanna × R1-graf-sila">1/4</td><td class="wr-good" title="T4-Dol-Blathanna × R5-empiricka">3/4</td><td class="wr-good" title="T4-Dol-Blathanna × R4-synergie">4/4</td></tr><tr><td>D-nástup</td><td class="wr-good" title="D-nástup × T4-Dol-Blathanna">3/4</td><td class="self"></td><td class="" title="D-nástup × T1-přesuny">2/4</td><td class="wr-good" title="D-nástup × T3-nástup">4/4</td><td class="" title="D-nástup × T2-houževnatost">2/4</td><td class="" title="D-nástup × A-max-síla">2/4</td><td class="" title="D-nástup × B-štíty">2/4</td><td class="" title="D-nástup × R2-graf-tempo">2/4</td><td class="" title="D-nástup × S-specialky">2/4</td><td class="wr-good" title="D-nástup × R1-graf-sila">4/4</td><td class="wr-good" title="D-nástup × R5-empiricka">3/4</td><td class="" title="D-nástup × R4-synergie">2/4</td></tr><tr><td>T1-přesuny</td><td class="wr-bad" title="T1-přesuny × T4-Dol-Blathanna">1/4</td><td class="wr-good" title="T1-přesuny × D-nástup">3/4</td><td class="self"></td><td class="wr-bad" title="T1-přesuny × T3-nástup">1/4</td><td class="wr-bad" title="T1-přesuny × T2-houževnatost">1/4</td><td class="wr-bad" title="T1-přesuny × A-max-síla">1/4</td><td class="" title="T1-přesuny × B-štíty">2/4</td><td class="" title="T1-přesuny × R2-graf-tempo">2/4</td><td class="wr-good" title="T1-přesuny × S-specialky">3/4</td><td class="wr-good" title="T1-přesuny × R1-graf-sila">4/4</td><td class="wr-bad" title="T1-přesuny × R5-empiricka">1/4</td><td class="wr-good" title="T1-přesuny × R4-synergie">3/4</td></tr><tr><td>T3-nástup</td><td class="" title="T3-nástup × T4-Dol-Blathanna">2/4</td><td class="wr-bad" title="T3-nástup × D-nástup">1/4</td><td class="wr-good" title="T3-nástup × T1-přesuny">3/4</td><td class="self"></td><td class="wr-good" title="T3-nástup × T2-houževnatost">3/4</td><td class="" title="T3-nástup × A-max-síla">2/4</td><td class="wr-good" title="T3-nástup × B-štíty">4/4</td><td class="" title="T3-nástup × R2-graf-tempo">2/4</td><td class="" title="T3-nástup × S-specialky">2/4</td><td class="" title="T3-nástup × R1-graf-sila">2/4</td><td class="wr-good" title="T3-nástup × R5-empiricka">4/4</td><td class="wr-good" title="T3-nástup × R4-synergie">3/4</td></tr><tr><td>T2-houževnatost</td><td class="wr-bad" title="T2-houževnatost × T4-Dol-Blathanna">0/4</td><td class="wr-bad" title="T2-houževnatost × D-nástup">1/4</td><td class="wr-bad" title="T2-houževnatost × T1-přesuny">1/4</td><td class="wr-bad" title="T2-houževnatost × T3-nástup">1/4</td><td class="self"></td><td class="" title="T2-houževnatost × A-max-síla">2/4</td><td class="wr-bad" title="T2-houževnatost × B-štíty">1/4</td><td class="" title="T2-houževnatost × R2-graf-tempo">2/4</td><td class="" title="T2-houževnatost × S-specialky">2/4</td><td class="wr-good" title="T2-houževnatost × R1-graf-sila">3/4</td><td class="" title="T2-houževnatost × R5-empiricka">2/4</td><td class="wr-good" title="T2-houževnatost × R4-synergie">3/4</td></tr><tr><td>A-max-síla</td><td class="wr-good" title="A-max-síla × T4-Dol-Blathanna">3/4</td><td class="" title="A-max-síla × D-nástup">2/4</td><td class="" title="A-max-síla × T1-přesuny">2/4</td><td class="wr-good" title="A-max-síla × T3-nástup">3/4</td><td class="wr-bad" title="A-max-síla × T2-houževnatost">0/4</td><td class="self"></td><td class="" title="A-max-síla × B-štíty">2/4</td><td class="wr-good" title="A-max-síla × R2-graf-tempo">3/4</td><td class="" title="A-max-síla × S-specialky">2/4</td><td class="" title="A-max-síla × R1-graf-sila">2/4</td><td class="" title="A-max-síla × R5-empiricka">2/4</td><td class="wr-good" title="A-max-síla × R4-synergie">3/4</td></tr><tr><td>B-štíty</td><td class="wr-bad" title="B-štíty × T4-Dol-Blathanna">1/4</td><td class="" title="B-štíty × D-nástup">2/4</td><td class="" title="B-štíty × T1-přesuny">2/4</td><td class="wr-good" title="B-štíty × T3-nástup">3/4</td><td class="wr-bad" title="B-štíty × T2-houževnatost">1/4</td><td class="" title="B-štíty × A-max-síla">2/4</td><td class="self"></td><td class="wr-good" title="B-štíty × R2-graf-tempo">3/4</td><td class="wr-bad" title="B-štíty × S-specialky">1/4</td><td class="wr-good" title="B-štíty × R1-graf-sila">3/4</td><td class="wr-bad" title="B-štíty × R5-empiricka">1/4</td><td class="wr-good" title="B-štíty × R4-synergie">4/4</td></tr><tr><td>R2-graf-tempo</td><td class="wr-bad" title="R2-graf-tempo × T4-Dol-Blathanna">1/4</td><td class="wr-bad" title="R2-graf-tempo × D-nástup">1/4</td><td class="wr-bad" title="R2-graf-tempo × T1-přesuny">1/4</td><td class="" title="R2-graf-tempo × T3-nástup">2/4</td><td class="" title="R2-graf-tempo × T2-houževnatost">2/4</td><td class="wr-bad" title="R2-graf-tempo × A-max-síla">1/4</td><td class="wr-bad" title="R2-graf-tempo × B-štíty">1/4</td><td class="self"></td><td class="wr-good" title="R2-graf-tempo × S-specialky">4/4</td><td class="wr-good" title="R2-graf-tempo × R1-graf-sila">3/4</td><td class="" title="R2-graf-tempo × R5-empiricka">2/4</td><td class="" title="R2-graf-tempo × R4-synergie">2/4</td></tr><tr><td>S-specialky</td><td class="wr-bad" title="S-specialky × T4-Dol-Blathanna">0/4</td><td class="" title="S-specialky × D-nástup">2/4</td><td class="" title="S-specialky × T1-přesuny">2/4</td><td class="" title="S-specialky × T3-nástup">2/4</td><td class="wr-bad" title="S-specialky × T2-houževnatost">0/4</td><td class="wr-good" title="S-specialky × A-max-síla">3/4</td><td class="wr-good" title="S-specialky × B-štíty">3/4</td><td class="" title="S-specialky × R2-graf-tempo">2/4</td><td class="self"></td><td class="" title="S-specialky × R1-graf-sila">2/4</td><td class="" title="S-specialky × R5-empiricka">2/4</td><td class="" title="S-specialky × R4-synergie">2/4</td></tr><tr><td>R1-graf-sila</td><td class="wr-bad" title="R1-graf-sila × T4-Dol-Blathanna">1/4</td><td class="" title="R1-graf-sila × D-nástup">2/4</td><td class="wr-bad" title="R1-graf-sila × T1-přesuny">0/4</td><td class="wr-bad" title="R1-graf-sila × T3-nástup">1/4</td><td class="wr-bad" title="R1-graf-sila × T2-houževnatost">0/4</td><td class="wr-bad" title="R1-graf-sila × A-max-síla">1/4</td><td class="wr-good" title="R1-graf-sila × B-štíty">3/4</td><td class="" title="R1-graf-sila × R2-graf-tempo">2/4</td><td class="wr-good" title="R1-graf-sila × S-specialky">3/4</td><td class="self"></td><td class="wr-good" title="R1-graf-sila × R5-empiricka">3/4</td><td class="wr-bad" title="R1-graf-sila × R4-synergie">1/4</td></tr><tr><td>R5-empiricka</td><td class="wr-bad" title="R5-empiricka × T4-Dol-Blathanna">1/4</td><td class="wr-bad" title="R5-empiricka × D-nástup">0/4</td><td class="wr-bad" title="R5-empiricka × T1-přesuny">0/4</td><td class="wr-bad" title="R5-empiricka × T3-nástup">1/4</td><td class="wr-bad" title="R5-empiricka × T2-houževnatost">1/4</td><td class="" title="R5-empiricka × A-max-síla">2/4</td><td class="wr-good" title="R5-empiricka × B-štíty">3/4</td><td class="wr-good" title="R5-empiricka × R2-graf-tempo">3/4</td><td class="" title="R5-empiricka × S-specialky">2/4</td><td class="wr-bad" title="R5-empiricka × R1-graf-sila">0/4</td><td class="self"></td><td class="" title="R5-empiricka × R4-synergie">2/4</td></tr><tr><td>R4-synergie</td><td class="wr-bad" title="R4-synergie × T4-Dol-Blathanna">1/4</td><td class="wr-good" title="R4-synergie × D-nástup">3/4</td><td class="wr-bad" title="R4-synergie × T1-přesuny">1/4</td><td class="" title="R4-synergie × T3-nástup">2/4</td><td class="wr-bad" title="R4-synergie × T2-houževnatost">1/4</td><td class="" title="R4-synergie × A-max-síla">2/4</td><td class="wr-bad" title="R4-synergie × B-štíty">1/4</td><td class="wr-bad" title="R4-synergie × R2-graf-tempo">1/4</td><td class="" title="R4-synergie × S-specialky">2/4</td><td class="wr-bad" title="R4-synergie × R1-graf-sila">1/4</td><td class="" title="R4-synergie × R5-empiricka">2/4</td><td class="self"></td></tr></tbody>
+</table>
+</div>
+<p class="meta">Řádek = balíček, sloupec = soupeř; buňka = výher/všech partií balíčku v řádku proti soupeři ve sloupci.
+„·“ znamená, že pár se ještě nehrál.</p>
+
+<p class="meta"><a href="balicky.html">→ Všechny balíčky na jedné stránce</a></p>
+
+</div>
+<footer class="site"><div class="inner">
+<div>Stránka je generována automaticky ze standingů a cfg souborů (generátor <span class="mono">tools/build_web.py</span>);
+kompletní herní logy všech partií jsou v soukromém repozitáři.</div>
+<div style="margin-top:6px">SG Gwint je komunitní karetní hra spolku Společenstvo Gwintu, z.s. — pravidla a karty jsou dílem jejich autorů
+(projekt ukončen 2025; hra se hraje v klubovnách a na soukromých akcích). Stránka neobsahuje artworky ani skeny karet.</div>
+</div></footer>
+</body>
+</html>
