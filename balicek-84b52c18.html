@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B-štíty — balíček SG Gwint</title>
+<style>
+:root { --bg:#141416; --panel:#1d1e21; --panel2:#242529; --line:#3a3b40;
+  --text:#e8e6e0; --muted:#9a978f; --accent:#d4a253; --gold:#e2b93b;
+  --good:#7ec16f; --bad:#d47f7f; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text);
+  font:16px/1.55 Georgia,'Times New Roman',serif; }
+.mono { font-family:'SFMono-Regular',Consolas,Menlo,monospace; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.wrap { max-width:1100px; margin:0 auto; padding:0 20px 80px; }
+header.site { border-bottom:1px solid var(--line); background:#101012; position:sticky; top:0; z-index:50; }
+header.site .inner { max-width:1100px; margin:0 auto; padding:12px 20px;
+  display:flex; gap:24px; align-items:baseline; flex-wrap:wrap; }
+.logo { font-size:1.25rem; font-weight:bold; letter-spacing:.5px; }
+.logo a { color:var(--text); }
+nav.main { display:flex; gap:18px; flex-wrap:wrap; font-family:Verdana,sans-serif; font-size:.82rem; }
+nav.main a { color:var(--muted); }
+nav.main a:hover, nav.main a.on { color:var(--accent); text-decoration:none; }
+h1 { font-size:1.7rem; margin:1.4em 0 .5em; }
+h2 { font-size:1.35rem; margin:1.7em 0 .5em; color:var(--accent); }
+h3 { font-size:1.05rem; margin:1.4em 0 .4em; }
+p,li { max-width:78ch; }
+.meta { color:var(--muted); font-size:.85rem; font-family:Verdana,sans-serif; }
+.panel { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px 20px; margin:16px 0; }
+table { border-collapse:collapse; width:100%; margin:12px 0; font-size:.95rem; }
+th { text-align:left; font-family:Verdana,sans-serif; font-size:.72rem; text-transform:uppercase;
+  letter-spacing:.06em; color:var(--muted); padding:8px 10px; border-bottom:1px solid var(--line); }
+td { padding:8px 10px; border-bottom:1px solid #2a2b30; vertical-align:top; }
+tr:hover td { background:#222327; }
+.num { text-align:right; font-variant-numeric:tabular-nums; }
+td.wr { text-align:right; font-variant-numeric:tabular-nums; }
+.wr-good { color:var(--good); } .wr-bad { color:var(--bad); }
+.badge { display:inline-block; font-family:Verdana,sans-serif; font-size:.68rem; padding:1px 8px;
+  border-radius:999px; border:1px solid var(--line); background:var(--panel2); color:var(--muted);
+  vertical-align:middle; white-space:nowrap; }
+.badge.gold { color:var(--gold); border-color:#665a26; background:#241f10; }
+.badge.spec { color:#9fc4e8; border-color:#33506b; background:#101c26; }
+.badge.champ { color:#ffe08a; border-color:#9a7c2c; background:#33290d; }
+.fac-chip { display:inline-block; font-family:Verdana,sans-serif; font-size:.72rem; padding:2px 10px;
+  border-radius:999px; color:#fff; letter-spacing:.03em; vertical-align:middle; }
+.cards-list { display:flex; flex-wrap:wrap; gap:6px; }
+.card-pill { display:inline-block; background:var(--panel2); border:1px solid var(--line);
+  border-radius:6px; padding:3px 9px; font-size:.85rem; margin:2px 0; white-space:nowrap; }
+.card-pill.gold { border-color:#665a26; background:#231e0e; }
+.card-pill.spec { border-color:#33506b; background:#0f1a24; }
+.card-pill .pw { color:var(--accent); font-family:Verdana,sans-serif; font-size:.72rem; margin-left:5px; }
+.card-pill .n { color:var(--muted); font-family:Verdana,sans-serif; font-size:.78rem; margin-left:4px; }
+.winner-row td { background:#26210f; } .winner-row:hover td { background:#2c2612; }
+.rankcell { font-family:Verdana,sans-serif; color:var(--muted); text-align:right; width:2.5em; }
+.rank-1 { color:var(--gold); font-weight:bold; }
+.grid-facs { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:16px; margin:18px 0; }
+.fac-card { background:var(--panel); border:1px solid var(--line); border-radius:10px;
+  padding:16px 18px; position:relative; overflow:hidden; }
+.fac-card h3 { margin:0 0 4px; font-size:1.05rem; }
+.fac-card .sub { color:var(--muted); font-size:.8rem; font-family:Verdana,sans-serif; margin-bottom:8px; }
+.top-strip { position:absolute; top:0; left:0; right:0; height:3px; }
+.qs { margin:12px 0 4px; }
+.qs input { width:100%; max-width:430px; padding:8px 12px; border-radius:8px; border:1px solid var(--line);
+  background:#101012; color:var(--text); font-size:.95rem; }
+.qs input:focus { outline:1px solid var(--accent); }
+.no-hits { color:var(--muted); font-style:italic; padding:8px 0; }
+.mtx td, .mtx th { text-align:right; font-family:Verdana,sans-serif; font-size:.78rem; padding:5px 6px; }
+.mtx th:first-child, .mtx td:first-child { text-align:left; font-family:Georgia,serif; font-size:.85rem; }
+.mtx .self { background:#101012; }
+footer.site { border-top:1px solid var(--line); margin-top:60px; padding:22px 20px 40px;
+  color:var(--muted); font-size:.8rem; font-family:Verdana,sans-serif; }
+footer.site .inner { max-width:1100px; margin:0 auto; }
+@media (max-width:720px){ table{font-size:.85rem;} th,td{padding:6px 6px;} .wrap{padding:0 12px 60px;} }
+</style>
+</head>
+<body>
+<header class="site"><div class="inner">
+<div class="logo"><a href="index.html">⚔ SG&#8202;Gwint — LLM sampionáty</a></div>
+<nav class="main"><a href="index.html">Sampionáty</a><a href="balicky.html" class="on">Balíčky</a><a href="o-projektu.html">O projektu</a></nav>
+</div></header>
+<div class="wrap">
+
+<p class="meta" style="margin-top:1.2em"><a href="index.html">← Sampionáty</a> ·
+<a href="balicky.html#fac-SO">Skellige</a></p>
+<h1>B-štíty</h1>
+<p class="meta"><span class="fac-chip" style="background:#b8342f">Skellige</span> &nbsp; 34 karet · 5&times; zlatá ·
+3&times; speciálka · síla jednotek 159 &nbsp;|&nbsp; velitel: <strong>Velitel – Bran an Tuirseach</strong></p>
+
+<div class="panel">
+<p style="margin:.2em 0"><strong>8. místo</strong> ze 10 ·
+WR <span class="wr wr-bad">0,417</span> · 30/72 výher ·
+CI 95&#8202;% [0.31–0.53]</p>
+</div>
+<h2>Vzájemné zápasy</h2>
+<table>
+<thead><tr><th>Soupeř</th><th class="num">Výhry</th><th class="num">Partie</th><th class="num">WR</th></tr></thead>
+<tbody><tr><td><a href="balicek-2f9f2faa.html">R5-empiricka</a></td>
+<td class="num">2</td><td class="num">4</td>
+<td class="wr ">0,500</td></tr><tr><td><a href="balicek-92a71f3f.html">S3-výměna</a></td>
+<td class="num">0</td><td class="num">4</td>
+<td class="wr wr-bad">0,000</td></tr><tr><td><a href="balicek-3d1e20a2.html">R1-graf-sila</a></td>
+<td class="num">1</td><td class="num">4</td>
+<td class="wr wr-bad">0,250</td></tr><tr><td><a href="balicek-b6fae95c.html">S2-povzbuzení</a></td>
+<td class="num">1</td><td class="num">4</td>
+<td class="wr wr-bad">0,250</td></tr><tr><td><a href="balicek-235b7d71.html">S1-proměna</a></td>
+<td class="num">1</td><td class="num">4</td>
+<td class="wr wr-bad">0,250</td></tr><tr><td><a href="balicek-1aa642bd.html">R4-synergie</a></td>
+<td class="num">3</td><td class="num">4</td>
+<td class="wr wr-good">0,750</td></tr><tr><td><a href="balicek-67850f4d.html">S4-An-Craite-pouto</a></td>
+<td class="num">3</td><td class="num">4</td>
+<td class="wr wr-good">0,750</td></tr><tr><td><a href="balicek-7af298c1.html">A-max-síla</a></td>
+<td class="num">2</td><td class="num">4</td>
+<td class="wr ">0,500</td></tr><tr><td><a href="balicek-31a6099a.html">S-specialky</a></td>
+<td class="num">1</td><td class="num">4</td>
+<td class="wr wr-bad">0,250</td></tr></tbody>
+</table>
+<h2>Karty</h2>
+<table>
+<thead><tr><th>Karta</th><th class="num">Síla</th><th class="num">Ks</th><th>Typ</th><th>Řady</th><th>Příznaky</th></tr></thead>
+<tbody><tr>
+<td>Svalblod</td>
+<td class="num">11</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>přední</td>
+<td><span class="badge gold">zlato</span></td>
+</tr><tr>
+<td>Geralt z Rivie</td>
+<td class="num">11</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>přední</td>
+<td><span class="badge gold">zlato</span></td>
+</tr><tr>
+<td>Triss Ranuncul</td>
+<td class="num">8</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>střední</td>
+<td><span class="badge gold">zlato</span></td>
+</tr><tr>
+<td>Hjalmar an Craite</td>
+<td class="num">7</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>střední, obléhací</td>
+<td><span class="badge gold">zlato</span></td>
+</tr><tr>
+<td>Cirilla Fiona Elen Riannon</td>
+<td class="num">6</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>obléhací</td>
+<td><span class="badge gold">zlato</span></td>
+</tr><tr>
+<td>Vaedermakar</td>
+<td class="num">3</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>obléhací</td>
+<td></td>
+</tr><tr>
+<td>Olaf</td>
+<td class="num">11</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>přední</td>
+<td></td>
+</tr><tr>
+<td>Mahakamský ležák 1</td>
+<td class="num">—</td>
+<td class="num">3</td>
+<td>speciálka</td>
+<td>obléhací</td>
+<td><span class="badge spec">speciálka</span></td>
+</tr><tr>
+<td>Svalblodův kněz</td>
+<td class="num">6</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>přední, střední, obléhací</td>
+<td></td>
+</tr><tr>
+<td>Vildkaarl</td>
+<td class="num">6</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>přední</td>
+<td></td>
+</tr><tr>
+<td>Donar</td>
+<td class="num">5</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>střední</td>
+<td></td>
+</tr><tr>
+<td>Šermíř klanu an Craite 1</td>
+<td class="num">5</td>
+<td class="num">2</td>
+<td>jednotka</td>
+<td>přední</td>
+<td></td>
+</tr><tr>
+<td>Lytta Neyd</td>
+<td class="num">5</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>obléhací</td>
+<td></td>
+</tr><tr>
+<td>Zoltan Chivay</td>
+<td class="num">5</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>přední</td>
+<td></td>
+</tr><tr>
+<td>Kovář</td>
+<td class="num">4</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>obléhací</td>
+<td></td>
+</tr><tr>
+<td>Lovec klanu Brokvar 1</td>
+<td class="num">4</td>
+<td class="num">3</td>
+<td>jednotka</td>
+<td>střední</td>
+<td></td>
+</tr><tr>
+<td>Mladý berserk 1</td>
+<td class="num">4</td>
+<td class="num">3</td>
+<td>jednotka</td>
+<td>přední, střední, obléhací</td>
+<td></td>
+</tr><tr>
+<td>Skald klanu Heymaey</td>
+<td class="num">4</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>střední</td>
+<td></td>
+</tr><tr>
+<td>Svalblodův fanatik 1</td>
+<td class="num">4</td>
+<td class="num">3</td>
+<td>jednotka</td>
+<td>obléhací</td>
+<td></td>
+</tr><tr>
+<td>Zbrojíř</td>
+<td class="num">4</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>přední</td>
+<td></td>
+</tr><tr>
+<td>Olgierd von Everec</td>
+<td class="num">4</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>přední, střední, obléhací</td>
+<td></td>
+</tr><tr>
+<td>Regis</td>
+<td class="num">4</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>obléhací</td>
+<td></td>
+</tr><tr>
+<td>Myšilov</td>
+<td class="num">3</td>
+<td class="num">1</td>
+<td>jednotka</td>
+<td>střední</td>
+<td></td>
+</tr><tr>
+<td>Válečný drakkar 1</td>
+<td class="num">3</td>
+<td class="num">2</td>
+<td>jednotka</td>
+<td>střední, obléhací</td>
+<td></td>
+</tr></tbody>
+</table>
+<p class="meta">Ostatní balíčky frakce: <a href="balicek-2f9f2faa.html">R5-empiricka</a> · <a href="balicek-92a71f3f.html">S3-výměna</a> · <a href="balicek-3d1e20a2.html">R1-graf-sila</a> · <a href="balicek-b6fae95c.html">S2-povzbuzení</a> · <a href="balicek-235b7d71.html">S1-proměna</a> · <a href="balicek-1aa642bd.html">R4-synergie</a> · <a href="balicek-67850f4d.html">S4-An-Craite-pouto</a> · <a href="balicek-7af298c1.html">A-max-síla</a> · <a href="balicek-31a6099a.html">S-specialky</a></p>
+
+</div>
+<footer class="site"><div class="inner">
+<div>Stránka je generována automaticky ze standingů a cfg souborů (generátor <span class="mono">tools/build_web.py</span>);
+kompletní herní logy všech partií jsou v soukromém repozitáři.</div>
+<div style="margin-top:6px">SG Gwint je komunitní karetní hra spolku Společenstvo Gwintu, z.s. — pravidla a karty jsou dílem jejich autorů
+(projekt ukončen 2025; hra se hraje v klubovnách a na soukromých akcích). Stránka neobsahuje artworky ani skeny karet.</div>
+</div></footer>
+</body>
+</html>
