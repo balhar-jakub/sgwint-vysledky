@@ -73,6 +73,20 @@ footer.site { border-top:1px solid var(--line); margin-top:60px; padding:22px 20
   color:var(--muted); font-size:.8rem; font-family:Verdana,sans-serif; }
 footer.site .inner { max-width:1100px; margin:0 auto; }
 @media (max-width:720px){ table{font-size:.85rem;} th,td{padding:6px 6px;} .wrap{padding:0 12px 60px;} }
+.league-list { display:flex; flex-direction:column; gap:10px; margin:14px 0; }
+.league-item { display:flex; background:var(--panel); border:1px solid var(--line);
+  border-radius:10px; overflow:hidden; }
+.league-bar-fac { width:8px; flex:0 0 8px; }
+.league-main { padding:12px 16px; flex:1; }
+.league-title { font-size:1rem; }
+.league-bar { background:#2a2b30; border-radius:6px; height:10px; margin:8px 0 6px; }
+.league-bar span { display:block; height:10px; border-radius:6px;
+  background:linear-gradient(90deg,#d4a253,#e2b93b); }
+.league-sub { color:var(--muted); font-size:.85rem; font-family:Verdana,sans-serif; }
+.mtx-cell { text-align:center; font-variant-numeric:tabular-nums; }
+.mtx-cell .dot { display:inline-block; width:8px; height:8px; border-radius:50%;
+  margin-right:6px; opacity:.85; }
+td.rowhead { white-space:nowrap; }
 </style>
 </head>
 <body>

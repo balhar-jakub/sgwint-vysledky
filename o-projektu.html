@@ -73,6 +73,20 @@ footer.site { border-top:1px solid var(--line); margin-top:60px; padding:22px 20
   color:var(--muted); font-size:.8rem; font-family:Verdana,sans-serif; }
 footer.site .inner { max-width:1100px; margin:0 auto; }
 @media (max-width:720px){ table{font-size:.85rem;} th,td{padding:6px 6px;} .wrap{padding:0 12px 60px;} }
+.league-list { display:flex; flex-direction:column; gap:10px; margin:14px 0; }
+.league-item { display:flex; background:var(--panel); border:1px solid var(--line);
+  border-radius:10px; overflow:hidden; }
+.league-bar-fac { width:8px; flex:0 0 8px; }
+.league-main { padding:12px 16px; flex:1; }
+.league-title { font-size:1rem; }
+.league-bar { background:#2a2b30; border-radius:6px; height:10px; margin:8px 0 6px; }
+.league-bar span { display:block; height:10px; border-radius:6px;
+  background:linear-gradient(90deg,#d4a253,#e2b93b); }
+.league-sub { color:var(--muted); font-size:.85rem; font-family:Verdana,sans-serif; }
+.mtx-cell { text-align:center; font-variant-numeric:tabular-nums; }
+.mtx-cell .dot { display:inline-block; width:8px; height:8px; border-radius:50%;
+  margin-right:6px; opacity:.85; }
+td.rowhead { white-space:nowrap; }
 </style>
 </head>
 <body>
@@ -118,8 +132,19 @@ Srovnávání <em>uvnitř</em> frakce proběhlo na jednom modelu; ST je mix dvou
 <ul>
 <li><strong>LLM hráči odměňují kombinace</strong> — balíčky postavené na synergii (pouto, výměna, specializace) skončily nad surovou silou: A-max-síla (nejvíc bodů na stůl) skončila v SO 9., v NG 5. a v ST 6., zatímco v SK paradoxně vyhrála — úzký pool tam nemá silnější interakce.</li>
 <li><strong>Deterministický hráč (dry) měří něco jiného</strong> — suchý hráč neumí vícekroková komba (Mardroeme → proměna), takže suchá winrate nesouhlasí s LLM výsledky; LLM turnaje proto jsou primárním měřením síly balíčků.</li>
-<li><strong>Mirror turnaj neměří sílu frakce</strong> — měří kvalitu balíčku v dané metě. Síla frakce se měří cross-faction ligou v soukromém repu.</li>
+<li><strong>Mirror turnaj neměří sílu frakce</strong> — měří kvalitu balíčku v dané metě. Síla frakce se měří <strong>ligou šampionů</strong>: vítězové frakčních sampionátů proti sobě, oba směry, 4 hry na pár. Domácí dominance v lize často nevydrží (Skellige 0,700 doma → 0,225 v lize) — vnitrofrakční meta je jiná než cross-faction.</li>
 <li><strong>Pořadí se s hráčem mění</strong> — SO: suchý 7. S2-povzbuzení je LLM 4.; ST: suchý šampion R5-empiricka je pod LLM na 11. místě. Kdo vyhrává proti skriptu, nemusí vyhrávat proti inteligentnímu soupeři.</li>
+<li><strong>Liga v2 a počasí</strong> — druhé kolo ligy (232 partií, 7 decků) ukázalo, že
+meta stojí na počasí: SO-X1-boure-mraz (bouře/mráz/mlha/sežehnutí) je jediný deck bez negativního
+matchupu, ST-T4 se drží špičky jen proti ZA/SK a prohrává s MO-S-specialky i SO-X1. Podrobnosti
+v sekci <a href="index.html#liga-v2">Liga šampionů v2</a>.</li>
+<li><strong>Rozbřesk — diagnostika a fix</strong> — Rozbřesk (rušení počasí) LLM hráči promarnily
+v 88 % případů, kdy ho potřebovaly (hrály ho do prázdna, nebo si jím mazaly vlastní počasí).
+Příčina nebyla v pravidlech, ale v informacích: view neukazoval počasím sražené síly ani to,
+čí řady počasí drtí. Po fixu (efektivní síly v view, strukturovaný přehled počasí, vysvětlení
+v protokolu, opravená heuristika suchého hráče, doplněný text karty Rozbřesk 2) se nejlepší
+anti-SO-X1 kandidát posunul z 0,500 na 0,625 — ale měřený přemožitel SO-X1 stále neexistuje
+(viz <a href="index.html#anti-sox1">Hledání přemožitele</a>, 128 partií ve dvou kolech).</li>
 </ul>
 <h2>Autorská práva</h2>
 <p>Pravidla a karty jsou dílem spolku Společenstvo Gwintu, z.s. Stránka neobsahuje

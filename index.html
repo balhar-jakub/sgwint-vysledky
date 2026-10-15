@@ -73,6 +73,20 @@ footer.site { border-top:1px solid var(--line); margin-top:60px; padding:22px 20
   color:var(--muted); font-size:.8rem; font-family:Verdana,sans-serif; }
 footer.site .inner { max-width:1100px; margin:0 auto; }
 @media (max-width:720px){ table{font-size:.85rem;} th,td{padding:6px 6px;} .wrap{padding:0 12px 60px;} }
+.league-list { display:flex; flex-direction:column; gap:10px; margin:14px 0; }
+.league-item { display:flex; background:var(--panel); border:1px solid var(--line);
+  border-radius:10px; overflow:hidden; }
+.league-bar-fac { width:8px; flex:0 0 8px; }
+.league-main { padding:12px 16px; flex:1; }
+.league-title { font-size:1rem; }
+.league-bar { background:#2a2b30; border-radius:6px; height:10px; margin:8px 0 6px; }
+.league-bar span { display:block; height:10px; border-radius:6px;
+  background:linear-gradient(90deg,#d4a253,#e2b93b); }
+.league-sub { color:var(--muted); font-size:.85rem; font-family:Verdana,sans-serif; }
+.mtx-cell { text-align:center; font-variant-numeric:tabular-nums; }
+.mtx-cell .dot { display:inline-block; width:8px; height:8px; border-radius:50%;
+  margin-right:6px; opacity:.85; }
+td.rowhead { white-space:nowrap; }
 </style>
 </head>
 <body>
@@ -125,6 +139,259 @@ zdroj pravdy o pravidlech. Turnaj je mirror: oba hráči hrají tutéž frakci, 
 <div class="cards-list"><span class="card-pill gold" title="Karta hrdiny. Zlatá, štít.">Geralt z Rivie<span class="pw">11</span> <span class="badge" style="font-size:.6rem;padding:0 5px">štít</span></span><span class="card-pill " title="ŠKOLA MEDVĚDA">Gerd<span class="pw">8</span></span><span class="card-pill " title="Specializace: Znič jednu nejslabší kartu na obou stranách bojiště.">Kiyan<span class="pw">8</span></span><span class="card-pill gold" title="Specializace: Odstraní z každého hrobu jednu kartu.">Triss Ranuncul<span class="pw">8</span> <span class="badge" style="font-size:.6rem;padding:0 5px">štít</span></span><span class="card-pill " title="Výcvik: Po skončení kola proměň a odstraň ze hry Adepty ze své školy na bojišti na Zaklínače (vytáhni ze záloh) a vynes je v dalším kole před fází dolízávání.">Škola Kočky – Mentor<span class="pw">7</span></span><span class="card-pill " title="Špeh: Kartu můžeš vynést na soupeřovu stranu a líznout si tak 1 kartu ze svého balíčku.">Škola Zmije – Mentor<span class="pw">7</span></span><span class="card-pill gold" title="Specializace: Pokud kolo prohraješ, místo do pohřebiště se ti tato karta vrací do ruky.">Cirilla Fiona Elen Riannon<span class="pw">6</span> <span class="badge" style="font-size:.6rem;padding:0 5px">štít</span></span><span class="card-pill " title="Výměna: Lízní si kartu, poté odhoď 1 kartu z ruky do pohřebiště.">Škola Gryfa – Mentor<span class="pw">6</span></span><span class="card-pill " title="Výměna: Lízní si kartu, poté odhoď 1 kartu z ruky do pohřebiště.">Škola Gryfa – Zaklínač<span class="pw">6</span></span><span class="card-pill " title="ŠKOLA MEDVĚDA">Škola Medvěda – Adept 1<span class="pw">6</span></span><span class="card-pill " title="ŠKOLA MEDVĚDA">Škola Medvěda – Adept 2<span class="pw">6</span></span><span class="card-pill " title="Výcvik: Po skončení kola proměň a odstraň ze hry Adepty ze své školy na bojišti na Zaklínače (vytáhni ze záloh) a vynes je v dalším kole před fází dolízávání.">Škola Vlka – Mentor<span class="pw">6</span></span><span class="card-pill gold" title="Specializace: Vyber si mezi: A) Z balíčku vytáhni kartu Adept školy Medvěda a vynes ji. B) Proměň svého Adepta školy Medvěda na bojišti na Zaklínače.">Arnaghad<span class="pw">5</span> <span class="badge" style="font-size:.6rem;padding:0 5px">štít</span></span><span class="card-pill " title="Nástup: Vytáhni z balíčku (ne z ruky) kartu Lambert, poté balíček zamíchej.">Eskel<span class="pw">5</span></span><span class="card-pill gold" title="Specializace: Vyber si mezi: A) Z balíčku vytáhni kartu Adept školy Zmije a vynes ji. B) Proměň svého Adepta školy Zmije na bojišti na Zaklínače.">Ivor Zlé oko<span class="pw">5</span> <span class="badge" style="font-size:.6rem;padding:0 5px">štít</span></span><span class="card-pill " title="Nástup: Vytáhni z balíčku (ne z ruky) kartu Eskel, poté balíček zamíchej.">Lambert<span class="pw">5</span></span><span class="card-pill " title="Houževnatost: Po konci kola zůstává karta (samotná, bez dalších efektů) na bojišti do kola dalšího (pouze jednou).">Zoltan Chivay<span class="pw">5</span></span><span class="card-pill " title="ŠKOLA GRYFA">Škola Gryfa – Adept 1<span class="pw">5</span></span><span class="card-pill " title="ŠKOLA GRYFA">Škola Gryfa – Adept 2<span class="pw">5</span></span><span class="card-pill " title="Výcvik: Po skončení kola proměň a odstraň ze hry Adepty ze své školy na bojišti na Zaklínače (vytáhni ze záloh) a vynes je v dalším kole před fází dolízávání.">Škola Medvěda – Mentor<span class="pw">5</span></span><span class="card-pill " title="Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).">Škola Medvěda – Zaklínač<span class="pw">5</span></span><span class="card-pill " title="ŠKOLA ZMIJE">Škola Zmije – Adept 1<span class="pw">5</span></span><span class="card-pill " title="ŠKOLA ZMIJE">Škola Zmije – Adept 2<span class="pw">5</span></span><span class="card-pill " title="Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) mágů, poté balíček zamíchej.">Alzur<span class="pw">4</span></span><span class="card-pill " title="Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) mágů, poté balíček zamíchej.">Cosimo Malaspina<span class="pw">4</span></span><span class="card-pill " title="Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) mágů, poté balíček zamíchej.">Idarran z Uliva<span class="pw">4</span></span><span class="card-pill " title="Specializace: Kartu vynes na soupeřovu stranu a lízní si 1 kartu ze soupeřova balíčku. Použije-li hráč, na jehož straně bojiště karta leží, velitele, tuto kartu znič.">Letho z Gulety<span class="pw">4</span></span><span class="card-pill " title="ŠKOLA KOČKY">Škola Kočky – Adept 1<span class="pw">4</span></span><span class="card-pill " title="ŠKOLA KOČKY">Škola Kočky – Adept 2<span class="pw">4</span></span><span class="card-pill " title="Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této řady, M dle popisku).">Warritt Vševidoucí<span class="pw">3</span></span><span class="card-pill " title="Bomba: Vynes ze záloh libovolnou kartu Bomba do protější řady.">Kolgrim<span class="pw">1</span></span><span class="card-pill spec" title="Do konce kola zdvojnásobí sílu všech jednotek v dané řadě. (Po zahrání oba hráči pijí!)">Mahakamský ležák 1<span class="n">×3</span></span></div>
 <div class="sub" style="margin-top:10px"><a href="index.html#fac-ZA">žebříček &amp; vzájemné zápasy →</a></div>
 </div></div>
+
+<h2 id="liga">Liga šampionů — frakcie proti sobě</h2>
+<p>Vítězové jednotlivých frakčních sampionátů se utkali mezi sebou (oba směry,
+4 hry na pár, 120 partií). Domácí šampionát je mirror — vnitrofrakční pořadí
+nepředpovídá cross-faction sílu, proto vedle WR ukazujeme i posun proti domácímu
+výsledku.</p>
+<div class="league-list"><div class="league-item">
+<div class="league-bar-fac" style="background:#4e7a3f"></div>
+<div class="league-main">
+<div class="league-title">🥇 <span class="fac-chip" style="background:#4e7a3f">Scoia'tael</span> <strong><a href="balicek-ac652439.html">T4-Dol-Blathanna</a></strong></div>
+<div class="league-bar"><span style="width:100%"></span></div>
+<div class="league-sub">WR 0,850 · 34/40 výher ·
+CI [0.71–0.93] · doma 0,614 <span class="good">▲ +0.236</span></div>
+</div>
+</div>
+<div class="league-item">
+<div class="league-bar-fac" style="background:#7a2fa0"></div>
+<div class="league-main">
+<div class="league-title">🥈 <span class="fac-chip" style="background:#7a2fa0">Monstra</span> <strong><a href="balicek-194d22eb.html">S-specialky</a></strong></div>
+<div class="league-bar"><span style="width:74%"></span></div>
+<div class="league-sub">WR 0,625 · 25/40 výher ·
+CI [0.47–0.76] · doma 0,688 <span class="bad">▼ +0.063</span></div>
+</div>
+</div>
+<div class="league-item">
+<div class="league-bar-fac" style="background:#3f6296"></div>
+<div class="league-main">
+<div class="league-title">🥉 <span class="fac-chip" style="background:#3f6296">Nilfgaard</span> <strong><a href="balicek-55701269.html">N1-pouto</a></strong></div>
+<div class="league-bar"><span style="width:62%"></span></div>
+<div class="league-sub">WR 0,525 · 21/40 výher ·
+CI [0.38–0.67] · doma 0,625 <span class="bad">▼ +0.100</span></div>
+</div>
+</div>
+<div class="league-item">
+<div class="league-bar-fac" style="background:#a8834b"></div>
+<div class="league-main">
+<div class="league-title"><span class="rank">4.</span> <span class="fac-chip" style="background:#a8834b">Zaklínači</span> <strong><a href="balicek-0a11ed9c.html">F-Zmije</a></strong></div>
+<div class="league-bar"><span style="width:47%"></span></div>
+<div class="league-sub">WR 0,400 · 16/40 výher ·
+CI [0.26–0.55] · doma 0,608 <span class="bad">▼ +0.208</span></div>
+</div>
+</div>
+<div class="league-item">
+<div class="league-bar-fac" style="background:#b8342f"></div>
+<div class="league-main">
+<div class="league-title"><span class="rank">5.</span> <span class="fac-chip" style="background:#b8342f">Skellige</span> <strong><a href="balicek-2f9f2faa.html">R5-empiricka</a></strong></div>
+<div class="league-bar"><span style="width:44%"></span></div>
+<div class="league-sub">WR 0,375 · 15/40 výher ·
+CI [0.24–0.53] · doma 0,708 <span class="bad">▼ +0.333</span></div>
+</div>
+</div>
+<div class="league-item">
+<div class="league-bar-fac" style="background:#c89b3c"></div>
+<div class="league-main">
+<div class="league-title"><span class="rank">6.</span> <span class="fac-chip" style="background:#c89b3c">Severní království</span> <strong><a href="balicek-6633a66b.html">A-max-síla</a></strong></div>
+<div class="league-bar"><span style="width:26%"></span></div>
+<div class="league-sub">WR 0,225 · 9/40 výher ·
+CI [0.12–0.38] · doma 0,700 <span class="bad">▼ +0.475</span></div>
+</div>
+</div>
+</div>
+<div class="panel" style="overflow-x:auto">
+<table class="mtx">
+<thead><tr><th></th><th style="text-align:center"><span class="fac-chip" style="background:#4e7a3f">Scoia'tael</span><br><span style="color:var(--muted)">T4-Dol-Blathanna</span></th><th style="text-align:center"><span class="fac-chip" style="background:#7a2fa0">Monstra</span><br><span style="color:var(--muted)">S-specialky</span></th><th style="text-align:center"><span class="fac-chip" style="background:#3f6296">Nilfgaard</span><br><span style="color:var(--muted)">N1-pouto</span></th><th style="text-align:center"><span class="fac-chip" style="background:#a8834b">Zaklínači</span><br><span style="color:var(--muted)">F-Zmije</span></th><th style="text-align:center"><span class="fac-chip" style="background:#b8342f">Skellige</span><br><span style="color:var(--muted)">R5-empiricka</span></th><th style="text-align:center"><span class="fac-chip" style="background:#c89b3c">Severní království</span><br><span style="color:var(--muted)">A-max-síla</span></th></tr></thead>
+<tbody><tr><td class="rowhead"><span class="fac-chip" style="background:#4e7a3f">Scoia'tael</span> T4-Dol-Blathanna</td><td class="self"></td><td class="mtx-cell " title="ST-T4-Dol-Blathanna × MO-S-specialky"><span class="dot" style="background:#7a2fa0"></span>2/4</td><td class="mtx-cell wr-good" title="ST-T4-Dol-Blathanna × NG-N1-pouto"><span class="dot" style="background:#3f6296"></span>4/4</td><td class="mtx-cell wr-good" title="ST-T4-Dol-Blathanna × ZA-F-Zmije"><span class="dot" style="background:#a8834b"></span>4/4</td><td class="mtx-cell wr-good" title="ST-T4-Dol-Blathanna × SO-R5-empiricka"><span class="dot" style="background:#b8342f"></span>4/4</td><td class="mtx-cell wr-good" title="ST-T4-Dol-Blathanna × SK-A-max-síla"><span class="dot" style="background:#c89b3c"></span>4/4</td></tr><tr><td class="rowhead"><span class="fac-chip" style="background:#7a2fa0">Monstra</span> S-specialky</td><td class="mtx-cell " title="MO-S-specialky × ST-T4-Dol-Blathanna"><span class="dot" style="background:#4e7a3f"></span>2/4</td><td class="self"></td><td class="mtx-cell " title="MO-S-specialky × NG-N1-pouto"><span class="dot" style="background:#3f6296"></span>2/4</td><td class="mtx-cell wr-good" title="MO-S-specialky × ZA-F-Zmije"><span class="dot" style="background:#a8834b"></span>3/4</td><td class="mtx-cell wr-good" title="MO-S-specialky × SO-R5-empiricka"><span class="dot" style="background:#b8342f"></span>4/4</td><td class="mtx-cell wr-good" title="MO-S-specialky × SK-A-max-síla"><span class="dot" style="background:#c89b3c"></span>3/4</td></tr><tr><td class="rowhead"><span class="fac-chip" style="background:#3f6296">Nilfgaard</span> N1-pouto</td><td class="mtx-cell wr-bad" title="NG-N1-pouto × ST-T4-Dol-Blathanna"><span class="dot" style="background:#4e7a3f"></span>0/4</td><td class="mtx-cell wr-good" title="NG-N1-pouto × MO-S-specialky"><span class="dot" style="background:#7a2fa0"></span>4/4</td><td class="self"></td><td class="mtx-cell wr-good" title="NG-N1-pouto × ZA-F-Zmije"><span class="dot" style="background:#a8834b"></span>4/4</td><td class="mtx-cell wr-good" title="NG-N1-pouto × SO-R5-empiricka"><span class="dot" style="background:#b8342f"></span>4/4</td><td class="mtx-cell wr-good" title="NG-N1-pouto × SK-A-max-síla"><span class="dot" style="background:#c89b3c"></span>3/4</td></tr><tr><td class="rowhead"><span class="fac-chip" style="background:#a8834b">Zaklínači</span> F-Zmije</td><td class="mtx-cell wr-bad" title="ZA-F-Zmije × ST-T4-Dol-Blathanna"><span class="dot" style="background:#4e7a3f"></span>1/4</td><td class="mtx-cell wr-bad" title="ZA-F-Zmije × MO-S-specialky"><span class="dot" style="background:#7a2fa0"></span>1/4</td><td class="mtx-cell wr-good" title="ZA-F-Zmije × NG-N1-pouto"><span class="dot" style="background:#3f6296"></span>3/4</td><td class="self"></td><td class="mtx-cell " title="ZA-F-Zmije × SO-R5-empiricka"><span class="dot" style="background:#b8342f"></span>2/4</td><td class="mtx-cell wr-good" title="ZA-F-Zmije × SK-A-max-síla"><span class="dot" style="background:#c89b3c"></span>3/4</td></tr><tr><td class="rowhead"><span class="fac-chip" style="background:#b8342f">Skellige</span> R5-empiricka</td><td class="mtx-cell wr-bad" title="SO-R5-empiricka × ST-T4-Dol-Blathanna"><span class="dot" style="background:#4e7a3f"></span>1/4</td><td class="mtx-cell wr-bad" title="SO-R5-empiricka × MO-S-specialky"><span class="dot" style="background:#7a2fa0"></span>1/4</td><td class="mtx-cell wr-good" title="SO-R5-empiricka × NG-N1-pouto"><span class="dot" style="background:#3f6296"></span>3/4</td><td class="mtx-cell " title="SO-R5-empiricka × ZA-F-Zmije"><span class="dot" style="background:#a8834b"></span>2/4</td><td class="self"></td><td class="mtx-cell wr-good" title="SO-R5-empiricka × SK-A-max-síla"><span class="dot" style="background:#c89b3c"></span>4/4</td></tr><tr><td class="rowhead"><span class="fac-chip" style="background:#c89b3c">Severní království</span> A-max-síla</td><td class="mtx-cell wr-bad" title="SK-A-max-síla × ST-T4-Dol-Blathanna"><span class="dot" style="background:#4e7a3f"></span>0/4</td><td class="mtx-cell wr-bad" title="SK-A-max-síla × MO-S-specialky"><span class="dot" style="background:#7a2fa0"></span>1/4</td><td class="mtx-cell " title="SK-A-max-síla × NG-N1-pouto"><span class="dot" style="background:#3f6296"></span>2/4</td><td class="mtx-cell wr-bad" title="SK-A-max-síla × ZA-F-Zmije"><span class="dot" style="background:#a8834b"></span>1/4</td><td class="mtx-cell " title="SK-A-max-síla × SO-R5-empiricka"><span class="dot" style="background:#b8342f"></span>2/4</td><td class="self"></td></tr></tbody>
+</table>
+</div>
+<p class="meta">Řádek = šampion, sloupec = soupeř; buňka = výher/všech partií šampiona v řádku
+proti soupeři ve sloupci. Tečka nese barvu soupeře.</p>
+
+
+<h2 id="liga-v2">Liga šampionů v2 — finální kolo (oboustranné)</h2>
+<p>Sestava: 6 vítězů frakčních sampionátů + <strong>SO-X1-boure-mraz</strong> (anti-ST specialista
+postavený na počasí: Skelligská bouře ×2, Mráz ×2, Mlha ×2, Sežehnutí ×2). Každý pár oba směry,
+8 partií na pár, celkem 232 LLM partií (fb 4/err 4 ≈ 3.4 % —
+všechny hry platné). Model: ministral-8b-latest.</p>
+<div class="league-list"><div class="league-item">
+<div class="league-bar-fac" style="background:#4e7a3f"></div>
+<div class="league-main">
+<div class="league-title">🥇 <span class="fac-chip" style="background:#4e7a3f">Scoia'tael</span> <strong><a href="balicek-ac652439.html">T4-Dol-Blathanna</a></strong></div>
+<div class="league-bar"><span style="width:100%"></span></div>
+<div class="league-sub">WR 0,670 · 75/112 výher ·
+CI [0.58–0.75] · doma 0,614 <span class="good">▲ +0.056</span></div>
+</div>
+</div>
+<div class="league-item">
+<div class="league-bar-fac" style="background:#b8342f"></div>
+<div class="league-main">
+<div class="league-title">🥈 <span class="fac-chip" style="background:#b8342f">Skellige</span> <strong><a href="balicek-45649080.html">X1-boure-mraz</a></strong></div>
+<div class="league-bar"><span style="width:100%"></span></div>
+<div class="league-sub">WR 0,667 · 32/48 výher ·
+CI [0.53–0.78] · doma 0,708 <span class="bad">▼ +0.041</span></div>
+</div>
+</div>
+<div class="league-item">
+<div class="league-bar-fac" style="background:#7a2fa0"></div>
+<div class="league-main">
+<div class="league-title">🥉 <span class="fac-chip" style="background:#7a2fa0">Monstra</span> <strong><a href="balicek-194d22eb.html">S-specialky</a></strong></div>
+<div class="league-bar"><span style="width:90%"></span></div>
+<div class="league-sub">WR 0,604 · 29/48 výher ·
+CI [0.46–0.73] · doma 0,688 <span class="bad">▼ +0.084</span></div>
+</div>
+</div>
+<div class="league-item">
+<div class="league-bar-fac" style="background:#3f6296"></div>
+<div class="league-main">
+<div class="league-title"><span class="rank">4.</span> <span class="fac-chip" style="background:#3f6296">Nilfgaard</span> <strong><a href="balicek-55701269.html">N1-pouto</a></strong></div>
+<div class="league-bar"><span style="width:69%"></span></div>
+<div class="league-sub">WR 0,463 · 37/80 výher ·
+CI [0.36–0.57] · doma 0,625 <span class="bad">▼ +0.162</span></div>
+</div>
+</div>
+<div class="league-item">
+<div class="league-bar-fac" style="background:#b8342f"></div>
+<div class="league-main">
+<div class="league-title"><span class="rank">5.</span> <span class="fac-chip" style="background:#b8342f">Skellige</span> <strong><a href="balicek-2f9f2faa.html">R5-empiricka</a></strong></div>
+<div class="league-bar"><span style="width:56%"></span></div>
+<div class="league-sub">WR 0,375 · 18/48 výher ·
+CI [0.25–0.52] · doma 0,708 <span class="bad">▼ +0.333</span></div>
+</div>
+</div>
+<div class="league-item">
+<div class="league-bar-fac" style="background:#a8834b"></div>
+<div class="league-main">
+<div class="league-title"><span class="rank">6.</span> <span class="fac-chip" style="background:#a8834b">Zaklínači</span> <strong><a href="balicek-0a11ed9c.html">F-Zmije</a></strong></div>
+<div class="league-bar"><span style="width:47%"></span></div>
+<div class="league-sub">WR 0,312 · 15/48 výher ·
+CI [0.20–0.45] · doma 0,608 <span class="bad">▼ +0.296</span></div>
+</div>
+</div>
+<div class="league-item">
+<div class="league-bar-fac" style="background:#c89b3c"></div>
+<div class="league-main">
+<div class="league-title"><span class="rank">7.</span> <span class="fac-chip" style="background:#c89b3c">Severní království</span> <strong><a href="balicek-6633a66b.html">A-max-síla</a></strong></div>
+<div class="league-bar"><span style="width:34%"></span></div>
+<div class="league-sub">WR 0,225 · 18/80 výher ·
+CI [0.15–0.33] · doma 0,700 <span class="bad">▼ +0.475</span></div>
+</div>
+</div>
+</div>
+<div class="panel" style="overflow-x:auto">
+<table class="mtx">
+<thead><tr><th></th><th style="text-align:center"><span class="fac-chip" style="background:#4e7a3f">Scoia'tael</span><br><span style="color:var(--muted)">T4-Dol-Blathanna</span></th><th style="text-align:center"><span class="fac-chip" style="background:#b8342f">Skellige</span><br><span style="color:var(--muted)">X1-boure-mraz</span></th><th style="text-align:center"><span class="fac-chip" style="background:#7a2fa0">Monstra</span><br><span style="color:var(--muted)">S-specialky</span></th><th style="text-align:center"><span class="fac-chip" style="background:#3f6296">Nilfgaard</span><br><span style="color:var(--muted)">N1-pouto</span></th><th style="text-align:center"><span class="fac-chip" style="background:#b8342f">Skellige</span><br><span style="color:var(--muted)">R5-empiricka</span></th><th style="text-align:center"><span class="fac-chip" style="background:#a8834b">Zaklínači</span><br><span style="color:var(--muted)">F-Zmije</span></th><th style="text-align:center"><span class="fac-chip" style="background:#c89b3c">Severní království</span><br><span style="color:var(--muted)">A-max-síla</span></th></tr></thead>
+<tbody><tr><td class="rowhead"><span class="fac-chip" style="background:#4e7a3f">Scoia'tael</span> T4-Dol-Blathanna</td><td class="self"></td><td class="mtx-cell wr-bad" title="ST-T4-Dol-Blathanna × SO-X1-boure-mraz"><span class="dot" style="background:#b8342f"></span>1:3</td><td class="mtx-cell wr-good" title="ST-T4-Dol-Blathanna × MO-S-specialky"><span class="dot" style="background:#7a2fa0"></span>3:1</td><td class="mtx-cell wr-good" title="ST-T4-Dol-Blathanna × NG-N1-pouto"><span class="dot" style="background:#3f6296"></span>12:7</td><td class="mtx-cell " title="ST-T4-Dol-Blathanna × SO-R5-empiricka"><span class="dot" style="background:#b8342f"></span>2:2</td><td class="mtx-cell wr-good" title="ST-T4-Dol-Blathanna × ZA-F-Zmije"><span class="dot" style="background:#a8834b"></span>3:1</td><td class="mtx-cell wr-good" title="ST-T4-Dol-Blathanna × SK-A-max-síla"><span class="dot" style="background:#c89b3c"></span>20:0</td></tr><tr><td class="rowhead"><span class="fac-chip" style="background:#b8342f">Skellige</span> X1-boure-mraz</td><td class="mtx-cell wr-good" title="SO-X1-boure-mraz × ST-T4-Dol-Blathanna"><span class="dot" style="background:#4e7a3f"></span>3:1</td><td class="self"></td><td class="mtx-cell wr-good" title="SO-X1-boure-mraz × MO-S-specialky"><span class="dot" style="background:#7a2fa0"></span>3:1</td><td class="mtx-cell " title="SO-X1-boure-mraz × NG-N1-pouto"><span class="dot" style="background:#3f6296"></span>2:2</td><td class="mtx-cell " title="SO-X1-boure-mraz × SO-R5-empiricka"><span class="dot" style="background:#b8342f"></span>2:2</td><td class="mtx-cell wr-good" title="SO-X1-boure-mraz × ZA-F-Zmije"><span class="dot" style="background:#a8834b"></span>3:1</td><td class="mtx-cell " title="SO-X1-boure-mraz × SK-A-max-síla"><span class="dot" style="background:#c89b3c"></span>2:1</td></tr><tr><td class="rowhead"><span class="fac-chip" style="background:#7a2fa0">Monstra</span> S-specialky</td><td class="mtx-cell wr-good" title="MO-S-specialky × ST-T4-Dol-Blathanna"><span class="dot" style="background:#4e7a3f"></span>3:1</td><td class="mtx-cell wr-bad" title="MO-S-specialky × SO-X1-boure-mraz"><span class="dot" style="background:#b8342f"></span>1:3</td><td class="self"></td><td class="mtx-cell wr-good" title="MO-S-specialky × NG-N1-pouto"><span class="dot" style="background:#3f6296"></span>3:1</td><td class="mtx-cell " title="MO-S-specialky × SO-R5-empiricka"><span class="dot" style="background:#b8342f"></span>2:1</td><td class="mtx-cell wr-good" title="MO-S-specialky × ZA-F-Zmije"><span class="dot" style="background:#a8834b"></span>3:1</td><td class="mtx-cell wr-good" title="MO-S-specialky × SK-A-max-síla"><span class="dot" style="background:#c89b3c"></span>4:0</td></tr><tr><td class="rowhead"><span class="fac-chip" style="background:#3f6296">Nilfgaard</span> N1-pouto</td><td class="mtx-cell " title="NG-N1-pouto × ST-T4-Dol-Blathanna"><span class="dot" style="background:#4e7a3f"></span>10:9</td><td class="mtx-cell " title="NG-N1-pouto × SO-X1-boure-mraz"><span class="dot" style="background:#b8342f"></span>2:2</td><td class="mtx-cell wr-good" title="NG-N1-pouto × MO-S-specialky"><span class="dot" style="background:#7a2fa0"></span>3:1</td><td class="self"></td><td class="mtx-cell wr-bad" title="NG-N1-pouto × SO-R5-empiricka"><span class="dot" style="background:#b8342f"></span>1:2</td><td class="mtx-cell wr-good" title="NG-N1-pouto × ZA-F-Zmije"><span class="dot" style="background:#a8834b"></span>4:0</td><td class="mtx-cell " title="NG-N1-pouto × SK-A-max-síla"><span class="dot" style="background:#c89b3c"></span>2:2</td></tr><tr><td class="rowhead"><span class="fac-chip" style="background:#b8342f">Skellige</span> R5-empiricka</td><td class="mtx-cell wr-bad" title="SO-R5-empiricka × ST-T4-Dol-Blathanna"><span class="dot" style="background:#4e7a3f"></span>1:3</td><td class="mtx-cell wr-bad" title="SO-R5-empiricka × SO-X1-boure-mraz"><span class="dot" style="background:#b8342f"></span>0:3</td><td class="mtx-cell wr-bad" title="SO-R5-empiricka × MO-S-specialky"><span class="dot" style="background:#7a2fa0"></span>0:3</td><td class="mtx-cell " title="SO-R5-empiricka × NG-N1-pouto"><span class="dot" style="background:#3f6296"></span>2:2</td><td class="self"></td><td class="mtx-cell wr-bad" title="SO-R5-empiricka × ZA-F-Zmije"><span class="dot" style="background:#a8834b"></span>0:3</td><td class="mtx-cell wr-good" title="SO-R5-empiricka × SK-A-max-síla"><span class="dot" style="background:#c89b3c"></span>3:1</td></tr><tr><td class="rowhead"><span class="fac-chip" style="background:#a8834b">Zaklínači</span> F-Zmije</td><td class="mtx-cell wr-bad" title="ZA-F-Zmije × ST-T4-Dol-Blathanna"><span class="dot" style="background:#4e7a3f"></span>0:4</td><td class="mtx-cell wr-bad" title="ZA-F-Zmije × SO-X1-boure-mraz"><span class="dot" style="background:#b8342f"></span>1:3</td><td class="mtx-cell wr-bad" title="ZA-F-Zmije × MO-S-specialky"><span class="dot" style="background:#7a2fa0"></span>1:3</td><td class="mtx-cell " title="ZA-F-Zmije × NG-N1-pouto"><span class="dot" style="background:#3f6296"></span>2:2</td><td class="mtx-cell wr-bad" title="ZA-F-Zmije × SO-R5-empiricka"><span class="dot" style="background:#b8342f"></span>1:3</td><td class="self"></td><td class="mtx-cell " title="ZA-F-Zmije × SK-A-max-síla"><span class="dot" style="background:#c89b3c"></span>2:2</td></tr><tr><td class="rowhead"><span class="fac-chip" style="background:#c89b3c">Severní království</span> A-max-síla</td><td class="mtx-cell wr-bad" title="SK-A-max-síla × ST-T4-Dol-Blathanna"><span class="dot" style="background:#4e7a3f"></span>4:16</td><td class="mtx-cell wr-bad" title="SK-A-max-síla × SO-X1-boure-mraz"><span class="dot" style="background:#b8342f"></span>1:3</td><td class="mtx-cell wr-bad" title="SK-A-max-síla × MO-S-specialky"><span class="dot" style="background:#7a2fa0"></span>0:4</td><td class="mtx-cell wr-good" title="SK-A-max-síla × NG-N1-pouto"><span class="dot" style="background:#3f6296"></span>3:1</td><td class="mtx-cell " title="SK-A-max-síla × SO-R5-empiricka"><span class="dot" style="background:#b8342f"></span>2:2</td><td class="mtx-cell " title="SK-A-max-síla × ZA-F-Zmije"><span class="dot" style="background:#a8834b"></span>2:2</td><td class="self"></td></tr></tbody>
+</table>
+</div>
+<p class="meta">Řádek = balíček, sloupec = soupeř; buňka = výhry:prohry balíčku v řádku z jeho
+vlastních partií proti danému soupeři (každý pár hrál 8 partií rozdělených na obě perspektivy,
+tedy každý směr 4). Remízy vynechány. Tečka nese barvu soupeře. ST-T4 a SO-X1 jsou na špičce
+statisticky nerozlišitelné (CI se překrývají), ale SO-X1 je jediný deck bez negativního matchupu.</p>
+
+<h2 id="anti-sox1">Hledání přemožitele SO-X1-boure-mraz</h2>
+<p>8 anti-kandidátů z různých frakcí (pouto/demotivace, bomby+rudá mlha, imunita,
+specialky+Rozbřesk, Meve) hrálo proti SO-X1-boure-mraz vždy 8 LLM partií.
+Kolo v1 = před fixem Rozbřesku, kolo v2 = po opravě (LLM hráč vidí efektivní síly
+po počasí, pozná, které řady ho počasí drtí, a dostal vysvětlení pravidel počasí
+v protokolu).</p><h3>Kolo v1 — před fixem (8 partií na kandidáta)</h3>
+<table>
+<thead><tr><th>Frakce</th><th>Kandidát</th><th class="num">V</th><th class="num">P</th>
+<th class="num">R</th><th class="num">WR</th></tr></thead>
+<tbody><tr>
+<td><span class="fac-chip" style="background:#7a2fa0">Monstra</span></td>
+<td><strong>MO-Y2-specialky-clear</strong></td>
+<td class="num">4</td><td class="num">4</td><td class="num">0</td>
+<td class="wr ">0,500</td>
+</tr><tr>
+<td><span class="fac-chip" style="background:#a8834b">Zaklínači</span></td>
+<td><strong>ZA-Y1-bomby-rudamlha</strong></td>
+<td class="num">4</td><td class="num">4</td><td class="num">0</td>
+<td class="wr ">0,500</td>
+</tr><tr>
+<td><span class="fac-chip" style="background:#7a2fa0">Monstra</span></td>
+<td><strong>MO-Y1-imunita-max</strong></td>
+<td class="num">3</td><td class="num">5</td><td class="num">0</td>
+<td class="wr wr-bad">0,375</td>
+</tr><tr>
+<td><span class="fac-chip" style="background:#3f6296">Nilfgaard</span></td>
+<td><strong>NG-Y1-pouto-demotivace</strong></td>
+<td class="num">3</td><td class="num">5</td><td class="num">0</td>
+<td class="wr wr-bad">0,375</td>
+</tr><tr>
+<td><span class="fac-chip" style="background:#3f6296">Nilfgaard</span></td>
+<td><strong>NG-Y3-demotivace-max</strong></td>
+<td class="num">2</td><td class="num">6</td><td class="num">0</td>
+<td class="wr wr-bad">0,250</td>
+</tr><tr>
+<td><span class="fac-chip" style="background:#c89b3c">Severní království</span></td>
+<td><strong>SK-Y1-meve-pouto</strong></td>
+<td class="num">1</td><td class="num">7</td><td class="num">0</td>
+<td class="wr wr-bad">0,125</td>
+</tr><tr>
+<td><span class="fac-chip" style="background:#a8834b">Zaklínači</span></td>
+<td><strong>ZA-Y2-zmije-bomby</strong></td>
+<td class="num">1</td><td class="num">7</td><td class="num">0</td>
+<td class="wr wr-bad">0,125</td>
+</tr><tr>
+<td><span class="fac-chip" style="background:#3f6296">Nilfgaard</span></td>
+<td><strong>NG-Y2-pouto-clear</strong></td>
+<td class="num">0</td><td class="num">7</td><td class="num">1</td>
+<td class="wr wr-bad">0,000</td>
+</tr></tbody>
+</table><h3>Kolo v2 — po Rozbřesk fixu (8 partií na kandidáta)</h3>
+<table>
+<thead><tr><th>Frakce</th><th>Kandidát</th><th class="num">V</th><th class="num">P</th>
+<th class="num">R</th><th class="num">WR</th></tr></thead>
+<tbody><tr>
+<td><span class="fac-chip" style="background:#7a2fa0">Monstra</span></td>
+<td><strong>MO-Y2-specialky-clear</strong></td>
+<td class="num">5</td><td class="num">3</td><td class="num">0</td>
+<td class="wr wr-good">0,625</td>
+</tr><tr>
+<td><span class="fac-chip" style="background:#3f6296">Nilfgaard</span></td>
+<td><strong>NG-Y1-pouto-demotivace</strong></td>
+<td class="num">4</td><td class="num">4</td><td class="num">0</td>
+<td class="wr ">0,500</td>
+</tr><tr>
+<td><span class="fac-chip" style="background:#7a2fa0">Monstra</span></td>
+<td><strong>MO-Y1-imunita-max</strong></td>
+<td class="num">3</td><td class="num">4</td><td class="num">1</td>
+<td class="wr wr-bad">0,375</td>
+</tr><tr>
+<td><span class="fac-chip" style="background:#a8834b">Zaklínači</span></td>
+<td><strong>ZA-Y1-bomby-rudamlha</strong></td>
+<td class="num">3</td><td class="num">5</td><td class="num">0</td>
+<td class="wr wr-bad">0,375</td>
+</tr><tr>
+<td><span class="fac-chip" style="background:#3f6296">Nilfgaard</span></td>
+<td><strong>NG-Y2-pouto-clear</strong></td>
+<td class="num">2</td><td class="num">6</td><td class="num">0</td>
+<td class="wr wr-bad">0,250</td>
+</tr><tr>
+<td><span class="fac-chip" style="background:#3f6296">Nilfgaard</span></td>
+<td><strong>NG-Y3-demotivace-max</strong></td>
+<td class="num">2</td><td class="num">6</td><td class="num">0</td>
+<td class="wr wr-bad">0,250</td>
+</tr><tr>
+<td><span class="fac-chip" style="background:#c89b3c">Severní království</span></td>
+<td><strong>SK-Y1-meve-pouto</strong></td>
+<td class="num">1</td><td class="num">7</td><td class="num">0</td>
+<td class="wr wr-bad">0,125</td>
+</tr><tr>
+<td><span class="fac-chip" style="background:#a8834b">Zaklínači</span></td>
+<td><strong>ZA-Y2-zmije-bomby</strong></td>
+<td class="num">1</td><td class="num">7</td><td class="num">0</td>
+<td class="wr wr-bad">0,125</td>
+</tr></tbody>
+</table>
+<div class="panel">
+<p><strong>Verdikt:</strong> přemožitel SO-X1-boure-mraz v měřeném poli <strong>neexistuje</strong>.
+Nejlepší kandidát (MO-Y2-specialky-clear, tedy šampion MO + Rozbřesk ×2) se po fixu drží na
+0,625, ale žádný anti-koncept SO-X1 statisticky průkazně nepřekonal. Proti SO-X1 zůstávají
+nejlepší volby <strong>NG-N1-pouto</strong> (4:4 v lize v2) a <strong>MO-Y2-specialky-clear</strong>.</p>
+</div>
 <h2>Žebříčky a vzájemné zápasy</h2>
 
 <h2 id="fac-SO"><span class="fac-chip" style="background:#b8342f">Skellige</span></h2>
