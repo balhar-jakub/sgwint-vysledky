@@ -98,7 +98,8 @@ td.rowhead { white-space:nowrap; }
 
 <h1>Karty SG Gwintu v2.2</h1>
 <p>Kompletní databáze karet, kterou používá turnajový engine — 251 karet
-a 30 velitelů, řazeno po frakcích. Síla je základní hodnota jednotky,
+a 30 velitelů, řazeno po frakcích, v každé frakci abecedně (české
+řazení, „ch“ za „h“). Síla je základní hodnota jednotky,
 Ks = počet kusů na listu, u karet <span class="badge">ze záloh</span> počet kusů,
 které vynáší schopnost nosiče (samotné na list nepatří). ⚠ = řada neověřená.</p>
 <p class="meta">Hledání filtruje tabulky (jméno karty, schopnost, vlastnost). Zdroj dat:
@@ -133,93 +134,29 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <table>
 <thead><tr><th>Karta</th><th class="num">Síla</th><th class="num">Ks</th><th>Řady</th><th>Vlastnosti</th><th>Schopnost</th></tr></thead>
 <tbody><tr>
-<td>Hemdall</td>
-<td class="num">11</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">štít</span> <span class="badge">ze záloh</span></td>
-<td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Olaf</td>
-<td class="num">11</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td></td>
-<td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Svalblod</td>
-<td class="num">11</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span></td>
-<td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Vildkaarl – Sval. šampion</td>
-<td class="num">10</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">ze záloh</span> <span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
-</tr><tr>
-<td>Hjalmar an Craite</td>
-<td class="num">7</td>
-<td class="num">1</td>
-
-<td>střední, obléhací</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
-</tr><tr>
-<td>Zuřivý medvěd 1</td>
-<td class="num">7</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">ze záloh</span> <span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
-</tr><tr>
-<td>Zuřivý medvěd 2</td>
-<td class="num">7</td>
+<td>Artis</td>
+<td class="num">4</td>
 <td class="num">1</td>
 
 <td>střední</td>
-<td><span class="badge">ze záloh</span> <span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span></td>
+<td>Vytáhni ze svého balíčku nebo z pohřebiště kartu Mardroeme a vynes ji.</td>
 </tr><tr>
-<td>Zuřivý medvěd 3</td>
-<td class="num">7</td>
+<td>Bylinkářka klanu Heymaey</td>
+<td class="num">1</td>
 <td class="num">1</td>
 
 <td>obléhací</td>
-<td><span class="badge">ze záloh</span> <span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+<td><span class="badge">léčitel</span></td>
+<td>Léčitel: Vyber si jednotku ze svého pohřebiště a vynes ji.</td>
 </tr><tr>
-<td>Svalblodova ohavnost 1</td>
-<td class="num">6</td>
-<td class="num">3</td>
-
-<td>obléhací</td>
-<td><span class="badge">ze záloh</span> <span class="badge">pevné pouto</span></td>
-<td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
-</tr><tr>
-<td>Svalblodův kněz</td>
-<td class="num">6</td>
+<td>Cerys an Craite</td>
 <td class="num">1</td>
-
-<td>přední, střední, obléhací</td>
-<td><span class="badge">proměna</span></td>
-<td>Aktivuj schopnost Proměna u vynesené jednotky na své straně bojiště.</td>
-</tr><tr>
-<td>Vildkaarl</td>
-<td class="num">6</td>
 <td class="num">1</td>
 
 <td>přední</td>
-<td><span class="badge">proměna</span></td>
-<td>Proměna: Při aktivaci vynes ze záloh kartu Vildkaarl - Svalblodův šampion. Poté tuto kartu odstraň ze hry.</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
+<td>Specializace: Vytáhni z balíčku a z pohřebiště (ne z ruky) všechny karty (3) Štítonoška klanu Drummond, poté balíček zamíchej.</td>
 </tr><tr>
 <td>Donar</td>
 <td class="num">5</td>
@@ -229,37 +166,45 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">povzbuzení</span></td>
 <td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
 </tr><tr>
-<td>Lytta Neyd</td>
-<td class="num">5</td>
+<td>Draig Bon-Dhu</td>
+<td class="num">2</td>
 <td class="num">1</td>
 
 <td>obléhací</td>
-<td><span class="badge">specializace</span></td>
-<td>Specializace: Nejsilnější karta z pohřebiště na vrch vlastního balíčku.</td>
+<td></td>
+<td>Mahakamský ležák: Do konce kola zdvojnásobí sílu všech jednotek v dané řadě.</td>
 </tr><tr>
-<td>Válečník klanu an Craite 1</td>
-<td class="num">5</td>
-<td class="num">3</td>
+<td>Freyina uctívačka</td>
+<td class="num">1</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">léčitel</span></td>
+<td>Léčitel: Vyber si jednotku ze svého pohřebiště a vynes ji.</td>
+</tr><tr>
+<td>Hemdall</td>
+<td class="num">11</td>
+<td class="num">1</td>
 
 <td>přední</td>
 <td><span class="badge">štít</span> <span class="badge">ze záloh</span></td>
 <td><span class="meta">bez textu</span></td>
 </tr><tr>
-<td>Šermíř klanu an Craite 1</td>
-<td class="num">5</td>
-<td class="num">2</td>
-
-<td>přední</td>
-<td><span class="badge">pevné pouto</span></td>
-<td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
-</tr><tr>
-<td>Artis</td>
-<td class="num">4</td>
+<td>Hjalmar an Craite</td>
+<td class="num">7</td>
 <td class="num">1</td>
 
-<td>střední</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span></td>
-<td>Vytáhni ze svého balíčku nebo z pohřebiště kartu Mardroeme a vynes ji.</td>
+<td>střední, obléhací</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">povzbuzení</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+</tr><tr>
+<td>Kambi</td>
+<td class="num">0</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">ochránce</span></td>
+<td>Ochránce: Při zničení této karty (i koncem kola) vynes ze záloh kartu Hemdall. Tuto kartu nelze z pohřebiště vrátit do hry.</td>
 </tr><tr>
 <td>Kovář</td>
 <td class="num">4</td>
@@ -277,6 +222,14 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">pevné pouto</span></td>
 <td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
 </tr><tr>
+<td>Lytta Neyd</td>
+<td class="num">5</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">specializace</span></td>
+<td>Specializace: Nejsilnější karta z pohřebiště na vrch vlastního balíčku.</td>
+</tr><tr>
 <td>Mladý berserk 1</td>
 <td class="num">4</td>
 <td class="num">3</td>
@@ -284,38 +237,6 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td>přední, střední, obléhací</td>
 <td><span class="badge">proměna</span></td>
 <td>Proměna: Při aktivaci vynes ze záloh kartu Zuřivý medvěd. Poté tuto kartu odstraň ze hry.</td>
-</tr><tr>
-<td>Skald klanu Heymaey</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">výměna</span></td>
-<td>Výměna: Lízní si kartu, poté odhoď 1 kartu z ruky do pohřebiště.</td>
-</tr><tr>
-<td>Svalblodův fanatik 1</td>
-<td class="num">4</td>
-<td class="num">3</td>
-
-<td>obléhací</td>
-<td><span class="badge">proměna</span></td>
-<td>Proměna: Při aktivaci vynes ze záloh kartu Svalblodova ohavnost. Poté tuto kartu odstraň ze hry.</td>
-</tr><tr>
-<td>Válečník klanu an Craite 2</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">štít</span> <span class="badge">ze záloh</span></td>
-<td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Zbrojíř</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">výměna</span></td>
-<td>Výměna: Lízní si kartu, poté odhoď 1 kartu z ruky do pohřebiště.</td>
 </tr><tr>
 <td>Myšilov</td>
 <td class="num">3</td>
@@ -325,37 +246,29 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">léčitel</span></td>
 <td>Léčitel: Vyber si jednotku ze svého pohřebiště a vynes ji.</td>
 </tr><tr>
-<td>Válečník klanu an Craite 3</td>
-<td class="num">3</td>
+<td>Olaf</td>
+<td class="num">11</td>
 <td class="num">1</td>
 
-<td>obléhací</td>
-<td><span class="badge">štít</span> <span class="badge">ze záloh</span></td>
+<td>přední</td>
+<td></td>
 <td><span class="meta">bez textu</span></td>
 </tr><tr>
-<td>Válečný drakkar 1</td>
-<td class="num">3</td>
-<td class="num">3</td>
-
-<td>střední, obléhací</td>
-<td><span class="badge">nástup</span></td>
-<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Válečný drakkar, poté balíček zamíchej.</td>
-</tr><tr>
-<td>Draig Bon-Dhu</td>
+<td>Šermíř klanu an Craite 1</td>
+<td class="num">5</td>
 <td class="num">2</td>
+
+<td>přední</td>
+<td><span class="badge">pevné pouto</span></td>
+<td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
+</tr><tr>
+<td>Skald klanu Heymaey</td>
+<td class="num">4</td>
 <td class="num">1</td>
 
-<td>obléhací</td>
-<td></td>
-<td>Mahakamský ležák: Do konce kola zdvojnásobí sílu všech jednotek v dané řadě.</td>
-</tr><tr>
-<td>Zkažená flaminika</td>
-<td class="num">2</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">specializace</span></td>
-<td>Specializace: Znič nejslabší vlastní jednotku, vynes nejsilnější jinou z pohřebiště.</td>
+<td>střední</td>
+<td><span class="badge">výměna</span></td>
+<td>Výměna: Lízní si kartu, poté odhoď 1 kartu z ruky do pohřebiště.</td>
 </tr><tr>
 <td>Štítonoška klanu Dr. 1</td>
 <td class="num">2</td>
@@ -381,37 +294,125 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">povzbuzení</span> <span class="badge">specializace</span></td>
 <td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě. Specializace: Tuto kartu vynáší Cerys an Craite.</td>
 </tr><tr>
-<td>Bylinkářka klanu Heymaey</td>
-<td class="num">1</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">léčitel</span></td>
-<td>Léčitel: Vyber si jednotku ze svého pohřebiště a vynes ji.</td>
-</tr><tr>
-<td>Cerys an Craite</td>
-<td class="num">1</td>
+<td>Svalblod</td>
+<td class="num">11</td>
 <td class="num">1</td>
 
 <td>přední</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
-<td>Specializace: Vytáhni z balíčku a z pohřebiště (ne z ruky) všechny karty (3) Štítonoška klanu Drummond, poté balíček zamíchej.</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span></td>
+<td><span class="meta">bez textu</span></td>
 </tr><tr>
-<td>Freyina uctívačka</td>
+<td>Svalblodova ohavnost 1</td>
+<td class="num">6</td>
+<td class="num">3</td>
+
+<td>obléhací</td>
+<td><span class="badge">ze záloh</span> <span class="badge">pevné pouto</span></td>
+<td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
+</tr><tr>
+<td>Svalblodův fanatik 1</td>
+<td class="num">4</td>
+<td class="num">3</td>
+
+<td>obléhací</td>
+<td><span class="badge">proměna</span></td>
+<td>Proměna: Při aktivaci vynes ze záloh kartu Svalblodova ohavnost. Poté tuto kartu odstraň ze hry.</td>
+</tr><tr>
+<td>Svalblodův kněz</td>
+<td class="num">6</td>
 <td class="num">1</td>
+
+<td>přední, střední, obléhací</td>
+<td><span class="badge">proměna</span></td>
+<td>Aktivuj schopnost Proměna u vynesené jednotky na své straně bojiště.</td>
+</tr><tr>
+<td>Válečník klanu an Craite 1</td>
+<td class="num">5</td>
+<td class="num">3</td>
+
+<td>přední</td>
+<td><span class="badge">štít</span> <span class="badge">ze záloh</span></td>
+<td><span class="meta">bez textu</span></td>
+</tr><tr>
+<td>Válečník klanu an Craite 2</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">štít</span> <span class="badge">ze záloh</span></td>
+<td><span class="meta">bez textu</span></td>
+</tr><tr>
+<td>Válečník klanu an Craite 3</td>
+<td class="num">3</td>
 <td class="num">1</td>
 
 <td>obléhací</td>
-<td><span class="badge">léčitel</span></td>
-<td>Léčitel: Vyber si jednotku ze svého pohřebiště a vynes ji.</td>
+<td><span class="badge">štít</span> <span class="badge">ze záloh</span></td>
+<td><span class="meta">bez textu</span></td>
 </tr><tr>
-<td>Kambi</td>
-<td class="num">0</td>
+<td>Válečný drakkar 1</td>
+<td class="num">3</td>
+<td class="num">3</td>
+
+<td>střední, obléhací</td>
+<td><span class="badge">nástup</span></td>
+<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Válečný drakkar, poté balíček zamíchej.</td>
+</tr><tr>
+<td>Vildkaarl</td>
+<td class="num">6</td>
 <td class="num">1</td>
 
 <td>přední</td>
-<td><span class="badge">ochránce</span></td>
-<td>Ochránce: Při zničení této karty (i koncem kola) vynes ze záloh kartu Hemdall. Tuto kartu nelze z pohřebiště vrátit do hry.</td>
+<td><span class="badge">proměna</span></td>
+<td>Proměna: Při aktivaci vynes ze záloh kartu Vildkaarl - Svalblodův šampion. Poté tuto kartu odstraň ze hry.</td>
+</tr><tr>
+<td>Vildkaarl – Sval. šampion</td>
+<td class="num">10</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">ze záloh</span> <span class="badge">povzbuzení</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+</tr><tr>
+<td>Zbrojíř</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">výměna</span></td>
+<td>Výměna: Lízní si kartu, poté odhoď 1 kartu z ruky do pohřebiště.</td>
+</tr><tr>
+<td>Zkažená flaminika</td>
+<td class="num">2</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">specializace</span></td>
+<td>Specializace: Znič nejslabší vlastní jednotku, vynes nejsilnější jinou z pohřebiště.</td>
+</tr><tr>
+<td>Zuřivý medvěd 1</td>
+<td class="num">7</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">ze záloh</span> <span class="badge">povzbuzení</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+</tr><tr>
+<td>Zuřivý medvěd 2</td>
+<td class="num">7</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">ze záloh</span> <span class="badge">povzbuzení</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+</tr><tr>
+<td>Zuřivý medvěd 3</td>
+<td class="num">7</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">ze záloh</span> <span class="badge">povzbuzení</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
 </tr></tbody>
 </table>
 
@@ -465,93 +466,13 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <table>
 <thead><tr><th>Karta</th><th class="num">Síla</th><th class="num">Ks</th><th>Řady</th><th>Vlastnosti</th><th>Schopnost</th></tr></thead>
 <tbody><tr>
-<td>Princezna Adda</td>
-<td class="num">11</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">štít</span> <span class="badge">specializace</span></td>
-<td>Specializace: Znič nejslabší jednotku na své straně bojiště. Pokud jsi žádnou nezničil, pošli tuto kartu do pohřebiště.</td>
-</tr><tr>
-<td>Kaedwenský zmrtvýchvstalý</td>
-<td class="num">7</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td></td>
-<td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Kerackská fregata</td>
-<td class="num">7</td>
-<td class="num">—</td>
+<td>Balista 1</td>
+<td class="num">2</td>
+<td class="num">2</td>
 
 <td>obléhací</td>
 <td><span class="badge">ze záloh</span></td>
 <td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Trebuchet 1</td>
-<td class="num">7</td>
-<td class="num">2</td>
-
-<td>obléhací</td>
-<td></td>
-<td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Vernon Roche</td>
-<td class="num">7</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
-</tr><tr>
-<td>Ves</td>
-<td class="num">7</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td></td>
-<td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Foltestova pýcha 1</td>
-<td class="num">6</td>
-<td class="num">2</td>
-
-<td>obléhací</td>
-<td><span class="badge">pevné pouto</span></td>
-<td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
-</tr><tr>
-<td>Princ Stennis</td>
-<td class="num">6</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">štít</span> <span class="badge">špeh</span></td>
-<td>Špeh: Kartu můžeš vynést na soupeřovu stranu a líznout si tak 1 kartu ze svého balíčku.</td>
-</tr><tr>
-<td>Phillipa Eilhart</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">zesílení</span></td>
-<td>Zesílení: Vynes ze záloh 2 karty Zesílení (3) a vlož je pod jiné vlastní jednotky (ať je síla vidět). (pozn. nepočítá se pro Pevné pouto)</td>
-</tr><tr>
-<td>Talar</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">špeh</span></td>
-<td>Špeh: Kartu můžeš vynést na soupeřovu stranu a líznout si tak 1 kartu ze svého balíčku.</td>
-</tr><tr>
-<td>Temerský bubeník</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
 </tr><tr>
 <td>Dethmold</td>
 <td class="num">4</td>
@@ -561,6 +482,62 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">zesílení</span></td>
 <td>Zesílení: Vynes ze záloh kartu Zesílení (3) a vlož ji pod jinou svou jednotku (ať je síla vidět). (pozn. nepočítá se pro Pevné pouto)</td>
 </tr><tr>
+<td>Foltestova pýcha 1</td>
+<td class="num">6</td>
+<td class="num">2</td>
+
+<td>obléhací</td>
+<td><span class="badge">pevné pouto</span></td>
+<td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
+</tr><tr>
+<td>Jan Natalis</td>
+<td class="num">1</td>
+<td class="num">2</td>
+
+<td>přední</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">nástup</span></td>
+<td>Nástup: Vytáhni ze záloh všechny karty (3) Ubohá zasraná pěchota.</td>
+</tr><tr>
+<td>Kaedwenský mistr-ženista</td>
+<td class="num">0</td>
+<td class="num">2</td>
+
+<td>obléhací</td>
+<td><span class="badge">nástup</span> <span class="badge">povzbuzení</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě. Nástup: Vytáhni ze záloh všechny karty (2) Balista.</td>
+</tr><tr>
+<td>Kaedwenský seržant 1</td>
+<td class="num">1</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">štít</span> <span class="badge">ze záloh</span> <span class="badge">povzbuzení</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+</tr><tr>
+<td>Kaedwenský seržant 2</td>
+<td class="num">2</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">štít</span> <span class="badge">ze záloh</span> <span class="badge">povzbuzení</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+</tr><tr>
+<td>Kaedwenský seržant 3</td>
+<td class="num">3</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">štít</span> <span class="badge">ze záloh</span> <span class="badge">povzbuzení</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+</tr><tr>
+<td>Kaedwenský zmrtvýchvstalý</td>
+<td class="num">7</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td></td>
+<td><span class="meta">bez textu</span></td>
+</tr><tr>
 <td>Keira Metz</td>
 <td class="num">4</td>
 <td class="num">4</td>
@@ -568,6 +545,14 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td>obléhací</td>
 <td><span class="badge">zesílení</span></td>
 <td>Zesílení: Vynes ze záloh kartu Zesílení (3) a vlož ji pod jinou svou jednotku (ať je síla vidět). (pozn. nepočítá se pro Pevné pouto)</td>
+</tr><tr>
+<td>Kerackská fregata</td>
+<td class="num">7</td>
+<td class="num">—</td>
+
+<td>obléhací</td>
+<td><span class="badge">ze záloh</span></td>
+<td><span class="meta">bez textu</span></td>
 </tr><tr>
 <td>Komando Mod. pruhů 1</td>
 <td class="num">4</td>
@@ -593,6 +578,46 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td></td>
 <td>Pokud má být zničena jedna nebo více jednotek v této řadě, znič namísto toho tuto kartu (bez výjimky, tedy i v případě cíleného ničení).</td>
 </tr><tr>
+<td>Odrin</td>
+<td class="num">0</td>
+<td class="num">1</td>
+
+<td>přední, střední, obléhací</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span></td>
+<td>Mahakamský ležák: Do konce kola zdvojnásobí sílu všech jednotek v dané řadě.</td>
+</tr><tr>
+<td>Phillipa Eilhart</td>
+<td class="num">5</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">zesílení</span></td>
+<td>Zesílení: Vynes ze záloh 2 karty Zesílení (3) a vlož je pod jiné vlastní jednotky (ať je síla vidět). (pozn. nepočítá se pro Pevné pouto)</td>
+</tr><tr>
+<td>Polní léčitelka</td>
+<td class="num">2</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">léčitel</span></td>
+<td>Léčitel: Vyber si jednotku ze &#x27;Ž svého pohřebiště a vynes ji</td>
+</tr><tr>
+<td>Princ Stennis</td>
+<td class="num">6</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">štít</span> <span class="badge">špeh</span></td>
+<td>Špeh: Kartu můžeš vynést na soupeřovu stranu a líznout si tak 1 kartu ze svého balíčku.</td>
+</tr><tr>
+<td>Princezna Adda</td>
+<td class="num">11</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">štít</span> <span class="badge">specializace</span></td>
+<td>Specializace: Znič nejslabší jednotku na své straně bojiště. Pokud jsi žádnou nezničil, pošli tuto kartu do pohřebiště.</td>
+</tr><tr>
 <td>Redanská kavalerie 1</td>
 <td class="num">4</td>
 <td class="num">2</td>
@@ -600,6 +625,38 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td>střední, obléhací</td>
 <td><span class="badge">nástup</span></td>
 <td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Redanská kavalerie, poté balíček zamíchej.</td>
+</tr><tr>
+<td>Ronvid Nezdolný</td>
+<td class="num">0</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">ochránce</span></td>
+<td>Ochránce: Při zničení této karty i koncem kola si vyber jednotku ze svého pohřebiště a vynes ji, poté tuto kartu odstraň ze hry.</td>
+</tr><tr>
+<td>Sabrina Glewissig</td>
+<td class="num">3</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">štít</span> <span class="badge">specializace</span></td>
+<td>Specializace: Znič libovolnou jednotku na své straně bojiště, poté si lízni kartu a rovnou ji vynes (jen pokud nějakou zničíš).</td>
+</tr><tr>
+<td>Seltkirk z Gulety</td>
+<td class="num">1</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">specializace</span></td>
+<td>Specializace: Znič soupeřovu libovolnou kartu na bojišti se základní silou 4 nebo menší.</td>
+</tr><tr>
+<td>Shani</td>
+<td class="num">3</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">specializace</span></td>
+<td>Specializace: Vyber si libovolnou kartu (i speciální) ze svého pohřebiště a vynes ji.</td>
 </tr><tr>
 <td>Sheala de Tancarville</td>
 <td class="num">4</td>
@@ -617,77 +674,29 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">špeh</span></td>
 <td>Špeh: Kartu můžeš vynést na soupeřovu stranu a líznout si tak 1 kartu ze svého balíčku.</td>
 </tr><tr>
-<td>Kaedwenský seržant 3</td>
-<td class="num">3</td>
+<td>Talar</td>
+<td class="num">5</td>
 <td class="num">1</td>
 
-<td>přední</td>
-<td><span class="badge">štít</span> <span class="badge">ze záloh</span> <span class="badge">povzbuzení</span></td>
+<td>obléhací</td>
+<td><span class="badge">špeh</span></td>
+<td>Špeh: Kartu můžeš vynést na soupeřovu stranu a líznout si tak 1 kartu ze svého balíčku.</td>
+</tr><tr>
+<td>Temerský bubeník</td>
+<td class="num">5</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">povzbuzení</span></td>
 <td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
 </tr><tr>
-<td>Sabrina Glewissig</td>
-<td class="num">3</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">štít</span> <span class="badge">specializace</span></td>
-<td>Specializace: Znič libovolnou jednotku na své straně bojiště, poté si lízni kartu a rovnou ji vynes (jen pokud nějakou zničíš).</td>
-</tr><tr>
-<td>Shani</td>
-<td class="num">3</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">specializace</span></td>
-<td>Specializace: Vyber si libovolnou kartu (i speciální) ze svého pohřebiště a vynes ji.</td>
-</tr><tr>
-<td>Balista 1</td>
-<td class="num">2</td>
+<td>Trebuchet 1</td>
+<td class="num">7</td>
 <td class="num">2</td>
 
 <td>obléhací</td>
-<td><span class="badge">ze záloh</span></td>
+<td></td>
 <td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Kaedwenský seržant 2</td>
-<td class="num">2</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">štít</span> <span class="badge">ze záloh</span> <span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
-</tr><tr>
-<td>Polní léčitelka</td>
-<td class="num">2</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">léčitel</span></td>
-<td>Léčitel: Vyber si jednotku ze &#x27;Ž svého pohřebiště a vynes ji</td>
-</tr><tr>
-<td>Jan Natalis</td>
-<td class="num">1</td>
-<td class="num">2</td>
-
-<td>přední</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">nástup</span></td>
-<td>Nástup: Vytáhni ze záloh všechny karty (3) Ubohá zasraná pěchota.</td>
-</tr><tr>
-<td>Kaedwenský seržant 1</td>
-<td class="num">1</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">štít</span> <span class="badge">ze záloh</span> <span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
-</tr><tr>
-<td>Seltkirk z Gulety</td>
-<td class="num">1</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">specializace</span></td>
-<td>Specializace: Znič soupeřovu libovolnou kartu na bojišti se základní silou 4 nebo menší.</td>
 </tr><tr>
 <td>Ubohá zasraná pěchota</td>
 <td class="num">1</td>
@@ -697,29 +706,21 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">ze záloh</span> <span class="badge">pevné pouto</span></td>
 <td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svou sílu (síla na kartě x počet karet). Token — vynáší se ze záloh (Jan Natalis).</td>
 </tr><tr>
-<td>Kaedwenský mistr-ženista</td>
-<td class="num">0</td>
-<td class="num">2</td>
-
-<td>obléhací</td>
-<td><span class="badge">nástup</span> <span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě. Nástup: Vytáhni ze záloh všechny karty (2) Balista.</td>
-</tr><tr>
-<td>Odrin</td>
-<td class="num">0</td>
+<td>Vernon Roche</td>
+<td class="num">7</td>
 <td class="num">1</td>
 
-<td>přední, střední, obléhací</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span></td>
-<td>Mahakamský ležák: Do konce kola zdvojnásobí sílu všech jednotek v dané řadě.</td>
+<td>přední</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">povzbuzení</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
 </tr><tr>
-<td>Ronvid Nezdolný</td>
-<td class="num">0</td>
+<td>Ves</td>
+<td class="num">7</td>
 <td class="num">1</td>
 
 <td>střední</td>
-<td><span class="badge">ochránce</span></td>
-<td>Ochránce: Při zničení této karty i koncem kola si vyber jednotku ze svého pohřebiště a vynes ji, poté tuto kartu odstraň ze hry.</td>
+<td></td>
+<td><span class="meta">bez textu</span></td>
 </tr></tbody>
 </table>
 
@@ -773,67 +774,43 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <table>
 <thead><tr><th>Karta</th><th class="num">Síla</th><th class="num">Ks</th><th>Řady</th><th>Vlastnosti</th><th>Schopnost</th></tr></thead>
 <tbody><tr>
-<td>Demotivace 4</td>
-<td class="num">11</td>
-<td class="num">—</td>
-
-<td>přední, střední, obléhací ⚠</td>
-<td><span class="badge">ze záloh</span></td>
-<td>Ubírá 1 bod síly všem jednotkám v řadě. Karta se vynáší do řady a lze ji cílit jako jednotku (zničit, sežrat, přesunout apod.), ale nemá a nemůže mít vlastní sílu. Po zrušení odhoď Demotivaci do pohřebiště.</td>
-</tr><tr>
-<td>Ramon Tyrconnel</td>
-<td class="num">11</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span></td>
-<td>Karta hrdiny. Zlatá, štít.</td>
-</tr><tr>
-<td>Statná Helga</td>
-<td class="num">9</td>
+<td>Albrich</td>
+<td class="num">3</td>
 <td class="num">1</td>
 
 <td>obléhací</td>
-<td><span class="badge">štít</span></td>
-<td>Karta hrdiny. Štít.</td>
+<td><span class="badge">manipulace</span></td>
+<td>Manipulace: Přesuň soupeřovu VN jednotku do jiné řady na jeho straně bojiště.</td>
+</tr><tr>
+<td>Alchymista 1</td>
+<td class="num">1</td>
+<td class="num">2</td>
+
+<td>střední</td>
+<td><span class="badge">léčitel</span></td>
+<td>Léčitel: Vyber si jednotku ze svého pohřebiště a vynes ji.</td>
+</tr><tr>
+<td>Assire var Anahid</td>
+<td class="num">3</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">manipulace</span></td>
+<td>Manipulace: Přesuň soupeřovu VN jednotku do jiné řady na jeho straně bojiště.</td>
+</tr><tr>
+<td>Brigáda Nazair 1</td>
+<td class="num">4</td>
+<td class="num">4</td>
+
+<td>přední</td>
+<td><span class="badge">pevné pouto</span></td>
+<td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
 </tr><tr>
 <td>Cahir M. D. aep C.</td>
 <td class="num">7</td>
 <td class="num">1</td>
 
 <td>přední</td>
-<td></td>
-<td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Prohnilá Mangonela</td>
-<td class="num">7</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td></td>
-<td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Stefan Skellen</td>
-<td class="num">7</td>
-<td class="num">2</td>
-
-<td>přední</td>
-<td><span class="badge">špeh</span></td>
-<td>Špeh: Kartu můžeš vynést na soupeřovu stranu a líznout si tak 1 kartu ze svého balíčku.</td>
-</tr><tr>
-<td>Vreemde</td>
-<td class="num">7</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td></td>
-<td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Zerrikánský škorpion</td>
-<td class="num">7</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
 <td></td>
 <td><span class="meta">bez textu</span></td>
 </tr><tr>
@@ -845,13 +822,29 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">štít</span></td>
 <td>Manipulace/Vytáhni ze záloh: Vytáhni ze záloh kartu Golem a dej ji na vrch soupeřova balíčku.</td>
 </tr><tr>
-<td>Shilard Fitz-Oesterlen</td>
-<td class="num">6</td>
+<td>Demotivace 1</td>
+<td class="num">0</td>
+<td class="num">3</td>
+
+<td>přední, střední, obléhací</td>
+<td><span class="badge">ze záloh</span> <span class="badge">demotivace</span></td>
+<td>Ubírá 1 bod síly všem jednotkám v řadě. Karta se vynáší do řady a lze ji cílit jako jednotku (zničit, sežrat, přesunout apod.), ale nemá a nemůže mít vlastní sílu. Po zrušení odhoď Demotivaci do pohřebiště.</td>
+</tr><tr>
+<td>Demotivace 4</td>
+<td class="num">11</td>
+<td class="num">—</td>
+
+<td>přední, střední, obléhací ⚠</td>
+<td><span class="badge">ze záloh</span></td>
+<td>Ubírá 1 bod síly všem jednotkám v řadě. Karta se vynáší do řady a lze ji cílit jako jednotku (zničit, sežrat, přesunout apod.), ale nemá a nemůže mít vlastní sílu. Po zrušení odhoď Demotivaci do pohřebiště.</td>
+</tr><tr>
+<td>Fringilla Vigo</td>
+<td class="num">3</td>
 <td class="num">1</td>
 
-<td>přední</td>
-<td><span class="badge">špeh</span></td>
-<td>Špeh: Kartu můžeš vynést na soupeřovu stranu a líznout si tak 1 kartu ze svého balíčku.</td>
+<td>střední</td>
+<td><span class="badge">manipulace</span></td>
+<td>Manipulace: Přesuň soupeřovu jednotku do jiné řady na jeho straně bojiště.</td>
 </tr><tr>
 <td>Hnilomet</td>
 <td class="num">5</td>
@@ -860,6 +853,14 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td>obléhací</td>
 <td></td>
 <td>Demotivace: Vynes ze záloh VN kartu Demotivace do protější řady.</td>
+</tr><tr>
+<td>Jízdní brigáda Nauzicaa 1</td>
+<td class="num">4</td>
+<td class="num">3</td>
+
+<td>obléhací</td>
+<td><span class="badge">pevné pouto</span></td>
+<td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
 </tr><tr>
 <td>Lučištník Černé pěchoty 1</td>
 <td class="num">5</td>
@@ -877,6 +878,22 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">léčitel</span></td>
 <td>Léčitel: Vyber si jednotku ze svého pohřebiště a vynes ji.</td>
 </tr><tr>
+<td>Otrokář</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>střední, obléhací</td>
+<td><span class="badge">povzbuzení</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+</tr><tr>
+<td>Prohnilá Mangonela</td>
+<td class="num">7</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td></td>
+<td><span class="meta">bez textu</span></td>
+</tr><tr>
 <td>Rainfarn z Attre</td>
 <td class="num">5</td>
 <td class="num">1</td>
@@ -885,6 +902,62 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td></td>
 <td>Demotivace: Vynes ze záloh VN kartu Demotivace do protější řady.</td>
 </tr><tr>
+<td>Ramon Tyrconnel</td>
+<td class="num">11</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span></td>
+<td>Karta hrdiny. Zlatá, štít.</td>
+</tr><tr>
+<td>Rience</td>
+<td class="num">0</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">štít</span> <span class="badge">specializace</span></td>
+<td>Specializace: Lízni si 2 karty ze soupeřova balíčku. Jednu vynes a druhou odhoď do jeho pohřebiště. Ukradená karta, jež vynáší ze záloh, sahá do záloh nepřítele.</td>
+</tr><tr>
+<td>Shilard Fitz-Oesterlen</td>
+<td class="num">6</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">špeh</span></td>
+<td>Špeh: Kartu můžeš vynést na soupeřovu stranu a líznout si tak 1 kartu ze svého balíčku.</td>
+</tr><tr>
+<td>Statná Helga</td>
+<td class="num">9</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">štít</span></td>
+<td>Karta hrdiny. Štít.</td>
+</tr><tr>
+<td>Stefan Skellen</td>
+<td class="num">7</td>
+<td class="num">2</td>
+
+<td>přední</td>
+<td><span class="badge">špeh</span></td>
+<td>Špeh: Kartu můžeš vynést na soupeřovu stranu a líznout si tak 1 kartu ze svého balíčku.</td>
+</tr><tr>
+<td>Sweers</td>
+<td class="num">1</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">štít</span> <span class="badge">specializace</span></td>
+<td>Specializace: Přesuň soupeřovu jednotku o základní síle 4 či méně na svou protější stranu. Ukradená karta, jež vynáší ze záloh, sahá do záloh nepřítele.</td>
+</tr><tr>
+<td>Tibor Eggebracht</td>
+<td class="num">2</td>
+<td class="num">2</td>
+
+<td>přední, střední, obléhací</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
+<td>Specializace: Vyber si kartu se schopností pevné pouto ze svého balíčku a vynes ji, poté balíček zamíchej.</td>
+</tr><tr>
 <td>Vanhemar</td>
 <td class="num">5</td>
 <td class="num">1</td>
@@ -892,6 +965,22 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td>střední</td>
 <td></td>
 <td>Demotivace: Vynes ze záloh VN kartu Demotivace do protější řady.</td>
+</tr><tr>
+<td>Vattier de Rideaux</td>
+<td class="num">3</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">specializace</span></td>
+<td>Specializace: Kartu vynes na soupeřovu stranu a lízní si 1 kartu ze soupeřova balíčku.</td>
+</tr><tr>
+<td>Vreemde</td>
+<td class="num">7</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td></td>
+<td><span class="meta">bez textu</span></td>
 </tr><tr>
 <td>Xarthisius</td>
 <td class="num">5</td>
@@ -909,101 +998,13 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">pevné pouto</span></td>
 <td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
 </tr><tr>
-<td>Brigáda Nazair 1</td>
-<td class="num">4</td>
-<td class="num">4</td>
-
-<td>přední</td>
-<td><span class="badge">pevné pouto</span></td>
-<td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
-</tr><tr>
-<td>Jízdní brigáda Nauzicaa 1</td>
-<td class="num">4</td>
-<td class="num">3</td>
-
-<td>obléhací</td>
-<td><span class="badge">pevné pouto</span></td>
-<td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
-</tr><tr>
-<td>Otrokář</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>střední, obléhací</td>
-<td><span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
-</tr><tr>
-<td>Albrich</td>
-<td class="num">3</td>
+<td>Zerrikánský škorpion</td>
+<td class="num">7</td>
 <td class="num">1</td>
 
 <td>obléhací</td>
-<td><span class="badge">manipulace</span></td>
-<td>Manipulace: Přesuň soupeřovu VN jednotku do jiné řady na jeho straně bojiště.</td>
-</tr><tr>
-<td>Assire var Anahid</td>
-<td class="num">3</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">manipulace</span></td>
-<td>Manipulace: Přesuň soupeřovu VN jednotku do jiné řady na jeho straně bojiště.</td>
-</tr><tr>
-<td>Fringilla Vigo</td>
-<td class="num">3</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">manipulace</span></td>
-<td>Manipulace: Přesuň soupeřovu jednotku do jiné řady na jeho straně bojiště.</td>
-</tr><tr>
-<td>Vattier de Rideaux</td>
-<td class="num">3</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">specializace</span></td>
-<td>Specializace: Kartu vynes na soupeřovu stranu a lízní si 1 kartu ze soupeřova balíčku.</td>
-</tr><tr>
-<td>Tibor Eggebracht</td>
-<td class="num">2</td>
-<td class="num">2</td>
-
-<td>přední, střední, obléhací</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
-<td>Specializace: Vyber si kartu se schopností pevné pouto ze svého balíčku a vynes ji, poté balíček zamíchej.</td>
-</tr><tr>
-<td>Alchymista 1</td>
-<td class="num">1</td>
-<td class="num">2</td>
-
-<td>střední</td>
-<td><span class="badge">léčitel</span></td>
-<td>Léčitel: Vyber si jednotku ze svého pohřebiště a vynes ji.</td>
-</tr><tr>
-<td>Sweers</td>
-<td class="num">1</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">štít</span> <span class="badge">specializace</span></td>
-<td>Specializace: Přesuň soupeřovu jednotku o základní síle 4 či méně na svou protější stranu. Ukradená karta, jež vynáší ze záloh, sahá do záloh nepřítele.</td>
-</tr><tr>
-<td>Demotivace 1</td>
-<td class="num">0</td>
-<td class="num">3</td>
-
-<td>přední, střední, obléhací</td>
-<td><span class="badge">ze záloh</span> <span class="badge">demotivace</span></td>
-<td>Ubírá 1 bod síly všem jednotkám v řadě. Karta se vynáší do řady a lze ji cílit jako jednotku (zničit, sežrat, přesunout apod.), ale nemá a nemůže mít vlastní sílu. Po zrušení odhoď Demotivaci do pohřebiště.</td>
-</tr><tr>
-<td>Rience</td>
-<td class="num">0</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">štít</span> <span class="badge">specializace</span></td>
-<td>Specializace: Lízni si 2 karty ze soupeřova balíčku. Jednu vynes a druhou odhoď do jeho pohřebiště. Ukradená karta, jež vynáší ze záloh, sahá do záloh nepřítele.</td>
+<td></td>
+<td><span class="meta">bez textu</span></td>
 </tr></tbody>
 </table>
 
@@ -1057,45 +1058,13 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <table>
 <thead><tr><th>Karta</th><th class="num">Síla</th><th class="num">Ks</th><th>Řady</th><th>Vlastnosti</th><th>Schopnost</th></tr></thead>
 <tbody><tr>
-<td>Saesenthessis</td>
-<td class="num">11</td>
+<td>Aelirenn</td>
 <td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span></td>
-<td>DRAK</td>
-</tr><tr>
-<td>Sheldon Skaggs</td>
-<td class="num">9</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td></td>
-<td>TRPASLÍK</td>
-</tr><tr>
-<td>Isengrim Faoiltiarna</td>
-<td class="num">6</td>
 <td class="num">1</td>
 
 <td>přední, střední, obléhací</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
-</tr><tr>
-<td>Jednotky Dol Blathanna 1</td>
-<td class="num">6</td>
-<td class="num">3</td>
-
-<td>přední, střední, obléhací</td>
-<td></td>
-<td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Yarpen Zigrin</td>
-<td class="num">6</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">houževnatost</span></td>
-<td>TRPASLÍK Houževnatost: Po konci kola zůstává karta (samotná, bez dalších efektů) na bojišti do kola dalšího (pouze jednou).</td>
+<td><span class="badge">povzbuzení</span> <span class="badge">specializace</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě. Specializace: Znič jinou elfskou jednotku v této řadě. Pokud jsi nějakou zničil, lízni si 1 kartu z balíčku a vynes další kartu.</td>
 </tr><tr>
 <td>Barclay Els</td>
 <td class="num">5</td>
@@ -1104,6 +1073,14 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td>obléhací</td>
 <td><span class="badge">přesun</span></td>
 <td>TRPASLÍK Přesun: Můžeš přesunout až 2 jiné jednotky na své straně bojiště do jiné řady (nezávisle na sobě).</td>
+</tr><tr>
+<td>Čarodějka z Dol Blathanna</td>
+<td class="num">1</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">specializace</span></td>
+<td>Specializace: Vytáhni ze svého pohřebiště libovolnou speciální kartu a rovnou ji vynes.</td>
 </tr><tr>
 <td>Ciaran aep Easnillien</td>
 <td class="num">5</td>
@@ -1120,94 +1097,6 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td>obléhací</td>
 <td><span class="badge">houževnatost</span></td>
 <td>TRPASLÍK Houževnatost: Po konci kola zůstává karta (samotná, bez dalších efektů) na bojišti do kola dalšího (pouze jednou).</td>
-</tr><tr>
-<td>Ida Emean aep Sivney</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">specializace</span></td>
-<td>Specializace: Podívej se na 2 spodní karty ze soupeřova balíčku, poté je vrať zpět na vrch či spodek jeho balíčku, každou zvlášť.</td>
-</tr><tr>
-<td>Milva</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
-</tr><tr>
-<td>Yaevinn</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">přesun</span></td>
-<td>Přesun: Můžeš přesunout až 2 Jiné jednotky na své straně bojiště do jiné řady (nezávisle na sobě).</td>
-</tr><tr>
-<td>Mahakamský oddíl 1</td>
-<td class="num">4</td>
-<td class="num">5</td>
-
-<td>přední</td>
-<td><span class="badge">pevné pouto</span></td>
-<td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet)</td>
-</tr><tr>
-<td>Nemilosrdné dryády 1</td>
-<td class="num">4</td>
-<td class="num">3</td>
-
-<td>střední</td>
-<td><span class="badge">nástup</span></td>
-<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Nemilosrdné dryády, poté balíček zamíchej.</td>
-</tr><tr>
-<td>Paulie Dahlberg</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>přední, střední, obléhací</td>
-<td><span class="badge">specializace</span></td>
-<td>TRPASLÍK Specializace: Vynesené jednotky s ikonkou všech tří řad na své straně bojiště můžeš přemístit do řady, do které vynášíš tuto kartu.</td>
-</tr><tr>
-<td>Toruviel</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>přední, střední, obléhací</td>
-<td><span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
-</tr><tr>
-<td>Vriheddská brigáda 1</td>
-<td class="num">4</td>
-<td class="num">2</td>
-
-<td>obléhací</td>
-<td><span class="badge">nástup</span></td>
-<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (2) Vriheddská brigáda, poté balíček zamíchej.</td>
-</tr><tr>
-<td>Iorweth</td>
-<td class="num">3</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
-<td>Specializace: Vytáhni ze záloh všechny karty (3) Elfský ostrostřelec.</td>
-</tr><tr>
-<td>Shirrú</td>
-<td class="num">3</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">štít</span> <span class="badge">spálení řady</span></td>
-<td>Spálení řady: Má-li soupeřova protější řada sílu 10 či více, znič V ní nejsilnější kartu/y.</td>
-</tr><tr>
-<td>Trpasličí dobrovolníci 1</td>
-<td class="num">3</td>
-<td class="num">3</td>
-
-<td>přední, střední, obléhací</td>
-<td><span class="badge">nástup</span></td>
-<td>TRPASLÍK Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Trpasličí dobrovolníci, poté balíček zamíchej.</td>
 </tr><tr>
 <td>Elfský ostrostřelec 1</td>
 <td class="num">2</td>
@@ -1241,14 +1130,6 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">léčitel</span></td>
 <td>DRYÁDA Léčitel: Vyber si jednotku ze svého pohřebiště a vynes ji.</td>
 </tr><tr>
-<td>Aelirenn</td>
-<td class="num">1</td>
-<td class="num">1</td>
-
-<td>přední, střední, obléhací</td>
-<td><span class="badge">povzbuzení</span> <span class="badge">specializace</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě. Specializace: Znič jinou elfskou jednotku v této řadě. Pokud jsi nějakou zničil, lízni si 1 kartu z balíčku a vynes další kartu.</td>
-</tr><tr>
 <td>Havekarská léčitelka</td>
 <td class="num">1</td>
 <td class="num">2</td>
@@ -1257,13 +1138,133 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">léčitel</span></td>
 <td>ELF Léčitel: Vyber si jednotku ze svého pohřebiště a vynes ji.</td>
 </tr><tr>
-<td>Čarodějka z Dol Blathanna</td>
-<td class="num">1</td>
+<td>Ida Emean aep Sivney</td>
+<td class="num">5</td>
 <td class="num">1</td>
 
 <td>obléhací</td>
 <td><span class="badge">specializace</span></td>
-<td>Specializace: Vytáhni ze svého pohřebiště libovolnou speciální kartu a rovnou ji vynes.</td>
+<td>Specializace: Podívej se na 2 spodní karty ze soupeřova balíčku, poté je vrať zpět na vrch či spodek jeho balíčku, každou zvlášť.</td>
+</tr><tr>
+<td>Iorweth</td>
+<td class="num">3</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
+<td>Specializace: Vytáhni ze záloh všechny karty (3) Elfský ostrostřelec.</td>
+</tr><tr>
+<td>Isengrim Faoiltiarna</td>
+<td class="num">6</td>
+<td class="num">1</td>
+
+<td>přední, střední, obléhací</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">povzbuzení</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+</tr><tr>
+<td>Jednotky Dol Blathanna 1</td>
+<td class="num">6</td>
+<td class="num">3</td>
+
+<td>přední, střední, obléhací</td>
+<td></td>
+<td><span class="meta">bez textu</span></td>
+</tr><tr>
+<td>Mahakamský oddíl 1</td>
+<td class="num">4</td>
+<td class="num">5</td>
+
+<td>přední</td>
+<td><span class="badge">pevné pouto</span></td>
+<td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet)</td>
+</tr><tr>
+<td>Milva</td>
+<td class="num">5</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">povzbuzení</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+</tr><tr>
+<td>Nemilosrdné dryády 1</td>
+<td class="num">4</td>
+<td class="num">3</td>
+
+<td>střední</td>
+<td><span class="badge">nástup</span></td>
+<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Nemilosrdné dryády, poté balíček zamíchej.</td>
+</tr><tr>
+<td>Paulie Dahlberg</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>přední, střední, obléhací</td>
+<td><span class="badge">specializace</span></td>
+<td>TRPASLÍK Specializace: Vynesené jednotky s ikonkou všech tří řad na své straně bojiště můžeš přemístit do řady, do které vynášíš tuto kartu.</td>
+</tr><tr>
+<td>Saesenthessis</td>
+<td class="num">11</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span></td>
+<td>DRAK</td>
+</tr><tr>
+<td>Sheldon Skaggs</td>
+<td class="num">9</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td></td>
+<td>TRPASLÍK</td>
+</tr><tr>
+<td>Shirrú</td>
+<td class="num">3</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">štít</span> <span class="badge">spálení řady</span></td>
+<td>Spálení řady: Má-li soupeřova protější řada sílu 10 či více, znič V ní nejsilnější kartu/y.</td>
+</tr><tr>
+<td>Toruviel</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>přední, střední, obléhací</td>
+<td><span class="badge">povzbuzení</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+</tr><tr>
+<td>Trpasličí dobrovolníci 1</td>
+<td class="num">3</td>
+<td class="num">3</td>
+
+<td>přední, střední, obléhací</td>
+<td><span class="badge">nástup</span></td>
+<td>TRPASLÍK Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Trpasličí dobrovolníci, poté balíček zamíchej.</td>
+</tr><tr>
+<td>Vriheddská brigáda 1</td>
+<td class="num">4</td>
+<td class="num">2</td>
+
+<td>obléhací</td>
+<td><span class="badge">nástup</span></td>
+<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (2) Vriheddská brigáda, poté balíček zamíchej.</td>
+</tr><tr>
+<td>Yaevinn</td>
+<td class="num">5</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">přesun</span></td>
+<td>Přesun: Můžeš přesunout až 2 Jiné jednotky na své straně bojiště do jiné řady (nezávisle na sobě).</td>
+</tr><tr>
+<td>Yarpen Zigrin</td>
+<td class="num">6</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">houževnatost</span></td>
+<td>TRPASLÍK Houževnatost: Po konci kola zůstává karta (samotná, bez dalších efektů) na bojišti do kola dalšího (pouze jednou).</td>
 </tr></tbody>
 </table>
 
@@ -1309,37 +1310,13 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <table>
 <thead><tr><th>Karta</th><th class="num">Síla</th><th class="num">Ks</th><th>Řady</th><th>Vlastnosti</th><th>Schopnost</th></tr></thead>
 <tbody><tr>
-<td>Draug</td>
-<td class="num">11</td>
+<td>Barghest</td>
+<td class="num">6</td>
 <td class="num">1</td>
 
 <td>přední</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span></td>
-<td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Ledový obr</td>
-<td class="num">8</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">imunita</span></td>
-<td>Imunita: Tato karta je imunní Z vůči efektu karet počasí</td>
-</tr><tr>
-<td>Nithrall</td>
-<td class="num">8</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">štít</span></td>
-<td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Zemní elementál</td>
-<td class="num">8</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">štít</span></td>
-<td><span class="meta">bez textu</span></td>
+<td><span class="badge">ochránce</span></td>
+<td>Ochránce: Při zničení této karty (i koncem kola) vynes ze záloh kartu Bestie. Tuto kartu nelze z pohřebiště vrátit do hry.</td>
 </tr><tr>
 <td>Běs</td>
 <td class="num">7</td>
@@ -1349,62 +1326,6 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td></td>
 <td><span class="meta">bez textu</span></td>
 </tr><tr>
-<td>Gryf</td>
-<td class="num">7</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td></td>
-<td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Barghest</td>
-<td class="num">6</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">ochránce</span></td>
-<td>Ochránce: Při zničení této karty (i koncem kola) vynes ze záloh kartu Bestie. Tuto kartu nelze z pohřebiště vrátit do hry.</td>
-</tr><tr>
-<td>Kajran</td>
-<td class="num">6</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
-<td>Specializace: Sežer jednotku ze soupeřova pohřebiště a přičti si její sílu.</td>
-</tr><tr>
-<td>Oriana</td>
-<td class="num">6</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">specializace</span></td>
-<td>Ty i tvůj soupeř vyberte 1 kartu ze své ruky a předejte si je.</td>
-</tr><tr>
-<td>Sukuba</td>
-<td class="num">6</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">špeh</span></td>
-<td>Špeh: Kartu můžeš vynést na soupeřovu stranu a líznout si tak 1 kartu ze svého balíčku.</td>
-</tr><tr>
-<td>Krabopavoučí královna</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">ze záloh</span> <span class="badge">nástup</span></td>
-<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Krabopavouk, poté balíček zamíchej.</td>
-</tr><tr>
-<td>Mlhavec 1</td>
-<td class="num">5</td>
-<td class="num">2</td>
-
-<td>střední</td>
-<td><span class="badge">imunita</span> <span class="badge">nástup</span></td>
-<td>Imunita: Tato karta je imunní vůči efektu karet počasí. Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (2) Mlhavec, poté balíček zamíchej.</td>
-</tr><tr>
 <td>Caranthir Ar-Feiniel</td>
 <td class="num">4</td>
 <td class="num">1</td>
@@ -1413,13 +1334,29 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">specializace</span></td>
 <td>Specializace: Vytáhni z balíčku Štiplavý mráz a rovnou ho vynes Pouze do nepřátelské řady, poté balíček zamíchej.</td>
 </tr><tr>
-<td>Chiméra</td>
-<td class="num">4</td>
+<td>Draug</td>
+<td class="num">11</td>
 <td class="num">1</td>
 
-<td>přední, obléhací</td>
-<td><span class="badge">štít</span> <span class="badge">povzbuzení</span> <span class="badge">sežrání</span></td>
-<td>Sežrání: Sežer jednotku na své straně bojiště a zvyš svou základní sílu o sílu sežrané karty (sežranou kartu vlož pod tuto kartu, ať je síla vidět). Povzbuzení: Přidává 1 bod k síle všech jednotek v řadě.</td>
+<td>přední</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span></td>
+<td><span class="meta">bez textu</span></td>
+</tr><tr>
+<td>Ghúl</td>
+<td class="num">3</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">specializace</span></td>
+<td>Specializace: Sežer jednotku z vlastního pohřebiště a přičti si její sílu (vlož kartu pod tuto, ať je síla vidět).</td>
+</tr><tr>
+<td>Gryf</td>
+<td class="num">7</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td></td>
+<td><span class="meta">bez textu</span></td>
 </tr><tr>
 <td>Harpyje 1</td>
 <td class="num">4</td>
@@ -1429,6 +1366,14 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">ze záloh</span></td>
 <td><span class="meta">bez textu</span></td>
 </tr><tr>
+<td>Harpyjí vejce</td>
+<td class="num">1</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">ochránce</span></td>
+<td>Ochránce: Při zničení této karty (i koncem kola) vynes ze záloh 2 karty Harpyje. Tuto kartu nelze z pohřebiště vrátit do hry.</td>
+</tr><tr>
 <td>Hrobice</td>
 <td class="num">4</td>
 <td class="num">1</td>
@@ -1437,7 +1382,31 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">štít</span> <span class="badge">povzbuzení</span> <span class="badge">sežrání</span></td>
 <td>Sežrání: Sežer jednotku na své straně bojiště a zvyš svou základní sílu o sílu sežrané karty (sežranou kartu vlož pod tuto kartu, ať je síla vidět). Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
 </tr><tr>
+<td>Chiméra</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>přední, obléhací</td>
+<td><span class="badge">štít</span> <span class="badge">povzbuzení</span> <span class="badge">sežrání</span></td>
+<td>Sežrání: Sežer jednotku na své straně bojiště a zvyš svou základní sílu o sílu sežrané karty (sežranou kartu vlož pod tuto kartu, ať je síla vidět). Povzbuzení: Přidává 1 bod k síle všech jednotek v řadě.</td>
+</tr><tr>
+<td>Imlerith</td>
+<td class="num">3</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
+<td>Specializace: Znič 1 svou nejslabší a 1 soupeřovu nejsilnější jednotku na bojišti.</td>
+</tr><tr>
 <td>Ježibaba – Pletana</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">nástup</span></td>
+<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Ježibaba, poté balíček zamíchej.</td>
+</tr><tr>
+<td>Ježibaba – Šeptana</td>
 <td class="num">4</td>
 <td class="num">1</td>
 
@@ -1453,13 +1422,69 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">nástup</span></td>
 <td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Ježibaba, poté balíček zamíchej.</td>
 </tr><tr>
-<td>Ježibaba – Šeptana</td>
-<td class="num">4</td>
+<td>Kajran</td>
+<td class="num">6</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
+<td>Specializace: Sežer jednotku ze soupeřova pohřebiště a přičti si její sílu.</td>
+</tr><tr>
+<td>Kostěj</td>
+<td class="num">2</td>
 <td class="num">1</td>
 
 <td>obléhací</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">sežrání</span> <span class="badge">specializace</span></td>
+<td>Sežrání: Sežer jednotku na své straně bojiště a zvyš svou základní sílu o sílu sežrané karty (sežranou kartu vlož pod tuto kartu, ať je síla vidět).</td>
+</tr><tr>
+<td>Krabopavoučí královna</td>
+<td class="num">5</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">ze záloh</span> <span class="badge">nástup</span></td>
+<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Krabopavouk, poté balíček zamíchej.</td>
+</tr><tr>
+<td>Krabopavoučí trubec</td>
+<td class="num">1</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">ochránce</span></td>
+<td>Ochránce: Při zničení této karty (i koncem kola) vynes ze záloh kartu Krabopavoučí královna. Tuto kartu nelze z pohřebiště vrátit do hry.</td>
+</tr><tr>
+<td>Krabopavouk – kolos</td>
+<td class="num">3</td>
+<td class="num">1</td>
+
+<td>střední</td>
 <td><span class="badge">nástup</span></td>
-<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Ježibaba, poté balíček zamíchej.</td>
+<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Krabopavouk, poté balíček zamíchej.</td>
+</tr><tr>
+<td>Krabopavouk – obrněnec 1</td>
+<td class="num">3</td>
+<td class="num">2</td>
+
+<td>střední</td>
+<td><span class="badge">nástup</span></td>
+<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Krabopavouk, poté balíček zamíchej.</td>
+</tr><tr>
+<td>Ledový obr</td>
+<td class="num">8</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">imunita</span></td>
+<td>Imunita: Tato karta je imunní Z vůči efektu karet počasí</td>
+</tr><tr>
+<td>Mlhavec 1</td>
+<td class="num">5</td>
+<td class="num">2</td>
+
+<td>střední</td>
+<td><span class="badge">imunita</span> <span class="badge">nástup</span></td>
+<td>Imunita: Tato karta je imunní vůči efektu karet počasí. Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (2) Mlhavec, poté balíček zamíchej.</td>
 </tr><tr>
 <td>Nekkeři 1</td>
 <td class="num">4</td>
@@ -1485,61 +1510,13 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">imunita</span> <span class="badge">nástup</span></td>
 <td>Imunita: Tato karta je imunní vůči efektu karet počasí. Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Nekkeři, poté balíček zamíchej.</td>
 </tr><tr>
-<td>Pes divokého honu 1</td>
-<td class="num">4</td>
-<td class="num">2</td>
-
-<td>přední</td>
-<td><span class="badge">imunita</span> <span class="badge">nástup</span></td>
-<td>Imunita: Tato karta je imunní vůči efektu karet počasí. Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (2) Pes divokého honu, poté balíček zamíchej.</td>
-</tr><tr>
-<td>Upír – Ekimara</td>
-<td class="num">4</td>
+<td>Nithrall</td>
+<td class="num">8</td>
 <td class="num">1</td>
 
 <td>přední</td>
-<td><span class="badge">nástup</span></td>
-<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (5) Upír, poté balíček zamíchej.</td>
-</tr><tr>
-<td>Vlkodlak</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>přední, střední</td>
-<td><span class="badge">štít</span> <span class="badge">povzbuzení</span> <span class="badge">sežrání</span></td>
-<td>Sežrání: Sežer jednotku na své straně bojiště a zvyš svou základní sílu o sílu sežrané karty (sežranou kartu vlož pod tuto kartu, ať je síla vidět). Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
-</tr><tr>
-<td>Ghúl</td>
-<td class="num">3</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">specializace</span></td>
-<td>Specializace: Sežer jednotku z vlastního pohřebiště a přičti si její sílu (vlož kartu pod tuto, ať je síla vidět).</td>
-</tr><tr>
-<td>Imlerith</td>
-<td class="num">3</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
-<td>Specializace: Znič 1 svou nejslabší a 1 soupeřovu nejsilnější jednotku na bojišti.</td>
-</tr><tr>
-<td>Krabopavouk – kolos</td>
-<td class="num">3</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">nástup</span></td>
-<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Krabopavouk, poté balíček zamíchej.</td>
-</tr><tr>
-<td>Krabopavouk – obrněnec 1</td>
-<td class="num">3</td>
-<td class="num">2</td>
-
-<td>střední</td>
-<td><span class="badge">nástup</span></td>
-<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) Krabopavouk, poté balíček zamíchej.</td>
+<td><span class="badge">štít</span></td>
+<td><span class="meta">bez textu</span></td>
 </tr><tr>
 <td>Ohnivý elementál</td>
 <td class="num">3</td>
@@ -1549,6 +1526,22 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">specializace</span></td>
 <td>Specializace: Znič soupeřovu jednu nejslabší jednotku na bojišti.</td>
 </tr><tr>
+<td>Oriana</td>
+<td class="num">6</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">specializace</span></td>
+<td>Ty i tvůj soupeř vyberte 1 kartu ze své ruky a předejte si je.</td>
+</tr><tr>
+<td>Pes divokého honu 1</td>
+<td class="num">4</td>
+<td class="num">2</td>
+
+<td>přední</td>
+<td><span class="badge">imunita</span> <span class="badge">nástup</span></td>
+<td>Imunita: Tato karta je imunní vůči efektu karet počasí. Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (2) Pes divokého honu, poté balíček zamíchej.</td>
+</tr><tr>
 <td>Ropucha</td>
 <td class="num">3</td>
 <td class="num">1</td>
@@ -1556,6 +1549,14 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td>střední</td>
 <td><span class="badge">spálení řady</span></td>
 <td>Spálení řady: Má-li soupeřova protější řada sílu 10 či více, znič v ní nejsilnější kartu/y.</td>
+</tr><tr>
+<td>Sukuba</td>
+<td class="num">6</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">špeh</span></td>
+<td>Špeh: Kartu můžeš vynést na soupeřovu stranu a líznout si tak 1 kartu ze svého balíčku.</td>
 </tr><tr>
 <td>Upír – Bruxa</td>
 <td class="num">3</td>
@@ -1565,8 +1566,24 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">nástup</span></td>
 <td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (5) Upír, poté balíček zamíchej.</td>
 </tr><tr>
+<td>Upír – Ekimara</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">nástup</span></td>
+<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (5) Upír, poté balíček zamíchej.</td>
+</tr><tr>
 <td>Upír – Fleder</td>
 <td class="num">3</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">nástup</span></td>
+<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (5) Upír, poté balíček zamíchej.</td>
+</tr><tr>
+<td>Upír – Garkain</td>
+<td class="num">2</td>
 <td class="num">1</td>
 
 <td>přední</td>
@@ -1581,37 +1598,21 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">nástup</span></td>
 <td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (5) Upír, poté balíček zamíchej.</td>
 </tr><tr>
-<td>Kostěj</td>
-<td class="num">2</td>
+<td>Vlkodlak</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>přední, střední</td>
+<td><span class="badge">štít</span> <span class="badge">povzbuzení</span> <span class="badge">sežrání</span></td>
+<td>Sežrání: Sežer jednotku na své straně bojiště a zvyš svou základní sílu o sílu sežrané karty (sežranou kartu vlož pod tuto kartu, ať je síla vidět). Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+</tr><tr>
+<td>Zemní elementál</td>
+<td class="num">8</td>
 <td class="num">1</td>
 
 <td>obléhací</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">sežrání</span> <span class="badge">specializace</span></td>
-<td>Sežrání: Sežer jednotku na své straně bojiště a zvyš svou základní sílu o sílu sežrané karty (sežranou kartu vlož pod tuto kartu, ať je síla vidět).</td>
-</tr><tr>
-<td>Upír – Garkain</td>
-<td class="num">2</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">nástup</span></td>
-<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (5) Upír, poté balíček zamíchej.</td>
-</tr><tr>
-<td>Harpyjí vejce</td>
-<td class="num">1</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">ochránce</span></td>
-<td>Ochránce: Při zničení této karty (i koncem kola) vynes ze záloh 2 karty Harpyje. Tuto kartu nelze z pohřebiště vrátit do hry.</td>
-</tr><tr>
-<td>Krabopavoučí trubec</td>
-<td class="num">1</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">ochránce</span></td>
-<td>Ochránce: Při zničení této karty (i koncem kola) vynes ze záloh kartu Krabopavoučí královna. Tuto kartu nelze z pohřebiště vrátit do hry.</td>
+<td><span class="badge">štít</span></td>
+<td><span class="meta">bez textu</span></td>
 </tr></tbody>
 </table>
 
@@ -1620,14 +1621,6 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <table>
 <thead><tr><th>Karta</th><th class="num">Síla</th><th class="num">Ks</th><th>Typ</th><th>Řady</th><th>Vlastnosti</th><th>Schopnost</th></tr></thead>
 <tbody><tr>
-<td>Krvavý měsíc 1</td>
-<td class="num">0</td>
-<td class="num">2</td>
-<td>speciálka</td>
-<td>přední, střední, obléhací</td>
-<td><span class="badge spec">speciálka</span></td>
-<td>Kartu vynes do Efektu nepřátelské řady. Schopnosti jednotek v této řadě nefungují (neplatí pro štít), jak pasivní, tak ty aktivované při vynesení karty a na konci kola.</td>
-</tr><tr>
 <td>Bestie</td>
 <td class="num">0</td>
 <td class="num">1</td>
@@ -1635,6 +1628,14 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td>přední ⚠</td>
 <td><span class="badge">povzbuzení</span></td>
 <td>Token karty Barghest. Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+</tr><tr>
+<td>Krvavý měsíc 1</td>
+<td class="num">0</td>
+<td class="num">2</td>
+<td>speciálka</td>
+<td>přední, střední, obléhací</td>
+<td><span class="badge spec">speciálka</span></td>
+<td>Kartu vynes do Efektu nepřátelské řady. Schopnosti jednotek v této řadě nefungují (neplatí pro štít), jak pasivní, tak ty aktivované při vynesení karty a na konci kola.</td>
 </tr></tbody>
 </table>
 
@@ -1644,6 +1645,12 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <table>
 <thead><tr><th>Velitel</th><th>Schopnost</th></tr></thead>
 <tbody><tr>
+<td>Velitel –  Gorthur Gvaed</td>
+<td>Ze svého balíčku si lízni jakoukoliv kartu školy Zmije a vynes ji. &nbsp;<span class="badge">1×/hra · počítá se jako tah</span></td>
+</tr><tr>
+<td>Velitel –  Haern Caduch</td>
+<td>Ze svého balíčku si lízni jakoukoliv kartu školy Medvěda a vynes ji. &nbsp;<span class="badge">1×/hra · počítá se jako tah</span></td>
+</tr><tr>
 <td>Velitel – Hrad Stygga</td>
 <td>Ze svého balíčku si lízni jakoukoliv kartu školy Kočky a vynes ji. &nbsp;<span class="badge">1×/hra · počítá se jako tah</span></td>
 </tr><tr>
@@ -1652,12 +1659,6 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 </tr><tr>
 <td>Velitel – Kaer Seren</td>
 <td>Ze svého balíčku si lízni jakoukoliv kartu školy Gryfa a vynes ji. &nbsp;<span class="badge">1×/hra · počítá se jako tah</span></td>
-</tr><tr>
-<td>Velitel –  Gorthur Gvaed</td>
-<td>Ze svého balíčku si lízni jakoukoliv kartu školy Zmije a vynes ji. &nbsp;<span class="badge">1×/hra · počítá se jako tah</span></td>
-</tr><tr>
-<td>Velitel –  Haern Caduch</td>
-<td>Ze svého balíčku si lízni jakoukoliv kartu školy Medvěda a vynes ji. &nbsp;<span class="badge">1×/hra · počítá se jako tah</span></td>
 </tr></tbody>
 </table>
 <h3>Jednotky</h3>
@@ -1665,77 +1666,13 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <table>
 <thead><tr><th>Karta</th><th class="num">Síla</th><th class="num">Ks</th><th>Řady</th><th>Vlastnosti</th><th>Schopnost</th></tr></thead>
 <tbody><tr>
-<td>Gerd</td>
-<td class="num">8</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td></td>
-<td>ŠKOLA MEDVĚDA</td>
-</tr><tr>
-<td>Kiyan</td>
-<td class="num">8</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">specializace</span></td>
-<td>Specializace: Znič jednu nejslabší kartu na obou stranách bojiště.</td>
-</tr><tr>
-<td>Škola Kočky – Mentor</td>
-<td class="num">7</td>
-<td class="num">1</td>
-
-<td>přední, střední, obléhací</td>
-<td><span class="badge">výcvik</span></td>
-<td>Výcvik: Po skončení kola proměň a odstraň ze hry Adepty ze své školy na bojišti na Zaklínače (vytáhni ze záloh) a vynes je v dalším kole před fází dolízávání.</td>
-</tr><tr>
-<td>Škola Zmije – Mentor</td>
-<td class="num">7</td>
+<td>Alzur</td>
+<td class="num">4</td>
 <td class="num">1</td>
 
 <td>obléhací</td>
-<td><span class="badge">výcvik</span></td>
-<td>Výcvik: Po skončení kola proměň a odstraň ze hry Adepty ze své školy na bojišti na Zaklínače (vytáhni ze záloh) a vynes je v dalším kole před fází dolízávání.</td>
-</tr><tr>
-<td>Škola Gryfa – Mentor</td>
-<td class="num">6</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">výcvik</span></td>
-<td>Výcvik: Po skončení kola proměň a odstraň ze hry Adepty ze své školy na bojišti na Zaklínače (vytáhni ze záloh) a vynes je v dalším kole před fází dolízávání.</td>
-</tr><tr>
-<td>Škola Gryfa – Zaklínač</td>
-<td class="num">6</td>
-<td class="num">2</td>
-
-<td>střední</td>
-<td><span class="badge">výměna</span></td>
-<td>Výměna: Lízní si kartu, poté odhoď 1 kartu z ruky do pohřebiště.</td>
-</tr><tr>
-<td>Škola Medvěda – Adept 1</td>
-<td class="num">6</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td></td>
-<td>ŠKOLA MEDVĚDA</td>
-</tr><tr>
-<td>Škola Medvěda – Adept 2</td>
-<td class="num">6</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td></td>
-<td>ŠKOLA MEDVĚDA</td>
-</tr><tr>
-<td>Škola Vlka – Mentor</td>
-<td class="num">6</td>
-<td class="num">1</td>
-
-<td>přední, střední</td>
-<td><span class="badge">výcvik</span></td>
-<td>Výcvik: Po skončení kola proměň a odstraň ze hry Adepty ze své školy na bojišti na Zaklínače (vytáhni ze záloh) a vynes je v dalším kole před fází dolízávání.</td>
+<td><span class="badge">nástup</span></td>
+<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) mágů, poté balíček zamíchej.</td>
 </tr><tr>
 <td>Arnaghad</td>
 <td class="num">5</td>
@@ -1745,246 +1682,13 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
 <td>Specializace: Vyber si mezi: A) Z balíčku vytáhni kartu Adept školy Medvěda a vynes ji. B) Proměň svého Adepta školy Medvěda na bojišti na Zaklínače.</td>
 </tr><tr>
-<td>Erland z Larviku</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge gold">zlato</span> <span class="badge">specializace</span></td>
-<td>Specializace: Vyber si mezi: A) Z balíčku vytáhni kartu Adept školy Gryfa a vynes ji. B) Proměň svého Adepta školy Gryfa na bojišti na Zaklínače.</td>
-</tr><tr>
-<td>Eskel</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>přední, střední</td>
-<td><span class="badge">nástup</span></td>
-<td>Nástup: Vytáhni z balíčku (ne z ruky) kartu Lambert, poté balíček zamíchej.</td>
-</tr><tr>
-<td>Ivor Zlé oko</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
-<td>Specializace: Vyber si mezi: A) Z balíčku vytáhni kartu Adept školy Zmije a vynes ji. B) Proměň svého Adepta školy Zmije na bojišti na Zaklínače.</td>
-</tr><tr>
-<td>Lambert</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">nástup</span></td>
-<td>Nástup: Vytáhni z balíčku (ne z ruky) kartu Eskel, poté balíček zamíchej.</td>
-</tr><tr>
-<td>Škola Gryfa – Adept 1</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td></td>
-<td>ŠKOLA GRYFA</td>
-</tr><tr>
-<td>Škola Gryfa – Adept 2</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td></td>
-<td>ŠKOLA GRYFA</td>
-</tr><tr>
-<td>Škola Medvěda – Mentor</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">výcvik</span></td>
-<td>Výcvik: Po skončení kola proměň a odstraň ze hry Adepty ze své školy na bojišti na Zaklínače (vytáhni ze záloh) a vynes je v dalším kole před fází dolízávání.</td>
-</tr><tr>
-<td>Škola Medvěda – Zaklínač</td>
-<td class="num">5</td>
-<td class="num">2</td>
-
-<td>přední</td>
-<td><span class="badge">pevné pouto</span></td>
-<td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
-</tr><tr>
-<td>Škola Zmije – Adept 1</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td></td>
-<td>ŠKOLA ZMIJE</td>
-</tr><tr>
-<td>Škola Zmije – Adept 2</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td></td>
-<td>ŠKOLA ZMIJE</td>
-</tr><tr>
-<td>Alzur</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">nástup</span></td>
-<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) mágů, poté balíček zamíchej.</td>
-</tr><tr>
-<td>Cosimo Malaspina</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">nástup</span></td>
-<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) mágů, poté balíček zamíchej.</td>
-</tr><tr>
-<td>Gezras z Leydy</td>
-<td class="num">4</td>
+<td>Bomba – Ďáblova pecka</td>
+<td class="num">0</td>
 <td class="num">1</td>
 
 <td>přední, střední, obléhací</td>
-<td><span class="badge gold">zlato</span> <span class="badge">specializace</span></td>
-<td>Specializace: Vyber si mezi: A) Z balíčku vytáhni kartu Adept školy Kočky a vynes ji. B) Proměň svého Adepta školy Kočky na bojišti na Zaklínače.</td>
-</tr><tr>
-<td>Idarran z Uliva</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">nástup</span></td>
-<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) mágů, poté balíček zamíchej.</td>
-</tr><tr>
-<td>Letho z Gulety</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">specializace</span></td>
-<td>Specializace: Kartu vynes na soupeřovu stranu a lízní si 1 kartu ze soupeřova balíčku. Použije-li hráč, na jehož straně bojiště karta leží, velitele, tuto kartu znič.</td>
-</tr><tr>
-<td>Vesemir</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>přední, střední</td>
-<td><span class="badge gold">zlato</span> <span class="badge">specializace</span></td>
-<td>Specializace: Vyber si mezi: A) Z balíčku vytáhni kartu Adept školy Vlka a vynes ji. B) Proměň svého Adepta školy Vlka na bojišti na Zaklínače.</td>
-</tr><tr>
-<td>Škola Kočky – Adept 1</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>přední, střední, obléhací</td>
-<td></td>
-<td>ŠKOLA KOČKY</td>
-</tr><tr>
-<td>Škola Kočky – Adept 2</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>přední, střední, obléhací</td>
-<td></td>
-<td>ŠKOLA KOČKY</td>
-</tr><tr>
-<td>Škola Vlka – Adept 1</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>přední, střední</td>
-<td></td>
-<td>ŠKOLA VLKA</td>
-</tr><tr>
-<td>Škola Vlka – Adept 2</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>přední, střední</td>
-<td></td>
-<td>ŠKOLA VLKA</td>
-</tr><tr>
-<td>Škola Vlka – Zaklínač 1</td>
-<td class="num">4</td>
-<td class="num">3</td>
-
-<td>přední, střední</td>
-<td><span class="badge">štít</span> <span class="badge">ze záloh</span> <span class="badge">povzbuzení</span> <span class="badge">specializace</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě. Specializace: Kdykoliv během svého tahu přesuň tuto kartu do jiné řady.</td>
-</tr><tr>
-<td>Škola Vlka – Zaklínač 2</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>přední, střední</td>
-<td><span class="badge">houževnatost</span></td>
-<td>Houževnatost: Po konci kola zůstává karta (samotná, bez dalších efektů) na bojišti do kola dalšího (pouze jednou).</td>
-</tr><tr>
-<td>Škola Zmije – Zaklínač</td>
-<td class="num">4</td>
-<td class="num">2</td>
-
-<td>obléhací</td>
-<td><span class="badge">špeh</span></td>
-<td>Špeh: Kartu můžeš vynést na soupeřovu stranu a líznout si tak 1 kartu ze svého balíčku.</td>
-</tr><tr>
-<td>Coën</td>
-<td class="num">3</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">znamení</span></td>
-<td>ŠKOLA GRYFA
-Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této řady, dle popisku).</td>
-</tr><tr>
-<td>Ivo z Belhavenu</td>
-<td class="num">3</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">znamení</span></td>
-<td>Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této řady, dle popisku).</td>
-</tr><tr>
-<td>Warritt Vševidoucí</td>
-<td class="num">3</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">znamení</span></td>
-<td>Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této řady, M dle popisku).</td>
-</tr><tr>
-<td>Škola Kočky – Zaklínač</td>
-<td class="num">2</td>
-<td class="num">2</td>
-
-<td>přední, střední</td>
-<td><span class="badge">povzbuzení</span> <span class="badge">specializace</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě. Specializace: Kdykoliv během svého tahu přesuň tuto kartu do jiné řady.</td>
-</tr><tr>
-<td>Junod z Belhavenu</td>
-<td class="num">1</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">bomba</span></td>
-<td>Bomba: Vynes ze záloh libovolnou kartu Bomba do protější řady.</td>
-</tr><tr>
-<td>Keldar</td>
-<td class="num">1</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge">bomba</span></td>
-<td>Bomba: Vynes ze záloh libovolnou kartu Bomba do protější řady.</td>
-</tr><tr>
-<td>Kolgrim</td>
-<td class="num">1</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">bomba</span></td>
-<td>Bomba: Vynes ze záloh libovolnou kartu Bomba do protější řady.</td>
+<td><span class="badge">ze záloh</span> <span class="badge">bomba</span></td>
+<td>Kartu vynes do Efektu protější řady. Do konce kola sníží sílu jednotek v této řadě na polovinu. Započítává se jako poslední spolu s Mahakamským ležákem (navzájem se ruší; síla karet se zaokrouhluje dolů). Po zrušení odhoď Bombu do pohřebiště.</td>
 </tr><tr>
 <td>Bomba – Dwimeritka</td>
 <td class="num">0</td>
@@ -2018,13 +1722,310 @@ Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této �
 <td><span class="badge">ze záloh</span> <span class="badge">bomba</span></td>
 <td>Kartu vynes do Efektu protější řady. Pokud se v této řadě nachází alespoň 6 karet jednotek, nelze do ní další karty vynést (po zrušení odhod Bombu do pohřebiště).</td>
 </tr><tr>
-<td>Bomba – Ďáblova pecka</td>
-<td class="num">0</td>
+<td>Coën</td>
+<td class="num">3</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">znamení</span></td>
+<td>ŠKOLA GRYFA
+Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této řady, dle popisku).</td>
+</tr><tr>
+<td>Cosimo Malaspina</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">nástup</span></td>
+<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) mágů, poté balíček zamíchej.</td>
+</tr><tr>
+<td>Erland z Larviku</td>
+<td class="num">5</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge gold">zlato</span> <span class="badge">specializace</span></td>
+<td>Specializace: Vyber si mezi: A) Z balíčku vytáhni kartu Adept školy Gryfa a vynes ji. B) Proměň svého Adepta školy Gryfa na bojišti na Zaklínače.</td>
+</tr><tr>
+<td>Eskel</td>
+<td class="num">5</td>
+<td class="num">1</td>
+
+<td>přední, střední</td>
+<td><span class="badge">nástup</span></td>
+<td>Nástup: Vytáhni z balíčku (ne z ruky) kartu Lambert, poté balíček zamíchej.</td>
+</tr><tr>
+<td>Gerd</td>
+<td class="num">8</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td></td>
+<td>ŠKOLA MEDVĚDA</td>
+</tr><tr>
+<td>Gezras z Leydy</td>
+<td class="num">4</td>
 <td class="num">1</td>
 
 <td>přední, střední, obléhací</td>
-<td><span class="badge">ze záloh</span> <span class="badge">bomba</span></td>
-<td>Kartu vynes do Efektu protější řady. Do konce kola sníží sílu jednotek v této řadě na polovinu. Započítává se jako poslední spolu s Mahakamským ležákem (navzájem se ruší; síla karet se zaokrouhluje dolů). Po zrušení odhoď Bombu do pohřebiště.</td>
+<td><span class="badge gold">zlato</span> <span class="badge">specializace</span></td>
+<td>Specializace: Vyber si mezi: A) Z balíčku vytáhni kartu Adept školy Kočky a vynes ji. B) Proměň svého Adepta školy Kočky na bojišti na Zaklínače.</td>
+</tr><tr>
+<td>Idarran z Uliva</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">nástup</span></td>
+<td>Nástup: Vytáhni z balíčku (ne z ruky) všechny karty (3) mágů, poté balíček zamíchej.</td>
+</tr><tr>
+<td>Ivo z Belhavenu</td>
+<td class="num">3</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">znamení</span></td>
+<td>Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této řady, dle popisku).</td>
+</tr><tr>
+<td>Ivor Zlé oko</td>
+<td class="num">5</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
+<td>Specializace: Vyber si mezi: A) Z balíčku vytáhni kartu Adept školy Zmije a vynes ji. B) Proměň svého Adepta školy Zmije na bojišti na Zaklínače.</td>
+</tr><tr>
+<td>Junod z Belhavenu</td>
+<td class="num">1</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">bomba</span></td>
+<td>Bomba: Vynes ze záloh libovolnou kartu Bomba do protější řady.</td>
+</tr><tr>
+<td>Keldar</td>
+<td class="num">1</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">bomba</span></td>
+<td>Bomba: Vynes ze záloh libovolnou kartu Bomba do protější řady.</td>
+</tr><tr>
+<td>Kiyan</td>
+<td class="num">8</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">specializace</span></td>
+<td>Specializace: Znič jednu nejslabší kartu na obou stranách bojiště.</td>
+</tr><tr>
+<td>Kolgrim</td>
+<td class="num">1</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">bomba</span></td>
+<td>Bomba: Vynes ze záloh libovolnou kartu Bomba do protější řady.</td>
+</tr><tr>
+<td>Lambert</td>
+<td class="num">5</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">nástup</span></td>
+<td>Nástup: Vytáhni z balíčku (ne z ruky) kartu Eskel, poté balíček zamíchej.</td>
+</tr><tr>
+<td>Letho z Gulety</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">specializace</span></td>
+<td>Specializace: Kartu vynes na soupeřovu stranu a lízní si 1 kartu ze soupeřova balíčku. Použije-li hráč, na jehož straně bojiště karta leží, velitele, tuto kartu znič.</td>
+</tr><tr>
+<td>Škola Gryfa – Adept 1</td>
+<td class="num">5</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td></td>
+<td>ŠKOLA GRYFA</td>
+</tr><tr>
+<td>Škola Gryfa – Adept 2</td>
+<td class="num">5</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td></td>
+<td>ŠKOLA GRYFA</td>
+</tr><tr>
+<td>Škola Gryfa – Mentor</td>
+<td class="num">6</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">výcvik</span></td>
+<td>Výcvik: Po skončení kola proměň a odstraň ze hry Adepty ze své školy na bojišti na Zaklínače (vytáhni ze záloh) a vynes je v dalším kole před fází dolízávání.</td>
+</tr><tr>
+<td>Škola Gryfa – Zaklínač</td>
+<td class="num">6</td>
+<td class="num">2</td>
+
+<td>střední</td>
+<td><span class="badge">výměna</span></td>
+<td>Výměna: Lízní si kartu, poté odhoď 1 kartu z ruky do pohřebiště.</td>
+</tr><tr>
+<td>Škola Kočky – Adept 1</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>přední, střední, obléhací</td>
+<td></td>
+<td>ŠKOLA KOČKY</td>
+</tr><tr>
+<td>Škola Kočky – Adept 2</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>přední, střední, obléhací</td>
+<td></td>
+<td>ŠKOLA KOČKY</td>
+</tr><tr>
+<td>Škola Kočky – Mentor</td>
+<td class="num">7</td>
+<td class="num">1</td>
+
+<td>přední, střední, obléhací</td>
+<td><span class="badge">výcvik</span></td>
+<td>Výcvik: Po skončení kola proměň a odstraň ze hry Adepty ze své školy na bojišti na Zaklínače (vytáhni ze záloh) a vynes je v dalším kole před fází dolízávání.</td>
+</tr><tr>
+<td>Škola Kočky – Zaklínač</td>
+<td class="num">2</td>
+<td class="num">2</td>
+
+<td>přední, střední</td>
+<td><span class="badge">povzbuzení</span> <span class="badge">specializace</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě. Specializace: Kdykoliv během svého tahu přesuň tuto kartu do jiné řady.</td>
+</tr><tr>
+<td>Škola Medvěda – Adept 1</td>
+<td class="num">6</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td></td>
+<td>ŠKOLA MEDVĚDA</td>
+</tr><tr>
+<td>Škola Medvěda – Adept 2</td>
+<td class="num">6</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td></td>
+<td>ŠKOLA MEDVĚDA</td>
+</tr><tr>
+<td>Škola Medvěda – Mentor</td>
+<td class="num">5</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">výcvik</span></td>
+<td>Výcvik: Po skončení kola proměň a odstraň ze hry Adepty ze své školy na bojišti na Zaklínače (vytáhni ze záloh) a vynes je v dalším kole před fází dolízávání.</td>
+</tr><tr>
+<td>Škola Medvěda – Zaklínač</td>
+<td class="num">5</td>
+<td class="num">2</td>
+
+<td>přední</td>
+<td><span class="badge">pevné pouto</span></td>
+<td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
+</tr><tr>
+<td>Škola Vlka – Adept 1</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>přední, střední</td>
+<td></td>
+<td>ŠKOLA VLKA</td>
+</tr><tr>
+<td>Škola Vlka – Adept 2</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>přední, střední</td>
+<td></td>
+<td>ŠKOLA VLKA</td>
+</tr><tr>
+<td>Škola Vlka – Mentor</td>
+<td class="num">6</td>
+<td class="num">1</td>
+
+<td>přední, střední</td>
+<td><span class="badge">výcvik</span></td>
+<td>Výcvik: Po skončení kola proměň a odstraň ze hry Adepty ze své školy na bojišti na Zaklínače (vytáhni ze záloh) a vynes je v dalším kole před fází dolízávání.</td>
+</tr><tr>
+<td>Škola Vlka – Zaklínač 1</td>
+<td class="num">4</td>
+<td class="num">3</td>
+
+<td>přední, střední</td>
+<td><span class="badge">štít</span> <span class="badge">ze záloh</span> <span class="badge">povzbuzení</span> <span class="badge">specializace</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě. Specializace: Kdykoliv během svého tahu přesuň tuto kartu do jiné řady.</td>
+</tr><tr>
+<td>Škola Vlka – Zaklínač 2</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>přední, střední</td>
+<td><span class="badge">houževnatost</span></td>
+<td>Houževnatost: Po konci kola zůstává karta (samotná, bez dalších efektů) na bojišti do kola dalšího (pouze jednou).</td>
+</tr><tr>
+<td>Škola Zmije – Adept 1</td>
+<td class="num">5</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td></td>
+<td>ŠKOLA ZMIJE</td>
+</tr><tr>
+<td>Škola Zmije – Adept 2</td>
+<td class="num">5</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td></td>
+<td>ŠKOLA ZMIJE</td>
+</tr><tr>
+<td>Škola Zmije – Mentor</td>
+<td class="num">7</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">výcvik</span></td>
+<td>Výcvik: Po skončení kola proměň a odstraň ze hry Adepty ze své školy na bojišti na Zaklínače (vytáhni ze záloh) a vynes je v dalším kole před fází dolízávání.</td>
+</tr><tr>
+<td>Škola Zmije – Zaklínač</td>
+<td class="num">4</td>
+<td class="num">2</td>
+
+<td>obléhací</td>
+<td><span class="badge">špeh</span></td>
+<td>Špeh: Kartu můžeš vynést na soupeřovu stranu a líznout si tak 1 kartu ze svého balíčku.</td>
+</tr><tr>
+<td>Vesemir</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>přední, střední</td>
+<td><span class="badge gold">zlato</span> <span class="badge">specializace</span></td>
+<td>Specializace: Vyber si mezi: A) Z balíčku vytáhni kartu Adept školy Vlka a vynes ji. B) Proměň svého Adepta školy Vlka na bojišti na Zaklínače.</td>
+</tr><tr>
+<td>Warritt Vševidoucí</td>
+<td class="num">3</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">znamení</span></td>
+<td>Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této řady, M dle popisku).</td>
 </tr><tr>
 <td>Znamení – Aard</td>
 <td class="num">0</td>
@@ -2122,29 +2123,13 @@ Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této �
 <table>
 <thead><tr><th>Karta</th><th class="num">Síla</th><th class="num">Ks</th><th>Řady</th><th>Vlastnosti</th><th>Schopnost</th></tr></thead>
 <tbody><tr>
-<td>Geralt z Rivie</td>
-<td class="num">11</td>
+<td>Avallac’h</td>
+<td class="num">5</td>
 <td class="num">1</td>
 
-<td>přední</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span></td>
-<td>Karta hrdiny. Zlatá, štít.</td>
-</tr><tr>
-<td>Hovězí obranná jednotka</td>
-<td class="num">8</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">ze záloh</span></td>
-<td><span class="meta">bez textu</span></td>
-</tr><tr>
-<td>Triss Ranuncul</td>
-<td class="num">8</td>
-<td class="num">1</td>
-
-<td>střední</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
-<td>Specializace: Odstraní z každého hrobu jednu kartu.</td>
+<td>obléhací</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">léčitel</span></td>
+<td>Léčitel: Vyber si jednotku ze svého pohřebiště a vynes ji.</td>
 </tr><tr>
 <td>Cirilla Fiona Elen Riannon</td>
 <td class="num">6</td>
@@ -2154,37 +2139,13 @@ Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této �
 <td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
 <td>Specializace: Pokud kolo prohraješ, místo do pohřebiště se ti tato karta vrací do ruky.</td>
 </tr><tr>
-<td>Avallac’h</td>
-<td class="num">5</td>
+<td>Gaunter O’Dimm</td>
 <td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">léčitel</span></td>
-<td>Léčitel: Vyber si jednotku ze svého pohřebiště a vynes ji.</td>
-</tr><tr>
-<td>Zoltan Chivay</td>
-<td class="num">5</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td><span class="badge">houževnatost</span></td>
-<td>Houževnatost: Po konci kola zůstává karta (samotná, bez dalších efektů) na bojišti do kola dalšího (pouze jednou).</td>
-</tr><tr>
-<td>Olgierd von Everec</td>
-<td class="num">4</td>
 <td class="num">1</td>
 
 <td>přední, střední, obléhací</td>
-<td><span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
-</tr><tr>
-<td>Regis</td>
-<td class="num">4</td>
-<td class="num">1</td>
-
-<td>obléhací</td>
-<td><span class="badge">ochránce</span></td>
-<td>Ochránce: Při zničení této karty (i koncem kola) vynes ze záloh kartu Regis-Upír, pokud je k dispozici. Tuto kartu nelze z pohřebiště vrátit do hry.</td>
+<td><span class="badge">specializace</span></td>
+<td>Vytáhni ze záloh všechny karty (3) Gaunter O&#x27;Dimm – Temnota.</td>
 </tr><tr>
 <td>Gaunter O’Dimm Temnota 1</td>
 <td class="num">3</td>
@@ -2210,6 +2171,22 @@ Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této �
 <td><span class="badge">ze záloh</span></td>
 <td>Vytáhni ze záloh všechny karty (3) Gaunter O&#x27;Dimm – Temnota.</td>
 </tr><tr>
+<td>Geralt z Rivie</td>
+<td class="num">11</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span></td>
+<td>Karta hrdiny. Zlatá, štít.</td>
+</tr><tr>
+<td>Hovězí obranná jednotka</td>
+<td class="num">8</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td><span class="badge">ze záloh</span></td>
+<td><span class="meta">bez textu</span></td>
+</tr><tr>
 <td>Klepna</td>
 <td class="num">3</td>
 <td class="num">1</td>
@@ -2217,6 +2194,46 @@ Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této �
 <td>přední, střední, obléhací</td>
 <td><span class="badge">ze záloh</span></td>
 <td>Karta hrdiny.</td>
+</tr><tr>
+<td>Kráva</td>
+<td class="num">0</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">ochránce</span></td>
+<td>Ochránce: Při zničení této karty (i koncem kola) vynes ze záloh kartu Hovězí obranná jednotka. Tuto Kartu nelze z pohřebiště vrátit do hry.</td>
+</tr><tr>
+<td>Marigold</td>
+<td class="num">2</td>
+<td class="num">1</td>
+
+<td>přední</td>
+<td></td>
+<td>Mahakamský ležák: Do konce kola zdvojnásobí sílu všech jednotek v dané řadě.</td>
+</tr><tr>
+<td>Olgierd von Everec</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>přední, střední, obléhací</td>
+<td><span class="badge">povzbuzení</span></td>
+<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+</tr><tr>
+<td>Regis</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
+<td><span class="badge">ochránce</span></td>
+<td>Ochránce: Při zničení této karty (i koncem kola) vynes ze záloh kartu Regis-Upír, pokud je k dispozici. Tuto kartu nelze z pohřebiště vrátit do hry.</td>
+</tr><tr>
+<td>Triss Ranuncul</td>
+<td class="num">8</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
+<td>Specializace: Odstraní z každého hrobu jednu kartu.</td>
 </tr><tr>
 <td>Vaedermakar</td>
 <td class="num">3</td>
@@ -2234,22 +2251,6 @@ Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této �
 <td><span class="badge">spálení řady</span></td>
 <td>Spálení řady: Má-li soupeřova protější řada sílu 10 či více, znič v ní nejsilnější kartu/y.</td>
 </tr><tr>
-<td>Marigold</td>
-<td class="num">2</td>
-<td class="num">1</td>
-
-<td>přední</td>
-<td></td>
-<td>Mahakamský ležák: Do konce kola zdvojnásobí sílu všech jednotek v dané řadě.</td>
-</tr><tr>
-<td>Gaunter O’Dimm</td>
-<td class="num">1</td>
-<td class="num">1</td>
-
-<td>přední, střední, obléhací</td>
-<td><span class="badge">specializace</span></td>
-<td>Vytáhni ze záloh všechny karty (3) Gaunter O&#x27;Dimm – Temnota.</td>
-</tr><tr>
 <td>Yennefer z Vengerbergu</td>
 <td class="num">1</td>
 <td class="num">1</td>
@@ -2258,13 +2259,13 @@ Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této �
 <td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
 <td>Specializace: Znič soupeři libovolnou jednotku na bojišti.</td>
 </tr><tr>
-<td>Kráva</td>
-<td class="num">0</td>
+<td>Zoltan Chivay</td>
+<td class="num">5</td>
 <td class="num">1</td>
 
-<td>střední</td>
-<td><span class="badge">ochránce</span></td>
-<td>Ochránce: Při zničení této karty (i koncem kola) vynes ze záloh kartu Hovězí obranná jednotka. Tuto Kartu nelze z pohřebiště vrátit do hry.</td>
+<td>přední</td>
+<td><span class="badge">houževnatost</span></td>
+<td>Houževnatost: Po konci kola zůstává karta (samotná, bez dalších efektů) na bojišti do kola dalšího (pouze jednou).</td>
 </tr></tbody>
 </table>
 
@@ -2305,6 +2306,14 @@ Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této �
 <td><span class="badge spec">speciálka</span> <span class="badge">pocasi</span></td>
 <td>KARTA POČASÍ Do konce kola sníží základní sílu jednotek v zadní řadě na 1.</td>
 </tr><tr>
+<td>Regis-Upír</td>
+<td class="num">4</td>
+<td class="num">1</td>
+<td>token</td>
+<td>střední</td>
+<td><span class="badge">štít</span> <span class="badge">ze záloh</span></td>
+<td>Token karty Regis. Při zničení této karty (i koncem kola) vynes z pohřebiště kartu Regis.</td>
+</tr><tr>
 <td>Rozbřesk 1</td>
 <td class="num">0</td>
 <td class="num">2</td>
@@ -2336,14 +2345,6 @@ Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této �
 <td>přední, střední, obléhací</td>
 <td><span class="badge spec">speciálka</span> <span class="badge">pocasi</span></td>
 <td>KARTA POČASÍ Do konce kola sníží základní sílu jednotek v přední řadě na 1.</td>
-</tr><tr>
-<td>Regis-Upír</td>
-<td class="num">4</td>
-<td class="num">1</td>
-<td>token</td>
-<td>střední</td>
-<td><span class="badge">štít</span> <span class="badge">ze záloh</span></td>
-<td>Token karty Regis. Při zničení této karty (i koncem kola) vynes z pohřebiště kartu Regis.</td>
 </tr></tbody>
 </table>
 
