@@ -97,7 +97,7 @@ td.rowhead { white-space:nowrap; }
 <div class="wrap">
 
 <h1>Karty SG Gwintu v2.2</h1>
-<p>Kompletní databáze karet, kterou používá turnajový engine — 251 karet
+<p>Kompletní databáze karet, kterou používá turnajový engine — 253 karet
 a 30 velitelů, řazeno po frakcích, v každé frakci abecedně (české
 řazení, „ch“ za „h“). Síla je základní hodnota jednotky,
 Ks = počet kusů na listu, u karet <span class="badge">ze záloh</span> počet kusů,
@@ -207,7 +207,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td>Ochránce: Při zničení této karty (i koncem kola) vynes ze záloh kartu Hemdall. Tuto kartu nelze z pohřebiště vrátit do hry.</td>
 </tr><tr>
 <td>Kovář</td>
-<td class="num">4</td>
+<td class="num">5</td>
 <td class="num">1</td>
 
 <td>obléhací</td>
@@ -228,13 +228,29 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 
 <td>obléhací</td>
 <td><span class="badge">specializace</span></td>
-<td>Specializace: Nejsilnější karta z pohřebiště na vrch vlastního balíčku.</td>
+<td>Specializace: Vyber si kartu ze svého pohřebiště a dej ji na vrch svého balíčku.</td>
 </tr><tr>
 <td>Mladý berserk 1</td>
 <td class="num">4</td>
-<td class="num">3</td>
+<td class="num">1</td>
 
-<td>přední, střední, obléhací</td>
+<td>přední</td>
+<td><span class="badge">proměna</span></td>
+<td>Proměna: Při aktivaci vynes ze záloh kartu Zuřivý medvěd. Poté tuto kartu odstraň ze hry.</td>
+</tr><tr>
+<td>Mladý berserk 2</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>střední</td>
+<td><span class="badge">proměna</span></td>
+<td>Proměna: Při aktivaci vynes ze záloh kartu Zuřivý medvěd. Poté tuto kartu odstraň ze hry.</td>
+</tr><tr>
+<td>Mladý berserk 3</td>
+<td class="num">4</td>
+<td class="num">1</td>
+
+<td>obléhací</td>
 <td><span class="badge">proměna</span></td>
 <td>Proměna: Při aktivaci vynes ze záloh kartu Zuřivý medvěd. Poté tuto kartu odstraň ze hry.</td>
 </tr><tr>
@@ -263,7 +279,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
 </tr><tr>
 <td>Skald klanu Heymaey</td>
-<td class="num">4</td>
+<td class="num">5</td>
 <td class="num">1</td>
 
 <td>střední</td>
@@ -271,7 +287,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td>Výměna: Lízní si kartu, poté odhoď 1 kartu z ruky do pohřebiště.</td>
 </tr><tr>
 <td>Štítonoška klanu Dr. 1</td>
-<td class="num">2</td>
+<td class="num">1</td>
 <td class="num">1</td>
 
 <td>přední</td>
@@ -279,7 +295,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě. Specializace: Tuto kartu vynáší Cerys an Craite.</td>
 </tr><tr>
 <td>Štítonoška klanu Dr. 2</td>
-<td class="num">2</td>
+<td class="num">1</td>
 <td class="num">1</td>
 
 <td>přední</td>
@@ -287,7 +303,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě. Specializace: Tuto kartu vynáší Cerys an Craite.</td>
 </tr><tr>
 <td>Štítonoška klanu Dr. 3</td>
-<td class="num">2</td>
+<td class="num">1</td>
 <td class="num">1</td>
 
 <td>přední</td>
@@ -328,7 +344,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 </tr><tr>
 <td>Válečník klanu an Craite 1</td>
 <td class="num">5</td>
-<td class="num">3</td>
+<td class="num">1</td>
 
 <td>přední</td>
 <td><span class="badge">štít</span> <span class="badge">ze záloh</span></td>
@@ -388,7 +404,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 
 <td>obléhací</td>
 <td><span class="badge">specializace</span></td>
-<td>Specializace: Znič nejslabší vlastní jednotku, vynes nejsilnější jinou z pohřebiště.</td>
+<td>Specializace: Znič jinou libovolnou jednotku na své straně bojiště. Pokud jsi nějakou zničil, vynes z pohřebiště jinou jednotku.</td>
 </tr><tr>
 <td>Zuřivý medvěd 1</td>
 <td class="num">7</td>
@@ -423,7 +439,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <tbody><tr>
 <td>Mardroeme 1</td>
 <td class="num">0</td>
-<td class="num">4</td>
+<td class="num">2</td>
 <td>speciálka</td>
 <td>přední ⚠</td>
 <td><span class="badge spec">speciálka</span> <span class="badge">proměna</span></td>
@@ -1872,8 +1888,8 @@ Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této �
 <td class="num">2</td>
 
 <td>střední</td>
-<td><span class="badge">výměna</span></td>
-<td>Výměna: Lízní si kartu, poté odhoď 1 kartu z ruky do pohřebiště.</td>
+<td><span class="badge">ze záloh</span> <span class="badge">výměna</span></td>
+<td>Výměna: Lízni si kartu, poté odhoď 1 kartu z ruky do pohřebiště.</td>
 </tr><tr>
 <td>Škola Kočky – Adept 1</td>
 <td class="num">4</td>
@@ -1904,7 +1920,7 @@ Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této �
 <td class="num">2</td>
 
 <td>přední, střední</td>
-<td><span class="badge">povzbuzení</span> <span class="badge">specializace</span></td>
+<td><span class="badge">ze záloh</span> <span class="badge">povzbuzení</span> <span class="badge">specializace</span></td>
 <td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě. Specializace: Kdykoliv během svého tahu přesuň tuto kartu do jiné řady.</td>
 </tr><tr>
 <td>Škola Medvěda – Adept 1</td>
@@ -1936,7 +1952,7 @@ Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této �
 <td class="num">2</td>
 
 <td>přední</td>
-<td><span class="badge">pevné pouto</span></td>
+<td><span class="badge">ze záloh</span> <span class="badge">pevné pouto</span></td>
 <td>Pevné pouto: Karty se stejným jménem ve stejné řadě násobí svoji sílu (síla na kartě x počet karet).</td>
 </tr><tr>
 <td>Škola Vlka – Adept 1</td>
@@ -2008,7 +2024,7 @@ Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této �
 <td class="num">2</td>
 
 <td>obléhací</td>
-<td><span class="badge">špeh</span></td>
+<td><span class="badge">ze záloh</span> <span class="badge">špeh</span></td>
 <td>Špeh: Kartu můžeš vynést na soupeřovu stranu a líznout si tak 1 kartu ze svého balíčku.</td>
 </tr><tr>
 <td>Vesemir</td>
@@ -2201,7 +2217,7 @@ Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této �
 
 <td>střední</td>
 <td><span class="badge">ochránce</span></td>
-<td>Ochránce: Při zničení této karty (i koncem kola) vynes ze záloh kartu Hovězí obranná jednotka. Tuto Kartu nelze z pohřebiště vrátit do hry.</td>
+<td>Ochránce: Při zničení této karty (i koncem kola) vynes ze záloh kartu Hovězí obranná jednotka. Tuto kartu nelze z pohřebiště vrátit do hry.</td>
 </tr><tr>
 <td>Marigold</td>
 <td class="num">2</td>
