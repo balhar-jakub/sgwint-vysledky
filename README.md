@@ -6,6 +6,9 @@ Statický web s výsledky aktuálního **sampionátu v10** karetní hry **SG Gwi
 ## Co tu je
 
 - `index.html` — šampioni frakcí, žebříčky, vzájemné zápasy, validace v10 hráče
+- `balicky.html` — seznam všech 24 balíčků setu k4 s odkazy na detaily
+- `karty.html` — kompletní databáze karet SG Gwintu v2.2 (velitelé, jednotky,
+  speciálky, tokeny, po frakcích, s hledáním)
 - `k4balicek-*.html` — detail každého ze 24 balíčků setu k4 (velitel, síla, zlaté
   karty, speciálky, řady, kompletní výpis karet se schopnostmi)
 
