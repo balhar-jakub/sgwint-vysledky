@@ -97,7 +97,7 @@ td.rowhead { white-space:nowrap; }
 <div class="wrap">
 
 <h1>Karty SG Gwintu v2.2</h1>
-<p>Kompletní databáze karet, kterou používá turnajový engine — 254 karet
+<p>Kompletní databáze karet, kterou používá turnajový engine — 253 karet
 a 30 velitelů, řazeno po frakcích, v každé frakci abecedně (české
 řazení, „ch“ za „h“). Síla je základní hodnota jednotky,
 Ks = počet kusů na listu, u karet <span class="badge">ze záloh</span> počet kusů,
@@ -804,7 +804,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 
 <td>obléhací</td>
 <td><span class="badge">manipulace</span></td>
-<td>Manipulace: Přesuň soupeřovu VN jednotku do jiné řady na jeho straně bojiště.</td>
+<td>Manipulace: Přesuň soupeřovu jednotku do jiné řady na jeho straně bojiště.</td>
 </tr><tr>
 <td>Alchymista 1</td>
 <td class="num">1</td>
@@ -820,7 +820,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 
 <td>střední</td>
 <td><span class="badge">manipulace</span></td>
-<td>Manipulace: Přesuň soupeřovu VN jednotku do jiné řady na jeho straně bojiště.</td>
+<td>Manipulace: Přesuň soupeřovu jednotku do jiné řady na jeho straně bojiště.</td>
 </tr><tr>
 <td>Brigáda Nazair 1</td>
 <td class="num">4</td>
@@ -844,23 +844,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 
 <td>obléhací</td>
 <td><span class="badge">štít</span></td>
-<td>Manipulace/Vytáhni ze záloh: Vytáhni ze záloh kartu Golem a dej ji na vrch soupeřova balíčku.</td>
-</tr><tr>
-<td>Demotivace 1</td>
-<td class="num">0</td>
-<td class="num">3</td>
-
-<td>přední, střední, obléhací</td>
-<td><span class="badge">ze záloh</span> <span class="badge">demotivace</span></td>
-<td>Ubírá 1 bod síly všem jednotkám v řadě. Karta se vynáší do řady a lze ji cílit jako jednotku (zničit, sežrat, přesunout apod.), ale nemá a nemůže mít vlastní sílu. Po zrušení odhoď Demotivaci do pohřebiště.</td>
-</tr><tr>
-<td>Demotivace 4</td>
-<td class="num">11</td>
-<td class="num">—</td>
-
-<td>přední, střední, obléhací ⚠</td>
-<td><span class="badge">ze záloh</span></td>
-<td>Ubírá 1 bod síly všem jednotkám v řadě. Karta se vynáší do řady a lze ji cílit jako jednotku (zničit, sežrat, přesunout apod.), ale nemá a nemůže mít vlastní sílu. Po zrušení odhoď Demotivaci do pohřebiště.</td>
+<td>Vytáhni ze záloh kartu Golem a dej ji na vrch soupeřova balíčku.</td>
 </tr><tr>
 <td>Fringilla Vigo</td>
 <td class="num">3</td>
@@ -870,13 +854,21 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td><span class="badge">manipulace</span></td>
 <td>Manipulace: Přesuň soupeřovu jednotku do jiné řady na jeho straně bojiště.</td>
 </tr><tr>
+<td>Golem</td>
+<td class="num">2</td>
+<td class="num">1</td>
+
+<td>přední, střední, obléhací</td>
+<td><span class="badge">ze záloh</span></td>
+<td>Karta ze záloh (vynáší ji Cynthia na vrch soupeřova balíčku).</td>
+</tr><tr>
 <td>Hnilomet</td>
 <td class="num">5</td>
 <td class="num">1</td>
 
 <td>obléhací</td>
 <td></td>
-<td>Demotivace: Vynes ze záloh VN kartu Demotivace do protější řady.</td>
+<td>Demotivace: Vynes ze záloh kartu Demotivace do protější řady.</td>
 </tr><tr>
 <td>Jízdní brigáda Nauzicaa 1</td>
 <td class="num">4</td>
@@ -899,7 +891,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td class="num">1</td>
 
 <td>střední</td>
-<td><span class="badge">léčitel</span></td>
+<td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">léčitel</span></td>
 <td>Léčitel: Vyber si jednotku ze svého pohřebiště a vynes ji.</td>
 </tr><tr>
 <td>Otrokář</td>
@@ -924,7 +916,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 
 <td>přední</td>
 <td></td>
-<td>Demotivace: Vynes ze záloh VN kartu Demotivace do protější řady.</td>
+<td>Demotivace: Vynes ze záloh kartu Demotivace do protější řady.</td>
 </tr><tr>
 <td>Ramon Tyrconnel</td>
 <td class="num">11</td>
@@ -939,7 +931,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td class="num">1</td>
 
 <td>obléhací</td>
-<td><span class="badge">štít</span> <span class="badge">specializace</span></td>
+<td><span class="badge gold">zlato</span> <span class="badge">specializace</span></td>
 <td>Specializace: Lízni si 2 karty ze soupeřova balíčku. Jednu vynes a druhou odhoď do jeho pohřebiště. Ukradená karta, jež vynáší ze záloh, sahá do záloh nepřítele.</td>
 </tr><tr>
 <td>Shilard Fitz-Oesterlen</td>
@@ -956,11 +948,11 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 
 <td>obléhací</td>
 <td><span class="badge">štít</span></td>
-<td>Karta hrdiny. Štít.</td>
+<td><span class="meta">bez textu</span></td>
 </tr><tr>
 <td>Stefan Skellen</td>
 <td class="num">7</td>
-<td class="num">2</td>
+<td class="num">1</td>
 
 <td>přední</td>
 <td><span class="badge">špeh</span></td>
@@ -978,7 +970,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td class="num">2</td>
 <td class="num">2</td>
 
-<td>přední, střední, obléhací</td>
+<td>obléhací</td>
 <td><span class="badge gold">zlato</span> <span class="badge">štít</span> <span class="badge">specializace</span></td>
 <td>Specializace: Vyber si kartu se schopností pevné pouto ze svého balíčku a vynes ji, poté balíček zamíchej.</td>
 </tr><tr>
@@ -988,7 +980,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 
 <td>střední</td>
 <td></td>
-<td>Demotivace: Vynes ze záloh VN kartu Demotivace do protější řady.</td>
+<td>Demotivace: Vynes ze záloh kartu Demotivace do protější řady.</td>
 </tr><tr>
 <td>Vattier de Rideaux</td>
 <td class="num">3</td>
@@ -1037,6 +1029,14 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <table>
 <thead><tr><th>Karta</th><th class="num">Síla</th><th class="num">Ks</th><th>Typ</th><th>Řady</th><th>Vlastnosti</th><th>Schopnost</th></tr></thead>
 <tbody><tr>
+<td>Demotivace 1</td>
+<td class="num">0</td>
+<td class="num">3</td>
+<td>speciálka</td>
+<td>přední, střední, obléhací</td>
+<td><span class="badge spec">speciálka</span> <span class="badge">ze záloh</span> <span class="badge">demotivace</span></td>
+<td>Ubírá 1 bod síly všem jednotkám v řadě. Karta se vynáší do řady a lze ji cílit jako jednotku (zničit, sežrat, přesunout apod.), ale nemá a nemůže mít vlastní sílu (nelze např. sežehnout).</td>
+</tr><tr>
 <td>Diplomacie 1</td>
 <td class="num">0</td>
 <td class="num">2</td>
@@ -1044,14 +1044,6 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td>přední ⚠</td>
 <td><span class="badge spec">speciálka</span></td>
 <td>Po vynesení musí tvůj nepřítel odhodit 1 kartu z ruky do pohřebiště. Poté hraj znovu svůj další tah.</td>
-</tr><tr>
-<td>Golem</td>
-<td class="num">0</td>
-<td class="num">—</td>
-<td>token</td>
-<td>přední ⚠</td>
-<td></td>
-<td>Token: karta vytahovaná z záloh (Cynthia). Nemá vlastní sílu.</td>
 </tr></tbody>
 </table>
 
@@ -1103,7 +1095,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 <td class="num">1</td>
 
 <td>obléhací</td>
-<td><span class="badge">specializace</span></td>
+<td><span class="badge">štít</span> <span class="badge">specializace</span></td>
 <td>Specializace: Vytáhni ze svého pohřebiště libovolnou speciální kartu a rovnou ji vynes.</td>
 </tr><tr>
 <td>Ciaran aep Easnillien</td>
@@ -1112,7 +1104,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 
 <td>střední</td>
 <td><span class="badge">přesun</span></td>
-<td>TRPASLÍK Přesun: Můžeš přesunout až 2 jiné jednotky na své straně bojiště do jiné řady (nezávisle na sobě).</td>
+<td>ELF Přesun: Můžeš přesunout až 2 jiné jednotky na své straně bojiště do jiné řady (nezávisle na sobě).</td>
 </tr><tr>
 <td>Dennis Cranmer</td>
 <td class="num">5</td>
@@ -1156,7 +1148,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 </tr><tr>
 <td>Havekarská léčitelka</td>
 <td class="num">1</td>
-<td class="num">2</td>
+<td class="num">1</td>
 
 <td>střední</td>
 <td><span class="badge">léčitel</span></td>
@@ -1256,7 +1248,7 @@ cards-db-v3.json + overrides; texty velitelů z leaders.json.</p>
 
 <td>přední, střední, obléhací</td>
 <td><span class="badge">povzbuzení</span></td>
-<td>Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
+<td>ELF Povzbuzení: Přidává 1 bod k síle všem jednotkám v řadě.</td>
 </tr><tr>
 <td>Trpasličí dobrovolníci 1</td>
 <td class="num">3</td>
