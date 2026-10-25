@@ -146,10 +146,12 @@ Znamení: Vynes ze záloh libovolnou kartu Znamení (do protější nebo této �
 <div class="sub" style="margin-top:10px"><a href="index.html#fac-ZA">žebříček &amp; vzájemné zápasy →</a></div>
 </div></div>
 <h2>Žebříčky a vzájemné zápasy</h2>
-<h2 id="selfplay">v10 vs v10 — self-play mirror (MO)</h2>
-<p>Obě strany hrály v10 (šampion vs runner-up set MO): 2W/6L/2D z 10 partií.
-V mirroru se deck bias ruší, takže tady se ukazuje čistý poměr sil dvou v10 hráčů — skóre kolem
-remízy odpovídá rovnocenným stranám, ne rozdílu balíčků.</p>
+<h2 id="selfplay">v10 vs v10 — self-play mirror</h2>
+<p>Obě strany hrají v10 (champion vs runner-up dané frakce), 20 partií se střídáním stran.
+Zobrazuje se champion-side winrate: v suché baseline určuje výsledek deck bias, se
+LLM na obou stranách se ukazuje, jak moc model strukturu hry vyrovnává (0,50 = vyrovnané).</p>
+<table class="mtx">
+<tr><th>frakce</th><th>pár</th><th>model</th><th>W-L-D</th><th>champ WR</th><th>CI95</th><th>dry bias</th></tr><tr><td>MO</td><td>M1-sežrání vs M4-rozklad</td><td>Qwen CPU</td><td>2-6-2</td><td><strong>0,250</strong></td><td>0.07–0.59</td><td>5/20</td></tr><tr><td>MO</td><td>M1-sežrání vs M4-rozklad</td><td>GLM 5.3 Flash</td><td>8-12-0</td><td><strong>0,400</strong></td><td>0.22–0.61</td><td>5/20</td></tr><tr><td>NG</td><td>K2-demoralizace vs K1-pouto</td><td>GLM 5.3 Flash</td><td>10-8-2</td><td><strong>0,556</strong></td><td>0.34–0.75</td><td>13/20</td></tr><tr><td>SK</td><td>S4-hroby-kontrola vs S2-houfy-pouto</td><td>GLM 5.3 Flash</td><td>12-8-0</td><td><strong>0,600</strong></td><td>0.39–0.78</td><td>11/20</td></tr><tr><td>SO</td><td>U4-povzbuzení-specialky vs U2-výměna</td><td>GLM 5.3 Flash</td><td>12-8-0</td><td><strong>0,600</strong></td><td>0.39–0.78</td><td>18/20</td></tr><tr><td>ST</td><td>E1-trpaslíci-houževnatost vs E4-přesuny-povzbuzení</td><td>GLM 5.3 Flash</td><td>9-11-0</td><td><strong>0,450</strong></td><td>0.26–0.66</td><td>13/20</td></tr><tr><td>ZA</td><td>Z3-mágové-znamení vs Z2-Vlk-nástup</td><td>GLM 5.3 Flash</td><td>6-14-0</td><td><strong>0,300</strong></td><td>0.14–0.52</td><td>10/20</td></tr></table>
 
 <h2 id="fac-SO"><span class="fac-chip" style="background:#b8342f">Skellige</span></h2>
 <p class="meta">Sampionát v10 · 4 balíčky · velitel: <strong>Velitel – Birna</strong> · dry round-robin 36 partií na balíček · všechny balíčky 34 karet, legálnost ověřena enginem</p>
