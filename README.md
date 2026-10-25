@@ -1,21 +1,21 @@
-# SG Gwint — výsledky LLM sampionátů
+# SG Gwint — sampionát v10 (výsledky)
 
-Statický web s výsledky LLM sampionátů karetní hry **SG Gwint v2.2**
+Statický web s výsledky aktuálního **sampionátu v10** karetní hry **SG Gwint v2.2**
 (komunitní hra spolku Společenstvo Gwintu, z.s. — projekt ukončen 2025).
 
 ## Co tu je
 
-- `index.html` — šampioni frakcí, kompletní žebříčky, vzájemné zápasy
-- `balicky.html` — všechny balíčky s kompletními výpisy karet
-- `balicek-*.html` — detail každého balíčku (velitel, síla, zlaté karty, speciálky, řady, vzájemné zápasy)
-- `o-projektu.html` — metodika, modely, interpretace
+- `index.html` — šampioni frakcí, žebříčky, vzájemné zápasy, validace v10 hráče
+- `k4balicek-*.html` — detail každého ze 24 balíčků setu k4 (velitel, síla, zlaté
+  karty, speciálky, řady, kompletní výpis karet se schopnostmi)
 
-Web je generovaný (generátor `tools/build_web.py` žije v soukromém repu
+Web obsahuje **pouze aktuální set k4** (4 balíčky na frakci, všech 6 frakcí,
+každý 34 karet, s velitelem; legálnost ověřuje rozhodčí engine). Historické
+sampionáty a ligy (před rulingy 17. 10. 2026) zůstávají v soukromém repu.
+
+Web je generovaný (generátor `tools/build_web.py --v10-only` žije v soukromém repu
 `balhar-jakub/sgwint` společně s enginem, databází karet a kompletními herní logy
-všech partií). Po dokončení každého sampionátu se přegeneruje a pushne sem.
-
-Data: turnaje LLM agentů (deepseek-v4.1-flash, mistral-medium-latest,
-ministral-8b-latest), každý balíček proti každému, 4 partie na pár, strany střídány.
+všech partií). Po dokončení každého měření se přegeneruje a pushne sem.
 
 ## GitHub Pages
 
