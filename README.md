@@ -11,6 +11,9 @@ Statický web s výsledky aktuálního **sampionátu v10** karetní hry **SG Gwi
   speciálky, tokeny, po frakcích, s hledáním)
 - `k4balicek-*.html` — detail každého ze 24 balíčků setu k4 (velitel, síla, zlaté
   karty, speciálky, řady, kompletní výpis karet se schopnostmi)
+- `hry/` — přehrávače partií: každý matchup (36 párů × všechny odehrané partie)
+  jako interaktivní replayer — deska tah po tahu, skóre, počasí, perspektivy
+  (god/A/B), timeline; katalog na `hry/index.html`
 
 Web obsahuje **pouze aktuální set k4** (4 balíčky na frakci, všech 6 frakcí,
 každý 34 karet, s velitelem; legálnost ověřuje rozhodčí engine). Historické
