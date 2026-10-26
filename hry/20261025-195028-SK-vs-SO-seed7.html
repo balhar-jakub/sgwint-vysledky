@@ -57,6 +57,9 @@ button.on { border-color:var(--accent); color:var(--accent); }
 .log div.cur { color:var(--text); }
 .log div.roundend { color:var(--accent); }
 .persp { font-size:.8rem; color:var(--muted); }
+.sidechip { background:var(--panel2); border:1px solid var(--accent); border-radius:4px;
+  padding:0 6px; font-size:.72rem; font-weight:bold; color:var(--accent);
+  font-family:Verdana,sans-serif; margin:0 4px; }
 </style>
 </head>
 <body>
@@ -105,19 +108,21 @@ button.on { border-color:var(--accent); color:var(--accent); }
     var pa = ((m.players||{}).A)||'A', pb = ((m.players||{}).B)||'B';
     var html = '';
     html += '<div class="scorebar">';
-    html += '<div class="names"><b style="color:'+(FACC[fa]||'#ccc')+'">'+esc(pa)+' ['+esc(FACL[fa]||fa)+']</b>'
-         + ' &nbsp;životy '+livesHtml(sn.lives.A)
+    html += '<div class="names"><span class="sidechip">A</span><b style="color:'+(FACC[fa]||'#ccc')+'">'+esc(pa)+' ['+esc(FACL[fa]||fa)+']</b>'
+         + '<br><span class="meta">velitel: '+leaderTxt(sn,'A')+'</span>'
+         + ' &nbsp;životy <span class="sidechip">A</span>'+livesHtml(sn.lives.A)
          + (sn.passed.A?' <span class="meta">(pas)</span>':'')+'</div>';
     html += '<div><span class="big">'+sn.score.A+'</span> : <span class="big">'+sn.score.B+'</span></div>';
     html += '<div class="names" style="text-align:right">'+(sn.passed.B?'<span class="meta">(pas)</span> ':'')
-         + 'životy '+livesHtml(sn.lives.B)+' <b style="color:'+(FACC[fb]||'#ccc')+'">['+esc(FACL[fb]||fb)+'] '+esc(pb)+'</b></div>';
+         + 'životy <span class="sidechip">B</span>'+livesHtml(sn.lives.B)+' <span class="sidechip">B</span><b style="color:'+(FACC[fb]||'#ccc')+'">['+esc(FACL[fb]||fb)+'] '+esc(pb)+'</b>'
+         + '<br><span class="meta">velitel: '+leaderTxt(sn,'B')+'</span></div>';
     html += '</div>';
 
     // side B rows (top), then A (bottom), like a real table
     ['B','A'].forEach(function(side){
       var fac = side==='A'?fa:fb;
       html += '<div class="sidebox">';
-      html += '<div class="hdr"><span>'+esc(side==='A'?pa:pb)+' — '+esc(FACL[fac]||fac)+'</span><span>kolo '+curRound()+'</span></div>';
+      html += '<div class="hdr"><span><span class="sidechip">'+side+'</span>'+esc(side==='A'?pa:pb)+' — '+esc(FACL[fac]||fac)+'</span><span>kolo '+curRound()+'</span></div>';
       ROWS.forEach(function(r){
         var cards = (sn.board[side]||{})[r] || [];
         var wr = ((sn.weathered_rows||{})[side]||[]);
@@ -133,7 +138,7 @@ button.on { border-color:var(--accent); color:var(--accent); }
       html += '<div class="rowline"><span class="rname">ruka</span><span class="cards">'
            + (showHand ? hand.map(function(n){return cpill({name:n});}).join('')
                         : hand.map(function(){return cpill(null,true);}).join(''))
-           + '</span><span class="rscore meta">'+(sn.deck_left||{})[side]+' v balíku</span></div>';
+           + '</span><span class="rscore meta">'+(((sn.deck_left||{})[side]==null)?'—':(sn.deck_left||{})[side])+' v balíku</span></div>';
       html += '</div>';
     });
 
@@ -170,6 +175,7 @@ button.on { border-color:var(--accent); color:var(--accent); }
     var lines = [];
     for (var i=from; i<=T && i<ts.length; i++) {
       (evByT[ts[i]]||[]).forEach(function(ev){
+        if (ev.type === 'draw' && ev.mull) return;   // náhrada za přelíznutí: je v textu mulliganu
         var line = evText(ev);
         if (line) lines.push('<div class="'+(i===T?'cur':'')+(ev.type==='round_end'?' roundend':'')+'">'+line+'</div>');
       });
@@ -193,6 +199,13 @@ button.on { border-color:var(--accent); color:var(--accent); }
     });
   }
 
+  function leaderTxt(sn, side) {
+    var nm = ((sn.leader||{})[side]);
+    if (!nm) return '— (neznámý v tomto záznamu)';
+    var used = (sn.leader_used||{})[side];
+    return esc(nm) + (used ? ' <span style="color:var(--muted)">✓ použit</span>'
+                            : ' <span style="color:var(--good)">✓ k dispozici</span>');
+  }
   function livesHtml(n) {
     var out = '';
     for (var i=0;i<2;i++) out += i<n ? '<span style="color:var(--gold)">●</span>' : '<span style="color:#555">●</span>';
@@ -213,7 +226,8 @@ button.on { border-color:var(--accent); color:var(--accent); }
       case 'attempt': return s+'zkouší: '+esc(ev.action||'')+(ev.card?' '+esc(ev.card):'');
       case 'deploy': return s+'vynáší '+(ev.card?esc(ev.card):'?')+(ev.power!=null?' ('+ev.power+')':'')+' → '+(ev.to_side&&ev.to_side!==ev.side?'strana '+ev.to_side+' ':'')+esc(ROWECS[ev.row]||ev.row||'');
       case 'draw': return s+'líže '+esc(ev.card);
-      case 'mulligan': return s+'přelíznutí: '+(ev.picked&&ev.picked.length?esc(ev.picked.join(', ')):'nic');
+      case 'mulligan': return s+'přelíznutí: '+(ev.picked&&ev.picked.length?esc(ev.picked.join(', ')):'nic')
+         +(ev.drawn&&ev.drawn.length?' → líznuto: '+esc(ev.drawn.join(', ')):(ev.picked&&ev.picked.length?' → balíček prázdný, nelze líznout':''));
       case 'pass': return s+'pas';
       case 'skip': return s+'přeskočil tah (ST pasivka)';
       case 'discard': return s+'odhazuje '+esc(ev.card||'');
@@ -231,6 +245,7 @@ button.on { border-color:var(--accent); color:var(--accent); }
       case 'round_end': return '== KONEC KOLA '+(ev.round||'?')+' '+scoreTxt(ev)+' ==';
       case 'game_start': return '== start hry ==';
       case 'game_end': return '== KONEC: vítěz '+(ev.winner?ev.winner:'— (remíza)')+' ==';
+      case 'spec': return s+'<span style="color:var(--good)">✦ '+esc(ev.text||'')+'</span>';
       case 'note': return esc(ev.text||'');
       default: return s+esc(ev.type);
     }
