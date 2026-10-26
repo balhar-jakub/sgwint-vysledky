@@ -216,7 +216,8 @@ button.on { border-color:var(--accent); color:var(--accent); }
       case 'attempt': return s+'zkouší: '+esc(ev.action||'')+(ev.card?' '+esc(ev.card):'');
       case 'deploy': return s+'vynáší '+(ev.card?esc(ev.card):'?')+(ev.power!=null?' ('+ev.power+')':'')+' → '+(ev.to_side&&ev.to_side!==ev.side?'strana '+ev.to_side+' ':'')+esc(ROWECS[ev.row]||ev.row||'');
       case 'draw': return s+'líže '+esc(ev.card);
-      case 'mulligan': return s+'přelíznutí: '+(ev.picked&&ev.picked.length?esc(ev.picked.join(', ')):'nic');
+      case 'mulligan': return s+'přelíznutí: '+(ev.picked&&ev.picked.length?esc(ev.picked.join(', ')):'nic')
+         +(ev.drawn&&ev.drawn.length?' → líznuto: '+esc(ev.drawn.join(', ')):(ev.picked&&ev.picked.length?' → balíček prázdný, nelze líznout':''));
       case 'pass': return s+'pas';
       case 'skip': return s+'přeskočil tah (ST pasivka)';
       case 'discard': return s+'odhazuje '+esc(ev.card||'');
