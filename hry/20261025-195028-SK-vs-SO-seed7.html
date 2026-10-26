@@ -234,6 +234,7 @@ button.on { border-color:var(--accent); color:var(--accent); }
       case 'round_end': return '== KONEC KOLA '+(ev.round||'?')+' '+scoreTxt(ev)+' ==';
       case 'game_start': return '== start hry ==';
       case 'game_end': return '== KONEC: vítěz '+(ev.winner?ev.winner:'— (remíza)')+' ==';
+      case 'spec': return s+'<span style="color:var(--good)">✦ '+esc(ev.text||'')+'</span>';
       case 'note': return esc(ev.text||'');
       default: return s+esc(ev.type);
     }
