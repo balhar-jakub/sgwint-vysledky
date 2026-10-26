@@ -57,6 +57,9 @@ button.on { border-color:var(--accent); color:var(--accent); }
 .log div.cur { color:var(--text); }
 .log div.roundend { color:var(--accent); }
 .persp { font-size:.8rem; color:var(--muted); }
+.sidechip { background:var(--panel2); border:1px solid var(--accent); border-radius:4px;
+  padding:0 6px; font-size:.72rem; font-weight:bold; color:var(--accent);
+  font-family:Verdana,sans-serif; margin:0 4px; }
 </style>
 </head>
 <body>
@@ -128,19 +131,19 @@ border-radius:8px;padding:6px 10px;font-size:.9rem;margin:6px 0">
     var pa = ((m.players||{}).A)||'A', pb = ((m.players||{}).B)||'B';
     var html = '';
     html += '<div class="scorebar">';
-    html += '<div class="names"><b style="color:'+(FACC[fa]||'#ccc')+'">'+esc(pa)+' ['+esc(FACL[fa]||fa)+']</b>'
-         + ' &nbsp;životy '+livesHtml(sn.lives.A)
+    html += '<div class="names"><span class="sidechip">A</span><b style="color:'+(FACC[fa]||'#ccc')+'">'+esc(pa)+' ['+esc(FACL[fa]||fa)+']</b>'
+         + ' &nbsp;životy <span class="sidechip">A</span>'+livesHtml(sn.lives.A)
          + (sn.passed.A?' <span class="meta">(pas)</span>':'')+'</div>';
     html += '<div><span class="big">'+sn.score.A+'</span> : <span class="big">'+sn.score.B+'</span></div>';
     html += '<div class="names" style="text-align:right">'+(sn.passed.B?'<span class="meta">(pas)</span> ':'')
-         + 'životy '+livesHtml(sn.lives.B)+' <b style="color:'+(FACC[fb]||'#ccc')+'">['+esc(FACL[fb]||fb)+'] '+esc(pb)+'</b></div>';
+         + 'životy <span class="sidechip">B</span>'+livesHtml(sn.lives.B)+' <span class="sidechip">B</span><b style="color:'+(FACC[fb]||'#ccc')+'">['+esc(FACL[fb]||fb)+'] '+esc(pb)+'</b></div>';
     html += '</div>';
 
     // side B rows (top), then A (bottom), like a real table
     ['B','A'].forEach(function(side){
       var fac = side==='A'?fa:fb;
       html += '<div class="sidebox">';
-      html += '<div class="hdr"><span>'+esc(side==='A'?pa:pb)+' — '+esc(FACL[fac]||fac)+'</span><span>kolo '+curRound()+'</span></div>';
+      html += '<div class="hdr"><span><span class="sidechip">'+side+'</span>'+esc(side==='A'?pa:pb)+' — '+esc(FACL[fac]||fac)+'</span><span>kolo '+curRound()+'</span></div>';
       ROWS.forEach(function(r){
         var cards = (sn.board[side]||{})[r] || [];
         var wr = ((sn.weathered_rows||{})[side]||[]);
