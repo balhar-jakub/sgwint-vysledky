@@ -198,6 +198,7 @@ border-radius:8px;padding:6px 10px;font-size:.9rem;margin:6px 0">
     var lines = [];
     for (var i=from; i<=T && i<ts.length; i++) {
       (evByT[ts[i]]||[]).forEach(function(ev){
+        if (ev.type === 'draw' && ev.mull) return;   // náhrada za přelíznutí: je v textu mulliganu
         var line = evText(ev);
         if (line) lines.push('<div class="'+(i===T?'cur':'')+(ev.type==='round_end'?' roundend':'')+'">'+line+'</div>');
       });

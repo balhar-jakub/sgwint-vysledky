@@ -175,6 +175,7 @@ button.on { border-color:var(--accent); color:var(--accent); }
     var lines = [];
     for (var i=from; i<=T && i<ts.length; i++) {
       (evByT[ts[i]]||[]).forEach(function(ev){
+        if (ev.type === 'draw' && ev.mull) return;   // náhrada za přelíznutí: je v textu mulliganu
         var line = evText(ev);
         if (line) lines.push('<div class="'+(i===T?'cur':'')+(ev.type==='round_end'?' roundend':'')+'">'+line+'</div>');
       });
