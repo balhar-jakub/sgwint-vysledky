@@ -109,11 +109,13 @@ button.on { border-color:var(--accent); color:var(--accent); }
     var html = '';
     html += '<div class="scorebar">';
     html += '<div class="names"><span class="sidechip">A</span><b style="color:'+(FACC[fa]||'#ccc')+'">'+esc(pa)+' ['+esc(FACL[fa]||fa)+']</b>'
+         + '<br><span class="meta">velitel: '+leaderTxt(sn,'A')+'</span>'
          + ' &nbsp;životy <span class="sidechip">A</span>'+livesHtml(sn.lives.A)
          + (sn.passed.A?' <span class="meta">(pas)</span>':'')+'</div>';
     html += '<div><span class="big">'+sn.score.A+'</span> : <span class="big">'+sn.score.B+'</span></div>';
     html += '<div class="names" style="text-align:right">'+(sn.passed.B?'<span class="meta">(pas)</span> ':'')
-         + 'životy <span class="sidechip">B</span>'+livesHtml(sn.lives.B)+' <span class="sidechip">B</span><b style="color:'+(FACC[fb]||'#ccc')+'">['+esc(FACL[fb]||fb)+'] '+esc(pb)+'</b></div>';
+         + 'životy <span class="sidechip">B</span>'+livesHtml(sn.lives.B)+' <span class="sidechip">B</span><b style="color:'+(FACC[fb]||'#ccc')+'">['+esc(FACL[fb]||fb)+'] '+esc(pb)+'</b>'
+         + '<br><span class="meta">velitel: '+leaderTxt(sn,'B')+'</span></div>';
     html += '</div>';
 
     // side B rows (top), then A (bottom), like a real table
@@ -196,6 +198,13 @@ button.on { border-color:var(--accent); color:var(--accent); }
     });
   }
 
+  function leaderTxt(sn, side) {
+    var nm = ((sn.leader||{})[side]);
+    if (!nm) return '— (neznámý v tomto záznamu)';
+    var used = (sn.leader_used||{})[side];
+    return esc(nm) + (used ? ' <span style="color:var(--muted)">✓ použit</span>'
+                            : ' <span style="color:var(--good)">✓ k dispozici</span>');
+  }
   function livesHtml(n) {
     var out = '';
     for (var i=0;i<2;i++) out += i<n ? '<span style="color:var(--gold)">●</span>' : '<span style="color:#555">●</span>';
