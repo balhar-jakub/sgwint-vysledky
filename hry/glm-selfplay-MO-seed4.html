@@ -133,7 +133,7 @@ button.on { border-color:var(--accent); color:var(--accent); }
       html += '<div class="rowline"><span class="rname">ruka</span><span class="cards">'
            + (showHand ? hand.map(function(n){return cpill({name:n});}).join('')
                         : hand.map(function(){return cpill(null,true);}).join(''))
-           + '</span><span class="rscore meta">'+(sn.deck_left||{})[side]+' v balíku</span></div>';
+           + '</span><span class="rscore meta">'+(((sn.deck_left||{})[side]==null)?'—':(sn.deck_left||{})[side])+' v balíku</span></div>';
       html += '</div>';
     });
 
