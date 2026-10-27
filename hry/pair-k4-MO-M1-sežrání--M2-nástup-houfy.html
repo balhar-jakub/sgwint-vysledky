@@ -115,7 +115,7 @@ border-radius:8px;padding:6px 10px;font-size:.9rem;margin:6px 0">
   function tooltip(name) { return D.cards[name] ? D.cards[name] : ''; }
   function cardinfo(name) { return (D.cardinfo||{})[name]; }
 
-  function cpill(card, back, onBoard) {
+  function cpill(card, back, onBoard, side, row) {
     if (!card) return '';
     if (back) return '<span class="cpill back">rub</span>';
     var tt = tooltip(card.name);
@@ -125,7 +125,7 @@ border-radius:8px;padding:6px 10px;font-size:.9rem;margin:6px 0">
     var shield = (card.shield != null) ? card.shield : (ci ? !!ci.s : false);
     var pw = (power != null) ? '<span class="pw">'+(card.eff !== undefined ? card.eff : power)+'</span>' : '';
     var cls = 'cpill' + (shield ? ' shield' : '');
-    var lastMark = onBoard && isLastPlayed(card.name) ? ' last' : '';
+    var lastMark = onBoard && isLastPlayed(card.name, side, row) ? ' last' : '';
     if (lastMark) cls += lastMark;
     var effdiff = (card.eff !== undefined && card.eff !== card.power) ? ' title="'+esc(tt)+' ['+card.eff+'/'+card.power+']"'
                                             : ' title="'+esc(tt)+'"';
@@ -133,20 +133,23 @@ border-radius:8px;padding:6px 10px;font-size:.9rem;margin:6px 0">
   }
 
   // naposledy zahraná karta v aktuálním kroku — zlatě označená na desce.
-  // Plné replaye: turn event (side + card + row). Parsované staré běhy bez TAH markeru:
-  // turn chybí → použij deploy (u špehů to_side, kartička leží na desce soupeře).
+  // Preferujeme deploy (nese to_side + row → špeh hraný A leží na desce B);
+  // turn jen jako fallback u starších záznamů bez deploy eventu.
   function lastPlayed() {
     var out = null;
     (evByT[ts[T]] || []).forEach(function(ev){
-      if (ev.type === 'turn' && ev.side && ev.card) out = {side: ev.side, card: ev.card, row: ev.row || null};
-      else if (ev.type === 'deploy' && ev.side && ev.card && !out) out = {side: ev.to_side || ev.side, card: ev.card, row: ev.row || null};
+      if (ev.type === 'deploy' && ev.card) out = {side: ev.to_side || ev.side, card: ev.card, row: ev.row || null};
+      else if (ev.type === 'turn' && ev.side && ev.card && !out) out = {side: ev.side, card: ev.card, row: ev.row || null};
     });
     return out;
   }
-  function isLastPlayed(name) {
+  function isLastPlayed(name, side, row) {
     var lp = lastPlayed();
     if (!lp) return false;
-    // označ všechny kopie stejného jména na desce — jinač nejde poznat, která z nich
+    // špeh hraný A leží na desce B — lp.side je CÍLOVÁ strana desky (to_side), ne hráč
+    if (lp.side && lp.side !== side) return false;
+    if (lp.row && row && lp.row !== row) return false;
+    // označ všechny kopie stejného jména v cílové řadě — jinač nejde poznat, která z nich
     return lp.card === name;
   }
 
@@ -182,7 +185,7 @@ border-radius:8px;padding:6px 10px;font-size:.9rem;margin:6px 0">
         if (reEffs.indexOf('lezak')>=0) weatherMark += '<span class="rweath" title="Mahakamský ležák — zdvojnásobí sílu řady">🍺</span>';
         var rs = cards.reduce(function(s,c){return s+(typeof c.eff==='number'?c.eff:0);},0);
         html += '<div class="rowline"><span class="rname">'+esc(ROWECS[r]||r)+'</span>'+weatherMark
-             + '<span class="cards">'+cards.map(function(c){return cpill(c, false, true);}).join('')+'</span>'
+             + '<span class="cards">'+cards.map(function(c){return cpill(c, false, true, side, r);}).join('')+'</span>'
              + '<span class="rscore">'+rs+'</span></div>';
       });
       // hand of this side (hidden in A/B perspective unless it is the viewer)
