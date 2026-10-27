@@ -38,6 +38,8 @@ h1 { font-size:1.3rem; margin:.6em 0; }
 .cpill .pw { color:var(--gold); font-weight:bold; margin-left:4px; }
 .cpill.shield { border-color:#7fb3d4; }
 .cpill.back { background:#181820; color:var(--muted); font-style:italic; }
+.cpill.last { border-color:var(--gold); box-shadow:0 0 0 1px var(--gold), 0 0 10px rgba(226,185,59,.45); }
+.cpill.last .lmark { color:var(--gold); margin-left:4px; font-size:.7rem; }
 .cpill.hero { border-color:var(--accent); }
 .ctrls { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:14px 0;
   font-family:Verdana,sans-serif; }
@@ -90,7 +92,7 @@ button.on { border-color:var(--accent); color:var(--accent); }
   function tooltip(name) { return D.cards[name] ? D.cards[name] : ''; }
   function cardinfo(name) { return (D.cardinfo||{})[name]; }
 
-  function cpill(card, back) {
+  function cpill(card, back, onBoard) {
     if (!card) return '';
     if (back) return '<span class="cpill back">rub</span>';
     var tt = tooltip(card.name);
@@ -100,9 +102,29 @@ button.on { border-color:var(--accent); color:var(--accent); }
     var shield = (card.shield != null) ? card.shield : (ci ? !!ci.s : false);
     var pw = (power != null) ? '<span class="pw">'+(card.eff !== undefined ? card.eff : power)+'</span>' : '';
     var cls = 'cpill' + (shield ? ' shield' : '');
+    var lastMark = onBoard && isLastPlayed(card.name) ? ' last' : '';
+    if (lastMark) cls += lastMark;
     var effdiff = (card.eff !== undefined && card.eff !== card.power) ? ' title="'+esc(tt)+' ['+card.eff+'/'+card.power+']"'
                                             : ' title="'+esc(tt)+'"';
-    return '<span class="'+cls+'"'+effdiff+'>'+esc(card.name)+pw+(shield?' 🛡':'')+'</span>';
+    return '<span class="'+cls+'"'+effdiff+'>'+esc(card.name)+pw+(shield?' 🛡':'')+(lastMark?'<span class="lmark">▶</span>':'')+'</span>';
+  }
+
+  // naposledy zahraná karta v aktuálním kroku — zlatě označená na desce.
+  // Plné replaye: turn event (side + card + row). Parsované staré běhy bez TAH markeru:
+  // turn chybí → použij deploy (u špehů to_side, kartička leží na desce soupeře).
+  function lastPlayed() {
+    var out = null;
+    (evByT[ts[T]] || []).forEach(function(ev){
+      if (ev.type === 'turn' && ev.side && ev.card) out = {side: ev.side, card: ev.card, row: ev.row || null};
+      else if (ev.type === 'deploy' && ev.side && ev.card && !out) out = {side: ev.to_side || ev.side, card: ev.card, row: ev.row || null};
+    });
+    return out;
+  }
+  function isLastPlayed(name) {
+    var lp = lastPlayed();
+    if (!lp) return false;
+    // označ všechny kopie stejného jména na desce — jinač nejde poznat, která z nich
+    return lp.card === name;
   }
 
   function render() {
@@ -123,8 +145,8 @@ button.on { border-color:var(--accent); color:var(--accent); }
          + '<br><span class="meta">velitel: '+leaderTxt(sn,'B')+'</span></div>';
     html += '</div>';
 
-    // side B rows (top), then A (bottom), like a real table
-    ['B','A'].forEach(function(side){
+    // side A rows (top), then B (bottom) — Jakub: hráč A nahoře
+    ['A','B'].forEach(function(side){
       var fac = side==='A'?fa:fb;
       html += '<div class="sidebox">';
       html += '<div class="hdr"><span><span class="sidechip">'+side+'</span>'+esc(side==='A'?pa:pb)+' — '+esc(FACL[fac]||fac)+'</span><span>kolo '+curRound()+'</span></div>';
@@ -132,9 +154,12 @@ button.on { border-color:var(--accent); color:var(--accent); }
         var cards = (sn.board[side]||{})[r] || [];
         var wr = ((sn.weathered_rows||{})[side]||[]);
         var weatherMark = wr.indexOf(r)>=0 ? '<span class="rweath">⛈</span>' : '';
+        var reEffs = ((sn.row_effects||{})[side]||{})[r] || [];
+        if (reEffs.indexOf('krvavy_mesic')>=0) weatherMark += '<span class="rweath" title="Krvavý měsíc — vypíná schopnosti jednotek v řadě (šílenství)">🌙</span>';
+        if (reEffs.indexOf('lezak')>=0) weatherMark += '<span class="rweath" title="Mahakamský ležák — zdvojnásobí sílu řady">🍺</span>';
         var rs = cards.reduce(function(s,c){return s+(typeof c.eff==='number'?c.eff:0);},0);
         html += '<div class="rowline"><span class="rname">'+esc(ROWECS[r]||r)+'</span>'+weatherMark
-             + '<span class="cards">'+cards.map(function(c){return cpill(c);}).join('')+'</span>'
+             + '<span class="cards">'+cards.map(function(c){return cpill(c, false, true);}).join('')+'</span>'
              + '<span class="rscore">'+rs+'</span></div>';
       });
       // hand of this side (hidden in A/B perspective unless it is the viewer)
