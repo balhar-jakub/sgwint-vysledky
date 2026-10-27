@@ -162,6 +162,20 @@ border-radius:8px;padding:6px 10px;font-size:.9rem;margin:6px 0">
            + (showHand ? hand.map(function(n){return cpill({name:n});}).join('')
                         : hand.map(function(){return cpill(null,true);}).join(''))
            + '</span><span class="rscore meta">'+(((sn.deck_left||{})[side]==null)?'—':(sn.deck_left||{})[side])+' v balíku</span></div>';
+      // graveyard of this side — full content only from full replays (new snapshot.grave);
+      // parsed old runs know only grave_size; hidden cards stay backs in A/B perspective
+      var grave = ((sn.grave||{})[side]) || null;
+      var gsize = ((sn.grave_size||{})[side]);
+      var gcount = (grave!=null) ? grave.length : gsize;
+      var gShow = persp==='god' || persp===side;
+      html += '<div class="rowline"><span class="rname">pohřeb.</span>'
+           + '<span class="cards">'
+           + (grave!=null
+                ? (gShow ? grave.map(function(n){return cpill({name:n});}).join('')
+                         : grave.map(function(){return cpill(null,true);}).join(''))
+                : (gShow ? '<span class="meta">obsah není v tomto záznamu dostupný</span>' : ''))
+           + '</span>'
+           + '<span class="rscore meta">'+(gcount==null?'—':gcount)+' v hrobě</span></div>';
       html += '</div>';
     });
 
