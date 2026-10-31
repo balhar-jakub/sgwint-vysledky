@@ -63,6 +63,11 @@ button.on { border-color:var(--accent); color:var(--accent); }
 .log div.cur { color:var(--text); }
 .log div.roundend { color:var(--accent); }
 .llm { color:var(--gold); font-family:Verdana,sans-serif; font-size:.72rem; cursor:help; }
+/* LLM reasoning jako samostatný řádek pod akcí — vidět i na tabletu (31. 10. 2026) */
+.reason { font-size:.78rem; color:var(--gold); font-family:Verdana,sans-serif;
+  padding:1px 8px 3px 22px; border-left:2px solid var(--gold); margin:1px 0 3px 8px;
+  opacity:.92; font-style:italic; }
+.reason.cur { background:rgba(212,175,55,.08); }
 .drv { color:var(--muted); font-family:Verdana,sans-serif; font-size:.72rem; cursor:help; }
 .persp { font-size:.8rem; color:var(--muted); }
 .sidechip { background:var(--panel2); border:1px solid var(--accent); border-radius:4px;
@@ -251,7 +256,12 @@ button.on { border-color:var(--accent); color:var(--accent); }
               && (!ev.to_side || ev.to_side === ev.side)) return;
         }
         var line = evText(ev);
+        // LLM reasoning se vždy vykreslí jako samostatný podřádek pod akcí
+        // (ne tooltip — na tabletu není vidět; Jakub 31. 10. 2026)
+        var reason = ev.llm && ev.llm.reason ? ev.llm.reason
+                   : ev.type === 'mulligan' && ev.reason ? ev.reason : null;
         if (line) lines.push('<div class="'+(i===T?'cur':'')+(ev.type==='round_end'?' roundend':'')+'">'+line+'</div>');
+        if (reason) lines.push('<div class="reason '+(i===T?'cur':'')+'">🤖 '+esc(reason)+'</div>');
       });
     }
     logEl.innerHTML = lines.join('') || '<div>(začátek)</div>';
@@ -298,15 +308,14 @@ button.on { border-color:var(--accent); color:var(--accent); }
       case 'turn': return s+'hraje: '+esc(ev.action)+(ev.card?' '+esc(ev.card):'')+(ev.row?' → '+esc(ROWECS[ev.row]||ev.row):'')
         + (ev.llm ? ' <span class="'+(ev.llm.picked?'llm':'drv')+'" title="'+(ev.llm.picked?'vybralo LLM':'vybral driver (rollout)')
           +(ev.llm.plan&&ev.llm.plan.length&&!ev.llm.picked?' — LLM chtěl: '+esc(ev.llm.plan.map(function(p){return (p.card||p.action||'')+(p.args&&p.args.length?'→'+p.args[0]:'')+(p.target?' ('+p.target+')':'');}).join(', ')):'')
-          +(ev.llm.reason?' — '+esc(ev.llm.reason):'')
+        +(ev.llm.reason?' — '+esc(ev.llm.reason):'')
           +(ev.llm.rollouts&&ev.llm.rollouts.length?' | rollouty: '+esc(ev.llm.rollouts.map(function(r){return (r.act||'')+' '+(r.score!=null?r.score.toFixed(1):'?');}).join(', ')):'')+'">'+(ev.llm.picked?'🤖 LLM':'⚙️ driver')+'</span>' : '');
       case 'action': return s+'akce: '+esc(ev.action||'')+(ev.card?' '+esc(ev.card):'');
       case 'attempt': return s+'zkouší: '+esc(ev.action||'')+(ev.card?' '+esc(ev.card):'');
       case 'deploy': return s+'vynáší '+(ev.card?esc(ev.card):'?')+(ev.power!=null?' ('+ev.power+')':'')+' → '+(ev.to_side&&ev.to_side!==ev.side?'strana '+ev.to_side+' ':'')+esc(ROWECS[ev.row]||ev.row||'');
       case 'draw': return s+'líže '+esc(ev.card);
       case 'mulligan': return s+'přelíznutí: '+(ev.picked&&ev.picked.length?esc(ev.picked.join(', ')):'nic')
-        +(ev.drawn&&ev.drawn.length?' → líznuto: '+esc(ev.drawn.join(', ')):(ev.picked&&ev.picked.length?' → balíček prázdný, nelze líznout':''))
-        +(ev.reason?' <span class="llm" title="'+esc(ev.reason)+'">🤖 '+esc(ev.reason)+'</span>':'');
+        +(ev.drawn&&ev.drawn.length?' → líznuto: '+esc(ev.drawn.join(', ')):(ev.picked&&ev.picked.length?' → balíček prázdný, nelze líznout':''));
       case 'pass': return s+'pas';
       case 'skip': return s+'přeskočil tah (ST pasivka)';
       case 'discard': return s+'odhazuje '+esc(ev.card||'');
