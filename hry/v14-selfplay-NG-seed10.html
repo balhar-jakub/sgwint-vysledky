@@ -311,6 +311,7 @@ button.on { border-color:var(--accent); color:var(--accent); }
       case 'leader': return s+'velitel '+esc(ev.leader||'');
       case 'weather': return s+'počasí '+esc(ev.card||'');
       case 'destroy': return (ev.why === 'sežrání' ? '🦴 sežrá ' : 'ničí ')+esc(ev.target||'')+(ev.why && ev.why !== 'sežrání' ?' ('+esc(ev.why)+')':'');
+      case 'scorch': return s+'☠ <b>Sežehnutí</b>: ničí '+esc((ev.targets||[]).join(', '))+(ev.power!=null?' (síla '+ev.power+')':'');
       case 'steal': return 'přebírá '+esc(ev.target||'')+' na stranu '+esc(ev.to_side||'');
       case 'remove': return esc(ev.target||'')+' opouští bojiště';
       case 'negate': return s+'karta odmítnuta („Nechci, nechci!")';
