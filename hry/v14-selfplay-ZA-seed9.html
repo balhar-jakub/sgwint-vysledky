@@ -40,6 +40,8 @@ h1 { font-size:1.3rem; margin:.6em 0; }
 .cpill.back { background:#181820; color:var(--muted); font-style:italic; }
 .cpill.last { border-color:var(--gold); box-shadow:0 0 0 1px var(--gold), 0 0 10px rgba(226,185,59,.45); }
 .cpill.last .lmark { color:var(--gold); margin-left:4px; font-size:.7rem; }
+.cpill .kw { margin-left:3px; font-size:.72rem; cursor:help; }
+.cpill .kw.under { color:#e0894a; font-weight:bold; }
 .cpill.hero { border-color:var(--accent); }
 .ctrls { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin:14px 0;
   font-family:Verdana,sans-serif; }
@@ -108,7 +110,15 @@ button.on { border-color:var(--accent); color:var(--accent); }
     if (lastMark) cls += lastMark;
     var effdiff = (card.eff !== undefined && card.eff !== card.power) ? ' title="'+esc(tt)+' ['+card.eff+'/'+card.power+']"'
                                             : ' title="'+esc(tt)+'"';
-    return '<span class="'+cls+'"'+effdiff+'>'+esc(card.name)+pw+(shield?' 🛡':'')+(lastMark?'<span class="lmark">▶</span>':'')+'</span>';
+    // klíčová slova na kartě (Jakub 31. 10. 2026): povzbuzení ✨, léčitel ✚, sežrání 👄, špeh 🕵
+    var kw = '';
+    if (card['povzbuzení']) kw += '<span class="kw" title="povzbuzení: +1 ostatním jednotkám v řadě">✨</span>';
+    if (card['léčitel'])   kw += '<span class="kw" title="léčitel: vynese jednotku z pohřebiště">✚</span>';
+    if (card['sežrání'])   kw += '<span class="kw" title="sežrání: sežere cílovou jednotku, získá její sílu">👄</span>';
+    if (card['špeh'])      kw += '<span class="kw" title="špeh: vynáší se na soupeřovu stranu, lízneš 1 kartu">🕵</span>';
+    if (card.under && card.under.length)
+      kw += '<span class="kw under" title="sežráno pod kartou: '+esc(card.under.join(', '))+'">🍖'+card.under.length+'</span>';
+    return '<span class="'+cls+'"'+effdiff+'>'+esc(card.name)+pw+(shield?' 🛡':'')+kw+(lastMark?'<span class="lmark">▶</span>':'')+'</span>';
   }
 
   // naposledy zahraná karta v aktuálním kroku — zlatě označená na desce.
