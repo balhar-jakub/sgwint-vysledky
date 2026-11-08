@@ -85,6 +85,9 @@ button.on { border-color:var(--accent); color:var(--accent); }
 .sidechip { background:var(--panel2); border:1px solid var(--accent); border-radius:4px;
   padding:0 6px; font-size:.72rem; font-weight:bold; color:var(--accent);
   font-family:Verdana,sans-serif; margin:0 4px; }
+.pbadge { display:inline-block; font-family:Consolas,Menlo,monospace; font-size:.68rem;
+  padding:0 6px; margin-left:4px; border:1px solid var(--gold); border-radius:8px;
+  color:var(--gold); background:rgba(226,185,59,.08); }}
 </style>
 </head>
 <body>
@@ -196,15 +199,18 @@ button.on { border-color:var(--accent); color:var(--accent); }
     // název modelu se nezobrazuje (Jakub 31. 10. 2026) — jen A/B štítek + balíček
     var da = ((m.decks||{}).A||{}).name || '', db_ = ((m.decks||{}).B||{}).name || '';
     var pa = da || 'A', pb = db_ || 'B';
+    var prA = ((m.prompts||{}).A||''), prB = ((m.prompts||{}).B||'');
     var html = '';
     html += '<div class="scorebar">';
     html += '<div class="names"><span class="sidechip">A</span><b style="color:'+(FACC[fa]||'#ccc')+'">'+esc(pa)+' ['+esc(FACL[fa]||fa)+']</b>'
+         + (prA?' <span class="pbadge" title="varianta promptu">'+esc(prA)+'</span>':'')
          + '<br><span class="meta">velitel: '+leaderTxt(sn,'A')+'</span>'
          + ' &nbsp;životy <span class="sidechip">A</span>'+livesHtml(sn.lives.A)
          + (sn.passed.A?' <span class="meta">(pas)</span>':'')+'</div>';
     html += '<div><span class="big">'+sn.score.A+'</span> : <span class="big">'+sn.score.B+'</span></div>';
     html += '<div class="names" style="text-align:right">'+(sn.passed.B?'<span class="meta">(pas)</span> ':'')
          + 'životy <span class="sidechip">B</span>'+livesHtml(sn.lives.B)+' <span class="sidechip">B</span><b style="color:'+(FACC[fb]||'#ccc')+'">['+esc(FACL[fb]||fb)+'] '+esc(pb)+'</b>'
+         + (prB?' <span class="pbadge" title="varianta promptu">'+esc(prB)+'</span>':'')
          + '<br><span class="meta">velitel: '+leaderTxt(sn,'B')+'</span></div>';
     html += '</div>';
 
